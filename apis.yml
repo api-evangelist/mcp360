@@ -1,0 +1,57 @@
+name: MCP360
+description: >-
+  Hosted unified MCP gateway that exposes 100+ third-party tools to AI agents via the Model Context Protocol, with a
+  no-code Custom MCP Builder that wraps any REST API as an MCP server, plus a conventional REST surface behind the same
+  gateway.
+url: https://mcp360.apievangelist.com/apis.yml
+created: '2026-07-27'
+modified: '2026-07-27'
+specificationVersion: '0.21'
+tags:
+  - mcp
+  - mcp-server
+  - mcp-gateway
+  - ai-agents
+  - tool-integration
+  - unified-api
+  - no-code
+  - llmstxt
+  - seo
+  - search
+  - e-commerce
+  - web-scraping
+apis:
+  - name: MCP360 Gateway
+    description: >-
+      Unified MCP gateway exposing a hosted remote MCP server, a REST API for tool metadata and execution, and an
+      llms.txt. Authentication via API key (Bearer token for REST, ?token= for MCP).
+    humanURL: https://mcp360.ai/docs
+    baseURL: https://connect.mcp360.ai/api/v1
+    tags:
+      - mcp
+      - mcp-server
+      - mcp-gateway
+      - ai-agents
+      - tool-integration
+      - unified-api
+      - no-code
+      - llmstxt
+      - seo
+      - search
+      - e-commerce
+      - web-scraping
+    properties:
+      - type: MCP
+        url: https://connect.mcp360.ai/v1/google-search/mcp
+      - type: LLMSTxt
+        url: https://mcp360.ai/llms.txt
+      - type: Documentation
+        url: https://mcp360.ai/docs
+maintainers:
+  - FN: Delta4 Infotech Pvt. Ltd.
+    url: https://mcp360.ai
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 85
+  at: '2026-07-27T13:03:12.587Z'
