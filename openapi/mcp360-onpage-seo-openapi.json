@@ -1,0 +1,388 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OnPage SEO Checker REST API",
+    "version": "1.0.0",
+    "description": "Comprehensive on-page SEO analysis tool. Check title tags, meta descriptions, headings, images, links, mobile optimization, performance, structured data, and more."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mcp360.ai",
+      "description": "MCP360 API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/onpage-seo/single_onpage_checker": {
+      "post": {
+        "summary": "Execute single_onpage_checker",
+        "operationId": "onpage-seo_single_onpage_checker",
+        "tags": [
+          "onpage-seo"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/onpage-seo_single_onpage_checker_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Execute single_onpage_checker",
+        "operationId": "onpage-seo_single_onpage_checker_get",
+        "tags": [
+          "onpage-seo"
+        ],
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "URL of the webpage to analyze (e.g., 'https://example.com')"
+          },
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/onpage-seo/bulk_onpage_checker": {
+      "post": {
+        "summary": "Execute bulk_onpage_checker",
+        "operationId": "onpage-seo_bulk_onpage_checker",
+        "tags": [
+          "onpage-seo"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/onpage-seo_bulk_onpage_checker_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "schemas": {
+      "onpage-seo_single_onpage_checker_input": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "maxLength": 2000,
+            "description": "URL of the webpage to analyze (e.g., 'https://example.com')"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "onpage-seo_bulk_onpage_checker_input": {
+        "type": "object",
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2000
+            },
+            "minItems": 1,
+            "maxItems": 10,
+            "description": "Array of URLs to analyze (1-10 URLs, e.g., ['https://example.com', 'https://example.com/about'])"
+          }
+        },
+        "required": [
+          "urls"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKey": []
+    }
+  ]
+}

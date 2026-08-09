@@ -1,0 +1,953 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Google Maps Tools REST API",
+    "version": "1.0.0",
+    "description": "Google Maps place search, business details, reviews, and local discovery"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mcp360.ai",
+      "description": "MCP360 API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/google-maps/search_places": {
+      "post": {
+        "summary": "Execute search_places",
+        "operationId": "google-maps_search_places",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-maps_search_places_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Execute search_places",
+        "operationId": "google-maps_search_places_get",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query (e.g., 'coffee shops', 'italian restaurants')"
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Location (e.g., 'New York, NY', 'London')"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Place type (e.g., 'restaurant', 'hotel', 'cafe')"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country code (e.g., 'us', 'uk')"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Language code (e.g., 'en', 'es')"
+          },
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/google-maps/get_place_details": {
+      "post": {
+        "summary": "Execute get_place_details",
+        "operationId": "google-maps_get_place_details",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-maps_get_place_details_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Execute get_place_details",
+        "operationId": "google-maps_get_place_details_get",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "place_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Google Maps place ID"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Language code (e.g., 'en', 'es')"
+          },
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/google-maps/search_nearby": {
+      "post": {
+        "summary": "Execute search_nearby",
+        "operationId": "google-maps_search_nearby",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-maps_search_nearby_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/google-maps/get_reviews": {
+      "post": {
+        "summary": "Execute get_reviews",
+        "operationId": "google-maps_get_reviews",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-maps_get_reviews_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Execute get_reviews",
+        "operationId": "google-maps_get_reviews_get",
+        "tags": [
+          "google-maps"
+        ],
+        "parameters": [
+          {
+            "name": "place_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name of the place or business"
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Location (e.g., 'New York, NY')"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Language code (e.g., 'en', 'es')"
+          },
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "schemas": {
+      "google-maps_search_places_input": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Search query (e.g., 'coffee shops', 'italian restaurants')"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Location (e.g., 'New York, NY', 'London')"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "description": "Place type (e.g., 'restaurant', 'hotel', 'cafe')"
+          },
+          "country": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Country code (e.g., 'us', 'uk')"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Language code (e.g., 'en', 'es')"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "google-maps_get_place_details_input": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "description": "Google Maps place ID"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Language code (e.g., 'en', 'es')"
+          }
+        },
+        "required": [
+          "place_id"
+        ],
+        "additionalProperties": false
+      },
+      "google-maps_search_nearby_input": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90,
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180,
+            "description": "Longitude coordinate"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "description": "Place type (e.g., 'restaurant', 'gas_station', 'atm')"
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50000,
+            "default": 1000,
+            "description": "Search radius in meters (default: 1000)"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Language code (e.g., 'en', 'es')"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "google-maps_get_reviews_input": {
+        "type": "object",
+        "properties": {
+          "place_name": {
+            "type": "string",
+            "description": "Name of the place or business"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location (e.g., 'New York, NY')"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code (e.g., 'en', 'es')"
+          }
+        },
+        "required": [
+          "place_name"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKey": []
+    }
+  ]
+}

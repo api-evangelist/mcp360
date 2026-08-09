@@ -1,0 +1,46 @@
+generated: '2026-08-09'
+method: searched
+source: https://mcp360.ai/docs, https://mcp360.ai/sitemap.xml, live probes
+versioning:
+  scheme: uri-path
+  current: v1
+  rest: https://connect.mcp360.ai/api/v1
+  mcp: https://connect.mcp360.ai/v1/{service}/mcp
+  spec_version: 1.0.0 (info.version on all 38 generated OpenAPI documents)
+  policy_url: null
+  note: No written versioning policy is published; v1 is observable in the path only.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecated_operations: []
+  evidence: No operation in any of the 38 OpenAPI documents carries deprecated:true. No deprecation or
+    Sunset (RFC 8594) policy is published.
+sla:
+  url: null
+  uptime_target: null
+  note: The Advanced plan ($399/mo) advertises "SLA guarantees" on https://mcp360.ai/pricing but no SLA
+    document or uptime target is published.
+status_page: null
+health_endpoint:
+  url: https://connect.mcp360.ai/health
+  status: 200
+  probed: '2026-08-09'
+  body: '{"name":"MCP360","description":"MCP360 - Universal gateway to multiple MCPs through unified API","status":"healthy","version":"1.0.0","timestamp":"..."}'
+  note: 'A machine-readable health endpoint exists, but it is not a status page: no incident history,
+    no per-service state, no subscribe.'
+changelog: null
+probes:
+- url: https://status.mcp360.ai
+  status: 0
+  result: DNS does not resolve
+- url: https://mcp360.ai/status
+  status: 404
+- url: https://mcp360.ai/changelog
+  status: 404
+- url: https://mcp360.ai/roadmap
+  status: 404
+gaps:
+- No status page or incident history.
+- No changelog.
+- No deprecation or Sunset policy.
+- SLA is sold on the pricing page but not published.

@@ -1,0 +1,83 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/*.json + live probes of https://connect.mcp360.ai + https://mcp360.ai/docs
+authentication:
+  styles:
+  - X-API-Key header
+  - 'Authorization: Bearer <api key or OAuth 2.1 JWT>'
+  - ?token= query parameter (MCP transport only)
+  issued_at: https://dashboard.mcp360.ai (Settings -> API Keys)
+  artifact: authentication/mcp360-authentication.yml
+  observed_401: '{"error":"Authentication failed","message":"Missing authorization header or api_key parameter","hint":"Provide
+    Authorization header with Bearer token or X-API-Key header"}'
+idempotency:
+  supported: false
+  evidence: No Idempotency-Key parameter or header appears in any of the 38 generated OpenAPI documents,
+    and no idempotency contract is documented at https://mcp360.ai/docs.
+  note: Nearly all 106 tools are read-shaped lookups (search, scrape, resolve), so replay is low-risk
+    in practice — but MCP360 publishes no idempotency guarantee for the POST execute surface.
+pagination:
+  style: per-tool parameter
+  supported_globally: false
+  evidence: No shared pagination envelope. Individual tools expose their own result-count controls (e.g.
+    google-search.search_web num_results 1-100, mcp360.search limit 1-100). No cursor, offset or next-page
+    token appears in any response schema.
+request_options:
+  note: Three cross-cutting query parameters are declared on every generated REST operation.
+  parameters:
+  - name: validateOutput
+    in: query
+    type: boolean
+    description: Validate the tool output against its published outputSchema.
+  - name: strictValidation
+    in: query
+    type: boolean
+    description: Fail the request on output validation errors instead of passing through.
+  - name: includeMetadata
+    in: query
+    type: boolean
+    description: Include the execution metadata block in the response.
+response_envelope:
+  shape: '{"success": bool, "data": object, "metadata": {...}}'
+  required:
+  - success
+  - data
+  metadata_fields:
+  - service
+  - tool
+  - executionTime
+  - creditsUsed
+  - timestamp
+  note: creditsUsed in the metadata block is the billing signal; there are no rate-limit response headers.
+error_envelope:
+  shape: '{"error": string, "message": string, "hint": string}'
+  rfc9457: false
+  content_type: application/json
+  artifact: errors/mcp360-problem-types.yml
+  note: Not RFC 9457 Problem Details — no type URI, no title/detail/instance, no application/problem+json.
+versioning:
+  scheme: uri-path
+  current: v1
+  rest_prefix: /api/v1
+  mcp_prefix: /v1
+  artifact: lifecycle/mcp360-lifecycle.yml
+request_tracing:
+  supported: false
+  evidence: 'No X-Request-Id / X-Correlation-Id header observed on any response. Responses are fronted
+    by Cloudflare (server: cloudflare).'
+rate_limiting:
+  signalled: false
+  evidence: No RateLimit-*, X-RateLimit-* or Retry-After headers observed. Quota is enforced as monthly
+    credits per plan (see plans/mcp360-plans.yml), not as documented request-rate limits.
+  note: The marketing site states the gateway "handles rate limiting" but publishes no limits and returns
+    no rate-limit headers.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+  note: No user-supplied metadata/annotation field on any tool.
+gaps:
+- No idempotency key on the execute surface.
+- No request-id correlation header.
+- No rate-limit headers or published limits.
+- Error envelope is bespoke rather than RFC 9457.

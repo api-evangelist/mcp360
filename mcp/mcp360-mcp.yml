@@ -1,0 +1,304 @@
+generated: '2026-08-09'
+method: searched
+status: published
+source: https://connect.mcp360.ai/ (available_endpoints catalogue) + https://connect.mcp360.ai/api/v1/{service}
+server:
+  name: MCP360 Unified Gateway
+  transport: http
+  pattern: https://connect.mcp360.ai/v1/{service}/mcp
+  primary_url: https://connect.mcp360.ai/v1/mcp360/mcp
+  authentication: OAuth 2.1 bearer (authorization_code + PKCE S256, dynamic client registration) or API
+    key via ?token= / X-API-Key
+  stdio_alternative: 'npx -y @mcp360ai/unified-gateway (bin: mcp360-gateway)'
+introspection:
+  method: tools/list
+  probed: '2026-08-09'
+  http_status: 401
+  result: auth-gated
+  note: Anonymous JSON-RPC tools/list and initialize both return 401. Tool names, descriptions and full
+    input/output JSON Schemas are nevertheless published anonymously at GET /api/v1/{service} and are
+    captured verbatim in json-schema/mcp360-tool-schemas.json — so the tool contracts below are REAL,
+    not inferred.
+meta_tools:
+- name: search
+  server: https://connect.mcp360.ai/v1/mcp360/mcp
+  description: Discover tools across every connected MCP server by name or keyword.
+  source_operation: openapi/mcp360-mcp360-openapi.json#mcp360_search
+- name: execute
+  server: https://connect.mcp360.ai/v1/mcp360/mcp
+  description: Execute any discovered tool with supplied parameters.
+  source_operation: openapi/mcp360-mcp360-openapi.json#mcp360_execute
+servers:
+- service: amazon-search
+  name: Amazon Product Search Tools
+  description: Amazon product search, position tracking, reviews, and pricing data
+  url: https://connect.mcp360.ai/v1/amazon-search/mcp
+  tool_count: 6
+  premium: false
+  credits_per_use: 1
+- service: apple-appstore
+  name: Apple App Store Tools
+  description: Apple App Store search, product details, reviews, and top charts for iOS apps
+  url: https://connect.mcp360.ai/v1/apple-appstore/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: baidu-search
+  name: Baidu Search Tools
+  description: Baidu Chinese web search engine
+  url: https://connect.mcp360.ai/v1/baidu-search/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: bing-search
+  name: Bing Search Tools
+  description: Bing web search, news, images, and local results
+  url: https://connect.mcp360.ai/v1/bing-search/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: cryptocurrency
+  name: Cryptocurrency Service
+  description: Real-time cryptocurrency prices, Bitcoin market data, and trading pair information
+  url: https://connect.mcp360.ai/v1/cryptocurrency/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: currency-converter
+  name: Currency Converter Service
+  description: Real-time currency conversion with latest exchange rates
+  url: https://connect.mcp360.ai/v1/currency-converter/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: dns-lookup
+  name: DNS Lookup Service
+  description: DNS records lookup including A, AAAA, MX, NS, TXT, SOA, and more
+  url: https://connect.mcp360.ai/v1/dns-lookup/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: duckduckgo-search
+  name: DuckDuckGo Search Tools
+  description: DuckDuckGo privacy-focused web search
+  url: https://connect.mcp360.ai/v1/duckduckgo-search/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: ebay-search
+  name: eBay Product Search Tools
+  description: eBay product search, auctions, marketplace data, and detailed product information
+  url: https://connect.mcp360.ai/v1/ebay-search/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: email-verification
+  name: Email Verification Tools
+  description: Email verification and validation tools with bulk verification support
+  url: https://connect.mcp360.ai/v1/email-verification/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: google-flights
+  name: Google Flights Tools
+  description: Google Flights search with detailed flight info, price calendars, and airport lookup
+  url: https://connect.mcp360.ai/v1/google-flights/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: google-forums
+  name: Google Forums Tools
+  description: Search Google Forums discussions with filters for time, location, and language
+  url: https://connect.mcp360.ai/v1/google-forums/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: google-hotels
+  name: Google Hotels Tools
+  description: Google Hotels search with filters for price, rating, amenities, and availability
+  url: https://connect.mcp360.ai/v1/google-hotels/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: google-images
+  name: Google Images Tools
+  description: Google Images search with filters for size, color, type, and usage rights
+  url: https://connect.mcp360.ai/v1/google-images/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: google-jobs
+  name: Google Jobs Tools
+  description: Google Jobs search, salary data, and employment opportunities
+  url: https://connect.mcp360.ai/v1/google-jobs/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: google-maps
+  name: Google Maps Tools
+  description: Google Maps place search, business details, reviews, and local discovery
+  url: https://connect.mcp360.ai/v1/google-maps/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: google-news
+  name: Google News Tools
+  description: Google News search with full and light API support
+  url: https://connect.mcp360.ai/v1/google-news/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: google-play
+  name: Google Play Store Tools
+  description: Google Play Store search for apps, games, movies, books, and detailed product information
+  url: https://connect.mcp360.ai/v1/google-play/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: google-rank-tracking
+  name: Google Rank Tracking Tools
+  description: Get Google search results and find your domain's ranking position for keywords
+  url: https://connect.mcp360.ai/v1/google-rank-tracking/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: google-scholar
+  name: Google Scholar Tools
+  description: Google Scholar academic search, citation tracking, and research discovery
+  url: https://connect.mcp360.ai/v1/google-scholar/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: google-search
+  name: Google Search Tools
+  description: Google web search, autocomplete, and related queries
+  url: https://connect.mcp360.ai/v1/google-search/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: google-shopping
+  name: Google Shopping Tools
+  description: Google Shopping product search, price comparison, and e-commerce insights
+  url: https://connect.mcp360.ai/v1/google-shopping/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 1
+- service: google-trends
+  name: Google Trends Tools
+  description: Google Trends analysis, search interest data, and trending topics
+  url: https://connect.mcp360.ai/v1/google-trends/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: imginny
+  name: Imginny - AI Image Generation
+  description: AI-powered image generation and editing using Google Imagen. Create stunning images from
+    text descriptions, upscale existing images, and more.
+  url: https://connect.mcp360.ai/v1/imginny/mcp
+  tool_count: 4
+  premium: false
+  credits_per_use: 10
+- service: ip-info
+  name: IP Information Tools
+  description: IP geolocation, ISP detection, and network information lookup
+  url: https://connect.mcp360.ai/v1/ip-info/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: keyword-research
+  name: Keyword Research Tools
+  description: Keyword research tools for SEO and content planning. Get search volumes and related keyword
+    suggestions.
+  url: https://connect.mcp360.ai/v1/keyword-research/mcp
+  tool_count: 3
+  premium: true
+  credits_per_use: 10
+- service: llm-prompt-tracker
+  name: LLM Prompt Tracker
+  description: Track and compare prompt visibility and rankings across AI platforms (ChatGPT, Claude,
+    Perplexity, Grok, Gemini)
+  url: https://connect.mcp360.ai/v1/llm-prompt-tracker/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 5
+- service: mcp360
+  name: MCP360 - Universal MCP Gateway
+  description: Universal gateway to all MCPs - integrate once, access everything
+  url: https://connect.mcp360.ai/v1/mcp360/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: naver-search
+  name: Naver Search Tools
+  description: Naver Korean web search engine
+  url: https://connect.mcp360.ai/v1/naver-search/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: onpage-seo
+  name: OnPage SEO Checker
+  description: Comprehensive on-page SEO analysis tool. Check title tags, meta descriptions, headings,
+    images, links, mobile optimization, performance, structured data, and more.
+  url: https://connect.mcp360.ai/v1/onpage-seo/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: url-lookup
+  name: URL & Webpage Lookup Service
+  description: URL validation, geolocation, and webpage metadata extraction
+  url: https://connect.mcp360.ai/v1/url-lookup/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: walmart-search
+  name: Walmart Product Search Tools
+  description: Walmart product search, detailed product info, pricing, reviews, and availability
+  url: https://connect.mcp360.ai/v1/walmart-search/mcp
+  tool_count: 2
+  premium: false
+  credits_per_use: 1
+- service: weather
+  name: Weather Tools
+  description: Weather information and forecasting tools
+  url: https://connect.mcp360.ai/v1/weather/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: web-scraping
+  name: Web Scraping Tools
+  description: Web scraping and content extraction tools
+  url: https://connect.mcp360.ai/v1/web-scraping/mcp
+  tool_count: 1
+  premium: false
+  credits_per_use: 1
+- service: whois
+  name: WHOIS & Domain Lookup Service
+  description: Domain registration, WHOIS information, and domain availability checking
+  url: https://connect.mcp360.ai/v1/whois/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: yahoo-search
+  name: Yahoo Search Tools
+  description: Yahoo web search engine
+  url: https://connect.mcp360.ai/v1/yahoo-search/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: yandex-search
+  name: Yandex Search Tools
+  description: Yandex Russian web search engine
+  url: https://connect.mcp360.ai/v1/yandex-search/mcp
+  tool_count: 3
+  premium: false
+  credits_per_use: 1
+- service: youtube
+  name: YouTube Tools
+  description: YouTube video search, channel discovery, ranking tracking, and trending content
+  url: https://connect.mcp360.ai/v1/youtube/mcp
+  tool_count: 10
+  premium: false
+  credits_per_use: 1
+coverage:
+  servers: 38
+  tools: 106

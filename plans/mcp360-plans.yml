@@ -1,0 +1,51 @@
+generated: '2026-08-09'
+method: searched
+source: https://mcp360.ai/pricing
+currency: USD
+unit: credits per month
+billing: monthly or annual (annual = 2 months free)
+note: Failed tool calls are not counted against the credit balance. Credits per use are declared per service
+  in json-schema/mcp360-tool-schemas.json (1 credit for every service captured).
+plans:
+- name: Free
+  price_monthly: 0
+  credits: 100
+  projects: 1
+  team_members: 1
+  support: Community
+  features:
+  - Basic MCP access
+- name: Starter
+  price_monthly: 19
+  price_annual_monthly: 16
+  credits: 2000
+  projects: 2
+  team_members: 2
+  support: Email
+  features:
+  - All basic features
+- name: Professional
+  price_monthly: 99
+  price_annual_monthly: 83
+  credits: 10000
+  projects: 10
+  team_members: 10
+  support: Priority
+  features:
+  - Premium MCP access
+  - Advanced analytics
+- name: Advanced
+  price_monthly: 399
+  price_annual_monthly: 333
+  credits: 100000
+  projects: unlimited
+  team_members: unlimited
+  support: Dedicated
+  features:
+  - Premium MCP access
+  - Custom integrations
+  - SLA guarantees
+gaps:
+- No overage or credit top-up pricing published.
+- No published request-rate limits — quota is credits only.
+- SLA is sold on the Advanced plan but no SLA document exists.

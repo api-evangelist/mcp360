@@ -1,0 +1,45 @@
+# MCP360 - Unified MCP Gateway for AI agents | 100+ Tools for AI Agents
+
+> One MCP platform for connecting Claude, n8n & other ai agents to 100+ realtime tools. Market Research, Website Audit & more. Setup in 2 minutes. Try for free.
+
+## Docs
+
+- [Documentation - MCP360 | Getting Started Guide](https://mcp360.ai/docs): Learn how to get started with MCP360. Quick setup guide for connecting MCP servers to Claude Desktop, Cursor, Windsurf, and other AI tools.
+
+## Privacy
+
+- [Privacy Policy - MCP360 | Data Protection & Security](https://mcp360.ai/privacy): Read MCP360's privacy policy to understand how we collect, use, and protect your personal information. Learn about our commitment to data security and user privacy.
+
+## Refund-policy
+
+- [Refund Policy | MCP360](https://mcp360.ai/refund-policy): MCP360 billing, refund, and cancellation policy information.
+
+## Terms
+
+- [Terms of Service - MCP360 | Usage Agreement & Guidelines](https://mcp360.ai/terms): Review MCP360's terms of service and usage agreement. Understand your rights and responsibilities when using our Model Context Protocol marketplace and services.
+
+## Blog
+
+- [Blog | MCP360](https://mcp360.ai/blog): Explore our latest blog posts covering MCP technology, tutorials, industry insights, and innovative solutions.
+
+## Pricing
+
+- [Pricing - MCP360 | Simple & Transparent Pricing Plans](https://mcp360.ai/pricing): Choose the perfect MCP360 plan for your needs.
+
+## Contact
+
+- [Contact Us | MCP360](https://mcp360.ai/contact): Get in touch with the MCP360 team.
+
+## Mcps
+
+- [MCP Servers - Find the Best Model Context Protocol Tools | MCP360](https://mcp360.ai/mcps): Browse our comprehensive hub of Model Context Protocol tools and integrations.
+
+## Tools
+
+- [MCP Inspector - Debug & Test MCPs | MCP360](https://mcp360.ai/tools/mcp-inspector): Inspect, debug, and test Model Context Protocol (MCP) servers in real-time. A powerful developer tool for MCP testing and validation.
+
+## Clients
+
+- [MCP Clients - Applications Supporting Model Context Protocol | MCP360](https://mcp360.ai/clients): Explore applications that support the Model Context Protocol (MCP). Find compatible AI tools, IDEs, and platforms.
+
+

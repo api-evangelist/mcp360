@@ -1,0 +1,78 @@
+generated: '2026-08-09'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=mcp360 + https://github.com/mcp360
+packages:
+- language: javascript
+  registry: npm
+  name: '@mcp360ai/unified-gateway'
+  version: 1.0.2
+  url: https://www.npmjs.com/package/@mcp360ai/unified-gateway
+  install: npm install @mcp360ai/unified-gateway
+  run: npx -y @mcp360ai/unified-gateway
+  bin: mcp360-gateway
+  license: MIT
+  official: true
+  repository: https://github.com/mcp360/unified-gateway-mcp
+  published: '2025-11-26'
+  description: Stdio MCP server that fronts the hosted gateway — the search + execute meta-tools. Configured
+    with MCP360_API_KEY.
+- language: javascript
+  registry: npm
+  name: n8n-nodes-mcp360
+  version: 1.0.0
+  url: https://www.npmjs.com/package/n8n-nodes-mcp360
+  install: npm install n8n-nodes-mcp360
+  license: MIT
+  official: true
+  repository: https://github.com/mcp360/n8n-nodes-mcp360
+  published: '2025-12-15'
+  author: MCP360 <support@mcp360.ai>
+  description: n8n community node for connecting n8n workflows to MCP360 servers and executing tools.
+registries_checked:
+- registry: npm
+  result: 2 first-party packages found
+- registry: pypi
+  result: none (mcp360, mcp360-sdk both 404)
+- registry: rubygems
+  result: none
+- registry: packagist
+  result: none
+- registry: crates.io
+  result: none
+- registry: nuget
+  result: none
+- registry: maven-central
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: postman
+  result: no public MCP360 workspace or collection found
+gaps:
+- No conventional server-side SDK in any language for the REST API — both packages are MCP/workflow adapters,
+  so REST consumers hand-roll HTTP.
+- The GitHub README instructs npx -y @mcp360/universal-gateway, which does not exist on npm (404). The
+  published package is @mcp360ai/unified-gateway. Documented install command is broken.
+tools:
+- name: mTarsier
+  kind: desktop application + CLI
+  official: true
+  license: MIT
+  repository: https://github.com/mcp360/mTarsier
+  url: https://mcp360.ai/mtarsier
+  cli_binary: tsr
+  description: Open-source MCP and Agent Skill manager for Claude, Cursor, VS Code and other MCP clients.
+    First-party (mcp360 GitHub org) but NOT a client library for the MCP360 API — it manages MCP servers
+    generally.
+- name: MCP Inspector
+  kind: hosted web tool
+  official: true
+  url: https://mcp360.ai/tools/mcp-inspector
+  description: Inspect, debug and test MCP servers in real time.
+- name: MCP Config Generator
+  kind: hosted web tool
+  official: true
+  url: https://mcp360.ai/tools/mcp-config-generator
+- name: MCP Server Validator
+  kind: hosted web tool
+  official: true
+  url: https://mcp360.ai/tools/mcp-server-validator

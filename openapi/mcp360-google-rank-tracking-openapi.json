@@ -1,0 +1,656 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Google Rank Tracking Tools REST API",
+    "version": "1.0.0",
+    "description": "Get Google search results and find your domain's ranking position for keywords"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mcp360.ai",
+      "description": "MCP360 API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/google-rank-tracking/get_search_results": {
+      "post": {
+        "summary": "Execute get_search_results",
+        "operationId": "google-rank-tracking_get_search_results",
+        "tags": [
+          "google-rank-tracking"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-rank-tracking_get_search_results_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/google-rank-tracking/find_domain_position": {
+      "post": {
+        "summary": "Execute find_domain_position",
+        "operationId": "google-rank-tracking_find_domain_position",
+        "tags": [
+          "google-rank-tracking"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-rank-tracking_find_domain_position_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Execute find_domain_position",
+        "operationId": "google-rank-tracking_find_domain_position_get",
+        "tags": [
+          "google-rank-tracking"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query/keyword"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Domain to find (e.g., 'example.com')"
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Geographic location"
+          },
+          {
+            "name": "device",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Device type"
+          },
+          {
+            "name": "gl",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country code"
+          },
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/google-rank-tracking/bulk_find_domain_position": {
+      "post": {
+        "summary": "Execute bulk_find_domain_position",
+        "operationId": "google-rank-tracking_bulk_find_domain_position",
+        "tags": [
+          "google-rank-tracking"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-rank-tracking_bulk_find_domain_position_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "schemas": {
+      "google-rank-tracking_get_search_results_input": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "description": "Search query/keyword to get results for"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Geographic location (e.g., 'United States', 'New York, NY')"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile",
+              "tablet"
+            ],
+            "default": "desktop",
+            "description": "Device type: desktop, mobile, or tablet"
+          },
+          "gl": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Country code (e.g., 'us', 'uk', 'ca')"
+          },
+          "hl": {
+            "type": "string",
+            "pattern": "^[a-z]{2}(-[a-z]{2})?$",
+            "default": "en",
+            "description": "Interface language (e.g., 'en', 'es', 'fr')"
+          },
+          "num": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 100,
+            "default": 100,
+            "description": "Number of results to return (10-100)"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "google-rank-tracking_find_domain_position_input": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "description": "Search query/keyword"
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 253,
+            "description": "Domain to find (e.g., 'example.com')"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Geographic location"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile",
+              "tablet"
+            ],
+            "default": "desktop",
+            "description": "Device type"
+          },
+          "gl": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Country code"
+          }
+        },
+        "required": [
+          "query",
+          "domain"
+        ],
+        "additionalProperties": false
+      },
+      "google-rank-tracking_bulk_find_domain_position_input": {
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "minItems": 1,
+            "maxItems": 50,
+            "description": "Array of keywords to check your domain's position for (max 50 keywords)"
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 253,
+            "description": "Your domain to find position for (e.g., 'example.com')"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Geographic location (e.g., 'United States', 'New York, NY')"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile",
+              "tablet"
+            ],
+            "default": "desktop",
+            "description": "Device type"
+          },
+          "gl": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Country code (e.g., 'us', 'uk')"
+          },
+          "hl": {
+            "type": "string",
+            "pattern": "^[a-z]{2}(-[a-z]{2})?$",
+            "default": "en",
+            "description": "Interface language"
+          },
+          "num": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 100,
+            "default": 100,
+            "description": "Number of results per keyword (10-100)"
+          }
+        },
+        "required": [
+          "keywords",
+          "domain"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKey": []
+    }
+  ]
+}

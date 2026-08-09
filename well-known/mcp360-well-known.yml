@@ -1,0 +1,53 @@
+generated: '2026-08-09'
+method: searched
+source: live /.well-known/ probes of mcp360.ai, connect.mcp360.ai, api.mcp360.ai, dashboard.mcp360.ai,
+  help.mcp360.ai
+hosts:
+- https://mcp360.ai
+- https://connect.mcp360.ai
+- https://api.mcp360.ai
+documents:
+- host: https://api.mcp360.ai
+  path: /.well-known/oauth-authorization-server
+  status: 200
+  file: mcp360-oauth-authorization-server.json
+  standard: RFC 8414
+- host: https://api.mcp360.ai
+  path: /.well-known/openid-configuration
+  status: 200
+  file: mcp360-openid-configuration.json
+  standard: OpenID Connect Discovery 1.0
+- host: https://connect.mcp360.ai
+  path: /.well-known/oauth-protected-resource
+  status: 200
+  file: mcp360-oauth-protected-resource.json
+  standard: RFC 9728
+- host: https://connect.mcp360.ai
+  path: /.well-known/oauth-authorization-server
+  status: 200
+  note: identical body to api.mcp360.ai; mirrored by the resource server
+- host: https://mcp360.ai
+  path: /.well-known/security.txt
+  status: 404
+- host: https://mcp360.ai
+  path: /.well-known/api-catalog
+  status: 404
+- host: https://mcp360.ai
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: https://mcp360.ai
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://mcp360.ai
+  path: /.well-known/agent.json
+  status: 404
+- host: https://connect.mcp360.ai
+  path: /.well-known/openid-configuration
+  status: 404
+- host: https://connect.mcp360.ai
+  path: /.well-known/api-catalog
+  status: 404
+notes:
+- dashboard.mcp360.ai answers HTTP 200 with the SPA shell for every /.well-known/* path — a catch-all,
+  not a discovery document. All dashboard hits were rejected as false positives.
+- No RFC 9116 security.txt is published on any host.

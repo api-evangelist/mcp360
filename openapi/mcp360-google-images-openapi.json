@@ -1,0 +1,244 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Google Images Tools REST API",
+    "version": "1.0.0",
+    "description": "Google Images search with filters for size, color, type, and usage rights"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mcp360.ai",
+      "description": "MCP360 API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/google-images/search_images": {
+      "post": {
+        "summary": "Execute search_images",
+        "operationId": "google-images_search_images",
+        "tags": [
+          "google-images"
+        ],
+        "parameters": [
+          {
+            "name": "validateOutput",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Validate output against schema"
+          },
+          {
+            "name": "strictValidation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Fail on validation errors"
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Include execution metadata"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/google-images_search_images_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "service": {
+                          "type": "string"
+                        },
+                        "tool": {
+                          "type": "string"
+                        },
+                        "executionTime": {
+                          "type": "string"
+                        },
+                        "creditsUsed": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request or validation error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden (premium access required)"
+          },
+          "404": {
+            "description": "Service or tool not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "schemas": {
+      "google-images_search_images_input": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "description": "Image search query (e.g., 'sunset beach', 'modern office')"
+          },
+          "safe": {
+            "type": "boolean",
+            "description": "Enable SafeSearch to filter adult content"
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "large",
+              "medium",
+              "icon"
+            ],
+            "description": "Filter by image size"
+          },
+          "color": {
+            "type": "string",
+            "enum": [
+              "color",
+              "gray",
+              "transparent",
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "teal",
+              "blue",
+              "purple",
+              "pink",
+              "white",
+              "black",
+              "brown"
+            ],
+            "description": "Color filter: 'color', 'gray', 'transparent', 'red', 'blue', etc."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "photo",
+              "clipart",
+              "lineart",
+              "gif"
+            ],
+            "description": "Filter by image type"
+          },
+          "time_period": {
+            "type": "string",
+            "enum": [
+              "day",
+              "week",
+              "month",
+              "year"
+            ],
+            "description": "Filter by upload time"
+          },
+          "usage_rights": {
+            "type": "string",
+            "enum": [
+              "creative_commons_licenses",
+              "commercial_or_other_licenses"
+            ],
+            "description": "Filter by usage rights: 'creative_commons_licenses' or 'commercial_or_other_licenses'"
+          },
+          "country": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Country code for localization (e.g., 'us', 'uk')"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[a-z]{2}$",
+            "description": "Language code (e.g., 'en', 'es')"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "description": "Page number for pagination (starts at 1)"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKey": []
+    }
+  ]
+}

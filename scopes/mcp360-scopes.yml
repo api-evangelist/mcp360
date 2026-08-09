@@ -1,0 +1,33 @@
+generated: '2026-08-09'
+method: probed
+source: https://connect.mcp360.ai/.well-known/oauth-protected-resource
+note: Scopes are advertised by the RFC 9728 protected-resource metadata for the MCP surface, not by the
+  per-service OpenAPI (which declares only bearerAuth + X-API-Key). MCP360 publishes no human-readable
+  scope reference page.
+schemes:
+- name: MCP OAuth 2.1
+  source: https://api.mcp360.ai/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.mcp360.ai/api/v1/oauth/authorize
+    tokenUrl: https://api.mcp360.ai/api/v1/oauth/token
+    pkce: S256
+    dynamic_client_registration: https://api.mcp360.ai/api/v1/oauth/register
+    token_endpoint_auth_methods:
+    - none
+scopes:
+- scope: mcp.read
+  description: Read access to the MCP surface (tool discovery / listing).
+  flows:
+  - authorizationCode
+  sources:
+  - https://connect.mcp360.ai/.well-known/oauth-protected-resource
+- scope: mcp.write
+  description: Execute access to the MCP surface (tool invocation).
+  flows:
+  - authorizationCode
+  sources:
+  - https://connect.mcp360.ai/.well-known/oauth-protected-resource
+gaps:
+- No published scope reference documents which tools each scope covers, nor whether mcp.write implies
+  mcp.read.

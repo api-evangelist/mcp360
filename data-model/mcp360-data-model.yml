@@ -1,0 +1,112 @@
+generated: '2026-08-09'
+method: derived
+source: json-schema/mcp360-tool-schemas.json + openapi/*.json + probed response envelopes
+shape: tool-registry, not a resource CRUD model
+note: MCP360 is a gateway, not a system of record. There are no addressable resources, no ids in any response,
+  and no $ref graph between tool schemas — every one of the 38 specs has a flat components.schemas of
+  per-tool input objects with zero cross-references. The graph below is the operating model derived from
+  the tool registry and the response envelope, not an ERD over stored entities.
+counts:
+  services: 38
+  tools: 106
+  rest_operations: 178
+  cross_schema_refs: 0
+entities:
+- name: Service
+  description: A namespaced bundle of tools mounted on the gateway (e.g. google-search, whois). 38 exist.
+  source: GET https://connect.mcp360.ai/api/v1/{service}
+  fields:
+  - service (slug, the path segment)
+  - name
+  - description
+  - version
+  - isPremium
+  - creditsPerUse
+  identifier: service slug
+- name: Tool
+  description: One callable capability inside a Service. 106 exist.
+  source: GET https://connect.mcp360.ai/api/v1/{service} -> tools[]
+  fields:
+  - name
+  - description
+  - endpoint
+  - method
+  - inputSchema (JSON Schema)
+  - outputSchema (JSON Schema)
+  identifier: service + name; the REST operationId is "{service}_{name}" (POST) and "{service}_{name}_get"
+    (GET twin)
+- name: Execution
+  description: One tool invocation and its result envelope.
+  source: POST /api/v1/{service}/{tool} response
+  fields:
+  - success (bool)
+  - data (object, shaped by the tool outputSchema)
+  - metadata.service
+  - metadata.tool
+  - metadata.executionTime
+  - metadata.creditsUsed
+  - metadata.timestamp
+  identifier: none — no execution id or request id is returned
+- name: Credit
+  description: The billing unit. Consumed per successful execution; failed calls are not charged.
+  source: https://mcp360.ai/pricing + Execution.metadata.creditsUsed
+  fields:
+  - creditsUsed (per execution)
+  - creditsPerUse (per service)
+  - monthly allowance (per plan)
+  identifier: not exposed via the API
+- name: ApiKey
+  description: 'The credential presented as X-API-Key or Authorization: Bearer.'
+  source: https://dashboard.mcp360.ai (Settings -> API Keys)
+  fields:
+  - key (opaque)
+  - 'state: active | inactive | banned (inferred from the 401 message)'
+  identifier: not exposed via the API
+- name: Project
+  description: Plan-scoped grouping (1 on Free, 2 Starter, 10 Professional, unlimited Advanced).
+  source: https://mcp360.ai/pricing
+  fields:
+  - name
+  - members
+  identifier: not exposed via the API
+relationships:
+- from: Service
+  to: Tool
+  type: has_many
+  via: tools[]
+  evidence: GET /api/v1/{service} embeds the full tools array.
+- from: Tool
+  to: Service
+  type: belongs_to
+  via: endpoint path segment /api/v1/{service}/{tool}
+- from: Tool
+  to: Execution
+  type: has_many
+  via: POST {endpoint}
+- from: Execution
+  to: Tool
+  type: belongs_to
+  via: metadata.tool
+- from: Execution
+  to: Service
+  type: belongs_to
+  via: metadata.service
+- from: Execution
+  to: Credit
+  type: has_one
+  via: metadata.creditsUsed
+- from: Service
+  to: Credit
+  type: has_one
+  via: creditsPerUse
+  note: Flat rate per service; 1 credit on every one of the 38 services captured.
+- from: ApiKey
+  to: Execution
+  type: has_many
+  via: X-API-Key request header
+  note: Not modelled in any response; inferred from the auth contract.
+gaps:
+- No execution id or request id is returned, so a call cannot be referenced after the fact.
+- Credits, keys and projects are dashboard-only — there is no account or usage API.
+- Tool output schemas are published at /api/v1/{service} but are NOT carried into the generated OpenAPI,
+  whose 200 response types data as a bare object.

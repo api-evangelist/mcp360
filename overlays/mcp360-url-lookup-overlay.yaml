@@ -1,0 +1,58 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for MCP360 URL & Webpage Lookup Service REST API
+  version: 1.0.0
+extends: openapi/mcp360-url-lookup-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: mcp360
+    x-apievangelist-service: url-lookup
+    x-apievangelist-harvested: '2026-08-09'
+    x-apievangelist-source: https://connect.mcp360.ai/api/v1/url-lookup/openapi.json
+    x-apievangelist-tool-schemas: json-schema/mcp360-tool-schemas.json
+    x-apievangelist-mcp: https://connect.mcp360.ai/v1/url-lookup/mcp
+    contact:
+      name: MCP360 Support
+      email: support@mcp360.ai
+      url: https://mcp360.ai/contact
+- target: $.paths.*.*.responses['400']
+  update:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Mcp360Error'
+  description: Provider declares 400 with a description but no schema; bind the observed {error,message,hint}
+    envelope.
+- target: $.paths.*.*.responses['401']
+  update:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Mcp360Error'
+  description: Provider declares 401 with a description but no schema; bind the observed envelope.
+- target: $.paths.*.*.responses['500']
+  update:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Mcp360Error'
+  description: Provider declares 500 with a description but no schema; bind the observed envelope.
+- target: $.components.schemas
+  update:
+    Mcp360Error:
+      type: object
+      description: Observed MCP360 error envelope (probed 2026-08-09). Not RFC 9457.
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        hint:
+          type: string
+      required:
+      - error
+- target: $.externalDocs
+  update:
+    description: MCP360 documentation
+    url: https://mcp360.ai/docs

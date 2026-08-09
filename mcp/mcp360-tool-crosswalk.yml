@@ -1,0 +1,1160 @@
+generated: '2026-08-09'
+method: derived
+source: json-schema/mcp360-tool-schemas.json + openapi/*.json
+surfaces:
+  openapi:
+    path: openapi/
+    count: 38
+    generator: https://connect.mcp360.ai/api/v1/{service}/openapi.json
+    gated: false
+  mcp:
+    pattern: https://connect.mcp360.ai/v1/{service}/mcp
+    count: 38
+    gated: true
+    note: tools/list returns 401 anonymously
+  graphql: null
+crosswalk:
+- tool: search_products
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_search_products
+  - amazon-search_search_products_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_get_product_details
+  - amazon-search_get_product_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: filter_by_category
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_filter_by_category
+  - amazon-search_filter_by_category_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_prime_products
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_search_prime_products
+  - amazon-search_search_prime_products_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: find_product_position
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_find_product_position
+  - amazon-search_find_product_position_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_find_product_position
+  service: amazon-search
+  category: Amazon Product Search Tools
+  rest:
+  - amazon-search_bulk_find_product_position
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-amazon-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_apps
+  service: apple-appstore
+  category: Apple App Store Tools
+  rest:
+  - apple-appstore_search_apps
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-apple-appstore-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: apple-appstore
+  category: Apple App Store Tools
+  rest:
+  - apple-appstore_get_product_details
+  - apple-appstore_get_product_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-apple-appstore-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_reviews
+  service: apple-appstore
+  category: Apple App Store Tools
+  rest:
+  - apple-appstore_get_reviews
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-apple-appstore-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_top_charts
+  service: apple-appstore
+  category: Apple App Store Tools
+  rest:
+  - apple-appstore_get_top_charts
+  - apple-appstore_get_top_charts_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-apple-appstore-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: baidu-search
+  category: Baidu Search Tools
+  rest:
+  - baidu-search_search_web
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-baidu-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_searches
+  service: baidu-search
+  category: Baidu Search Tools
+  rest:
+  - baidu-search_get_related_searches
+  - baidu-search_get_related_searches_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-baidu-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_chinese_content
+  service: baidu-search
+  category: Baidu Search Tools
+  rest:
+  - baidu-search_search_chinese_content
+  - baidu-search_search_chinese_content_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-baidu-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: bing-search
+  category: Bing Search Tools
+  rest:
+  - bing-search_search_web
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-bing-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_news
+  service: bing-search
+  category: Bing Search Tools
+  rest:
+  - bing-search_search_news
+  - bing-search_search_news_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-bing-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_images
+  service: bing-search
+  category: Bing Search Tools
+  rest:
+  - bing-search_search_images
+  - bing-search_search_images_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-bing-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_local
+  service: bing-search
+  category: Bing Search Tools
+  rest:
+  - bing-search_search_local
+  - bing-search_search_local_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-bing-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_crypto_price
+  service: cryptocurrency
+  category: Cryptocurrency Service
+  rest:
+  - cryptocurrency_get_crypto_price
+  - cryptocurrency_get_crypto_price_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-cryptocurrency-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_bitcoin_price
+  service: cryptocurrency
+  category: Cryptocurrency Service
+  rest:
+  - cryptocurrency_get_bitcoin_price
+  - cryptocurrency_get_bitcoin_price_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-cryptocurrency-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: convert_currency
+  service: currency-converter
+  category: Currency Converter Service
+  rest:
+  - currency-converter_convert_currency
+  - currency-converter_convert_currency_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-currency-converter-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: lookup_dns
+  service: dns-lookup
+  category: DNS Lookup Service
+  rest:
+  - dns-lookup_lookup_dns
+  - dns-lookup_lookup_dns_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-dns-lookup-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: lookup_mx
+  service: dns-lookup
+  category: DNS Lookup Service
+  rest:
+  - dns-lookup_lookup_mx
+  - dns-lookup_lookup_mx_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-dns-lookup-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: duckduckgo-search
+  category: DuckDuckGo Search Tools
+  rest:
+  - duckduckgo-search_search_web
+  - duckduckgo-search_search_web_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-duckduckgo-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_products
+  service: ebay-search
+  category: eBay Product Search Tools
+  rest:
+  - ebay-search_search_products
+  - ebay-search_search_products_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-ebay-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_auctions
+  service: ebay-search
+  category: eBay Product Search Tools
+  rest:
+  - ebay-search_search_auctions
+  - ebay-search_search_auctions_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-ebay-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: ebay-search
+  category: eBay Product Search Tools
+  rest:
+  - ebay-search_get_product_details
+  - ebay-search_get_product_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-ebay-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: verify_email
+  service: email-verification
+  category: Email Verification Tools
+  rest:
+  - email-verification_verify_email
+  - email-verification_verify_email_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-email-verification-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_verify_emails
+  service: email-verification
+  category: Email Verification Tools
+  rest:
+  - email-verification_bulk_verify_emails
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-email-verification-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_flights
+  service: google-flights
+  category: Google Flights Tools
+  rest:
+  - google-flights_search_flights
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-flights-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_flight_calendar
+  service: google-flights
+  category: Google Flights Tools
+  rest:
+  - google-flights_search_flight_calendar
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-flights-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_airport
+  service: google-flights
+  category: Google Flights Tools
+  rest:
+  - google-flights_search_airport
+  - google-flights_search_airport_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-flights-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_forums
+  service: google-forums
+  category: Google Forums Tools
+  rest:
+  - google-forums_search_forums
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-forums-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_hotels
+  service: google-hotels
+  category: Google Hotels Tools
+  rest:
+  - google-hotels_search_hotels
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-hotels-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_images
+  service: google-images
+  category: Google Images Tools
+  rest:
+  - google-images_search_images
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-images-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_jobs
+  service: google-jobs
+  category: Google Jobs Tools
+  rest:
+  - google-jobs_search_jobs
+  - google-jobs_search_jobs_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-jobs-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_places
+  service: google-maps
+  category: Google Maps Tools
+  rest:
+  - google-maps_search_places
+  - google-maps_search_places_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-maps-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_place_details
+  service: google-maps
+  category: Google Maps Tools
+  rest:
+  - google-maps_get_place_details
+  - google-maps_get_place_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-maps-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_nearby
+  service: google-maps
+  category: Google Maps Tools
+  rest:
+  - google-maps_search_nearby
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-maps-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_reviews
+  service: google-maps
+  category: Google Maps Tools
+  rest:
+  - google-maps_get_reviews
+  - google-maps_get_reviews_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-maps-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_news
+  service: google-news
+  category: Google News Tools
+  rest:
+  - google-news_search_news
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-news-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_news_light
+  service: google-news
+  category: Google News Tools
+  rest:
+  - google-news_search_news_light
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-news-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_store
+  service: google-play
+  category: Google Play Store Tools
+  rest:
+  - google-play_search_store
+  - google-play_search_store_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-play-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: google-play
+  category: Google Play Store Tools
+  rest:
+  - google-play_get_product_details
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-play-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_search_results
+  service: google-rank-tracking
+  category: Google Rank Tracking Tools
+  rest:
+  - google-rank-tracking_get_search_results
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-rank-tracking-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: find_domain_position
+  service: google-rank-tracking
+  category: Google Rank Tracking Tools
+  rest:
+  - google-rank-tracking_find_domain_position
+  - google-rank-tracking_find_domain_position_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-rank-tracking-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_find_domain_position
+  service: google-rank-tracking
+  category: Google Rank Tracking Tools
+  rest:
+  - google-rank-tracking_bulk_find_domain_position
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-rank-tracking-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_papers
+  service: google-scholar
+  category: Google Scholar Tools
+  rest:
+  - google-scholar_search_papers
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-scholar-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_by_author
+  service: google-scholar
+  category: Google Scholar Tools
+  rest:
+  - google-scholar_search_by_author
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-scholar-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_citations
+  service: google-scholar
+  category: Google Scholar Tools
+  rest:
+  - google-scholar_get_citations
+  - google-scholar_get_citations_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-scholar-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: filter_by_year
+  service: google-scholar
+  category: Google Scholar Tools
+  rest:
+  - google-scholar_filter_by_year
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-scholar-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: google-search
+  category: Google Search Tools
+  rest:
+  - google-search_search_web
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_autocomplete
+  service: google-search
+  category: Google Search Tools
+  rest:
+  - google-search_get_autocomplete
+  - google-search_get_autocomplete_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_searches
+  service: google-search
+  category: Google Search Tools
+  rest:
+  - google-search_get_related_searches
+  - google-search_get_related_searches_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_advanced
+  service: google-search
+  category: Google Search Tools
+  rest:
+  - google-search_search_advanced
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_products
+  service: google-shopping
+  category: Google Shopping Tools
+  rest:
+  - google-shopping_search_products
+  - google-shopping_search_products_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-shopping-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: compare_prices
+  service: google-shopping
+  category: Google Shopping Tools
+  rest:
+  - google-shopping_compare_prices
+  - google-shopping_compare_prices_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-shopping-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: filter_by_price_range
+  service: google-shopping
+  category: Google Shopping Tools
+  rest:
+  - google-shopping_filter_by_price_range
+  - google-shopping_filter_by_price_range_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-shopping-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: google-shopping
+  category: Google Shopping Tools
+  rest:
+  - google-shopping_get_product_details
+  - google-shopping_get_product_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-shopping-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_interest_over_time
+  service: google-trends
+  category: Google Trends Tools
+  rest:
+  - google-trends_get_interest_over_time
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-trends-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_interest_by_region
+  service: google-trends
+  category: Google Trends Tools
+  rest:
+  - google-trends_get_interest_by_region
+  - google-trends_get_interest_by_region_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-trends-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_topics
+  service: google-trends
+  category: Google Trends Tools
+  rest:
+  - google-trends_get_related_topics
+  - google-trends_get_related_topics_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-google-trends-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: generate_image_fast
+  service: imginny
+  category: Imginny - AI Image Generation
+  rest:
+  - imginny_generate_image_fast
+  - imginny_generate_image_fast_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-imginny-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: generate_image_standard
+  service: imginny
+  category: Imginny - AI Image Generation
+  rest:
+  - imginny_generate_image_standard
+  - imginny_generate_image_standard_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-imginny-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: generate_image_ultra
+  service: imginny
+  category: Imginny - AI Image Generation
+  rest:
+  - imginny_generate_image_ultra
+  - imginny_generate_image_ultra_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-imginny-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: upscale_image
+  service: imginny
+  category: Imginny - AI Image Generation
+  rest:
+  - imginny_upscale_image
+  - imginny_upscale_image_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-imginny-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_ip_info
+  service: ip-info
+  category: IP Information Tools
+  rest:
+  - ip-info_get_ip_info
+  - ip-info_get_ip_info_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-ip-info-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: batch_ip_lookup
+  service: ip-info
+  category: IP Information Tools
+  rest:
+  - ip-info_batch_ip_lookup
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-ip-info-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_keyword_volume
+  service: keyword-research
+  category: Keyword Research Tools
+  rest:
+  - keyword-research_search_keyword_volume
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-keyword-research-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: global_keyword_volume
+  service: keyword-research
+  category: Keyword Research Tools
+  rest:
+  - keyword-research_global_keyword_volume
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-keyword-research-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: related_keyword_suggestions
+  service: keyword-research
+  category: Keyword Research Tools
+  rest:
+  - keyword-research_related_keyword_suggestions
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-keyword-research-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: track_prompt
+  service: llm-prompt-tracker
+  category: LLM Prompt Tracker
+  rest:
+  - llm-prompt-tracker_track_prompt
+  - llm-prompt-tracker_track_prompt_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-llm-prompt-tracker-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: compare_prompt
+  service: llm-prompt-tracker
+  category: LLM Prompt Tracker
+  rest:
+  - llm-prompt-tracker_compare_prompt
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-llm-prompt-tracker-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search
+  service: mcp360
+  category: MCP360 - Universal MCP Gateway
+  rest:
+  - mcp360_search
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-mcp360-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: execute
+  service: mcp360
+  category: MCP360 - Universal MCP Gateway
+  rest:
+  - mcp360_execute
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-mcp360-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: naver-search
+  category: Naver Search Tools
+  rest:
+  - naver-search_search_web
+  - naver-search_search_web_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-naver-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_korean_content
+  service: naver-search
+  category: Naver Search Tools
+  rest:
+  - naver-search_search_korean_content
+  - naver-search_search_korean_content_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-naver-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_searches
+  service: naver-search
+  category: Naver Search Tools
+  rest:
+  - naver-search_get_related_searches
+  - naver-search_get_related_searches_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-naver-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: single_onpage_checker
+  service: onpage-seo
+  category: OnPage SEO Checker
+  rest:
+  - onpage-seo_single_onpage_checker
+  - onpage-seo_single_onpage_checker_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-onpage-seo-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_onpage_checker
+  service: onpage-seo
+  category: OnPage SEO Checker
+  rest:
+  - onpage-seo_bulk_onpage_checker
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-onpage-seo-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: validate_url
+  service: url-lookup
+  category: URL & Webpage Lookup Service
+  rest:
+  - url-lookup_validate_url
+  - url-lookup_validate_url_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-url-lookup-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_webpage_info
+  service: url-lookup
+  category: URL & Webpage Lookup Service
+  rest:
+  - url-lookup_get_webpage_info
+  - url-lookup_get_webpage_info_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-url-lookup-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_products
+  service: walmart-search
+  category: Walmart Product Search Tools
+  rest:
+  - walmart-search_search_products
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-walmart-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_product_details
+  service: walmart-search
+  category: Walmart Product Search Tools
+  rest:
+  - walmart-search_get_product_details
+  - walmart-search_get_product_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-walmart-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_current_weather
+  service: weather
+  category: Weather Tools
+  rest:
+  - weather_get_current_weather
+  - weather_get_current_weather_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-weather-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_weather_forecast
+  service: weather
+  category: Weather Tools
+  rest:
+  - weather_get_weather_forecast
+  - weather_get_weather_forecast_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-weather-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_historical_weather
+  service: weather
+  category: Weather Tools
+  rest:
+  - weather_get_historical_weather
+  - weather_get_historical_weather_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-weather-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: scrape_page
+  service: web-scraping
+  category: Web Scraping Tools
+  rest:
+  - web-scraping_scrape_page
+  - web-scraping_scrape_page_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-web-scraping-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: lookup_domain
+  service: whois
+  category: WHOIS & Domain Lookup Service
+  rest:
+  - whois_lookup_domain
+  - whois_lookup_domain_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-whois-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: check_availability
+  service: whois
+  category: WHOIS & Domain Lookup Service
+  rest:
+  - whois_check_availability
+  - whois_check_availability_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-whois-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_check_availability
+  service: whois
+  category: WHOIS & Domain Lookup Service
+  rest:
+  - whois_bulk_check_availability
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-whois-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: yahoo-search
+  category: Yahoo Search Tools
+  rest:
+  - yahoo-search_search_web
+  - yahoo-search_search_web_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yahoo-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_news
+  service: yahoo-search
+  category: Yahoo Search Tools
+  rest:
+  - yahoo-search_search_news
+  - yahoo-search_search_news_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yahoo-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_searches
+  service: yahoo-search
+  category: Yahoo Search Tools
+  rest:
+  - yahoo-search_get_related_searches
+  - yahoo-search_get_related_searches_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yahoo-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_web
+  service: yandex-search
+  category: Yandex Search Tools
+  rest:
+  - yandex-search_search_web
+  - yandex-search_search_web_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yandex-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_related_searches
+  service: yandex-search
+  category: Yandex Search Tools
+  rest:
+  - yandex-search_get_related_searches
+  - yandex-search_get_related_searches_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yandex-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_russian_content
+  service: yandex-search
+  category: Yandex Search Tools
+  rest:
+  - yandex-search_search_russian_content
+  - yandex-search_search_russian_content_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-yandex-search-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_videos
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_search_videos
+  - youtube_search_videos_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_channels
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_search_channels
+  - youtube_search_channels_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: search_shorts
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_search_shorts
+  - youtube_search_shorts_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_video_details
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_get_video_details
+  - youtube_get_video_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_video_transcripts
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_get_video_transcripts
+  - youtube_get_video_transcripts_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_video_comments
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_get_video_comments
+  - youtube_get_video_comments_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_channel_details
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_get_channel_details
+  - youtube_get_channel_details_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: get_channel_videos
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_get_channel_videos
+  - youtube_get_channel_videos_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: find_video_position
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_find_video_position
+  - youtube_find_video_position_get
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+- tool: bulk_find_video_position
+  service: youtube
+  category: YouTube Tools
+  rest:
+  - youtube_bulk_find_video_position
+  binding: rest
+  confidence: high
+  openapi: openapi/mcp360-youtube-openapi.json
+  note: MCP tool and REST operation are two projections of the same gateway tool; the REST requestBody
+    schema IS the tool inputSchema.
+mcp_only: []
+rest_only: []
+coverage:
+  tools_named: 106
+  tools_bound: 106
+  mcp_only: 0
+  rest_ops_total: 178
+  rest_ops_with_tool: 178
+  note: Zero divergence. Every MCP tool has a backing REST operation and every REST operation belongs
+    to a tool — the gateway generates both surfaces from one tool registry. The 178 REST operations are
+    106 canonical POST operations plus 72 GET convenience twins (operationId suffix _get) of the tools
+    whose inputs fit in a query string, so 106 tools bind to 178 operations.

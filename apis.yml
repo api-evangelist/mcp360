@@ -1,57 +1,400 @@
 name: MCP360
-description: >-
-  Hosted unified MCP gateway that exposes 100+ third-party tools to AI agents via the Model Context Protocol, with a
-  no-code Custom MCP Builder that wraps any REST API as an MCP server, plus a conventional REST surface behind the same
-  gateway.
+description: 'MCP360 is a hosted unified Model Context Protocol gateway operated by Delta4 Infotech Pvt. Ltd. that
+  gives AI agents access to 38 tool services — 106 individual tools — through a single credentialed endpoint, plus
+  a no-code Custom MCP Builder that wraps any REST API as an MCP server. Every service is exposed twice: as a hosted
+  remote MCP server at connect.mcp360.ai/v1/{service}/mcp and as a conventional REST API at connect.mcp360.ai/api/v1/{service}/{tool},
+  both generated from one tool registry. The gateway serves a machine-generated OpenAPI 3.0.0 document per service
+  at /api/v1/{service}/openapi.json and publishes every tool input and output JSON Schema anonymously at /api/v1/{service}.
+  Coverage spans search engines (Google, Bing, DuckDuckGo, Baidu, Yandex, Yahoo, Naver), Google verticals (Maps,
+  News, Trends, Scholar, Flights, Hotels, Jobs, Shopping, Images, Play), retail (Amazon, Walmart, eBay), SEO (keyword
+  research, on-page audit, rank tracking), and infrastructure lookups (WHOIS, DNS, IP, URL, email verification,
+  web scraping). Auth is an API key via X-API-Key or bearer token, with OAuth 2.1 (authorization code, PKCE S256,
+  dynamic client registration) for the MCP surface. Billing is monthly credits.'
 url: https://mcp360.apievangelist.com/apis.yml
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
-modified: '2026-07-27'
+modified: '2026-08-09'
 specificationVersion: '0.21'
 tags:
+- mcp
+- mcp-server
+- mcp-gateway
+- ai-agents
+- agent-tools
+- tool-integration
+- unified-api
+- api-gateway
+- no-code
+- llmstxt
+- seo
+- search
+- serp
+- web-scraping
+- e-commerce
+- whois
+- dns
+- geolocation
+- email-verification
+apis:
+- name: MCP360 Gateway
+  description: 'Unified gateway exposing 38 tool services as both hosted remote MCP servers and a REST API. GET
+    /api/v1/{service} returns the service tool registry with full input and output JSON Schemas (no auth required);
+    GET /api/v1/{service}/openapi.json returns a generated OpenAPI 3.0.0 document; POST /api/v1/{service}/{tool}
+    executes a tool. Authentication is X-API-Key or Authorization: Bearer for REST, and OAuth 2.1 or ?token= for
+    the MCP transport.'
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
   - mcp
-  - mcp-server
   - mcp-gateway
   - ai-agents
   - tool-integration
   - unified-api
-  - no-code
-  - llmstxt
-  - seo
   - search
+  - seo
   - e-commerce
   - web-scraping
-apis:
-  - name: MCP360 Gateway
-    description: >-
-      Unified MCP gateway exposing a hosted remote MCP server, a REST API for tool metadata and execution, and an
-      llms.txt. Authentication via API key (Bearer token for REST, ?token= for MCP).
-    humanURL: https://mcp360.ai/docs
-    baseURL: https://connect.mcp360.ai/api/v1
-    tags:
-      - mcp
-      - mcp-server
-      - mcp-gateway
-      - ai-agents
-      - tool-integration
-      - unified-api
-      - no-code
-      - llmstxt
-      - seo
-      - search
-      - e-commerce
-      - web-scraping
-    properties:
-      - type: MCP
-        url: https://connect.mcp360.ai/v1/google-search/mcp
-      - type: LLMSTxt
-        url: https://mcp360.ai/llms.txt
-      - type: Documentation
-        url: https://mcp360.ai/docs
+  properties:
+  - type: MCPServer
+    name: MCP360 Unified Gateway (38 hosted remote MCP servers)
+    url: mcp/mcp360-mcp.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    name: MCP tool to REST operation crosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    name: Tool input + output schemas (106 tools)
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    name: Harvested llms.txt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+  - type: OpenAPI
+    name: Amazon Product Search Tools
+    url: openapi/mcp360-amazon-search-openapi.json
+  - type: OpenAPI
+    name: Apple App Store Tools
+    url: openapi/mcp360-apple-appstore-openapi.json
+  - type: OpenAPI
+    name: Baidu Search Tools
+    url: openapi/mcp360-baidu-search-openapi.json
+  - type: OpenAPI
+    name: Bing Search Tools
+    url: openapi/mcp360-bing-search-openapi.json
+  - type: OpenAPI
+    name: Cryptocurrency Service
+    url: openapi/mcp360-cryptocurrency-openapi.json
+  - type: OpenAPI
+    name: Currency Converter Service
+    url: openapi/mcp360-currency-converter-openapi.json
+  - type: OpenAPI
+    name: DNS Lookup Service
+    url: openapi/mcp360-dns-lookup-openapi.json
+  - type: OpenAPI
+    name: DuckDuckGo Search Tools
+    url: openapi/mcp360-duckduckgo-search-openapi.json
+  - type: OpenAPI
+    name: eBay Product Search Tools
+    url: openapi/mcp360-ebay-search-openapi.json
+  - type: OpenAPI
+    name: Email Verification Tools
+    url: openapi/mcp360-email-verification-openapi.json
+  - type: OpenAPI
+    name: Google Flights Tools
+    url: openapi/mcp360-google-flights-openapi.json
+  - type: OpenAPI
+    name: Google Forums Tools
+    url: openapi/mcp360-google-forums-openapi.json
+  - type: OpenAPI
+    name: Google Hotels Tools
+    url: openapi/mcp360-google-hotels-openapi.json
+  - type: OpenAPI
+    name: Google Images Tools
+    url: openapi/mcp360-google-images-openapi.json
+  - type: OpenAPI
+    name: Google Jobs Tools
+    url: openapi/mcp360-google-jobs-openapi.json
+  - type: OpenAPI
+    name: Google Maps Tools
+    url: openapi/mcp360-google-maps-openapi.json
+  - type: OpenAPI
+    name: Google News Tools
+    url: openapi/mcp360-google-news-openapi.json
+  - type: OpenAPI
+    name: Google Play Store Tools
+    url: openapi/mcp360-google-play-openapi.json
+  - type: OpenAPI
+    name: Google Rank Tracking Tools
+    url: openapi/mcp360-google-rank-tracking-openapi.json
+  - type: OpenAPI
+    name: Google Scholar Tools
+    url: openapi/mcp360-google-scholar-openapi.json
+  - type: OpenAPI
+    name: Google Search Tools
+    url: openapi/mcp360-google-search-openapi.json
+  - type: OpenAPI
+    name: Google Shopping Tools
+    url: openapi/mcp360-google-shopping-openapi.json
+  - type: OpenAPI
+    name: Google Trends Tools
+    url: openapi/mcp360-google-trends-openapi.json
+  - type: OpenAPI
+    name: Imginny - AI Image Generation
+    url: openapi/mcp360-imginny-openapi.json
+  - type: OpenAPI
+    name: IP Information Tools
+    url: openapi/mcp360-ip-info-openapi.json
+  - type: OpenAPI
+    name: Keyword Research Tools
+    url: openapi/mcp360-keyword-research-openapi.json
+  - type: OpenAPI
+    name: LLM Prompt Tracker
+    url: openapi/mcp360-llm-prompt-tracker-openapi.json
+  - type: OpenAPI
+    name: MCP360 - Universal MCP Gateway
+    url: openapi/mcp360-mcp360-openapi.json
+  - type: OpenAPI
+    name: Naver Search Tools
+    url: openapi/mcp360-naver-search-openapi.json
+  - type: OpenAPI
+    name: OnPage SEO Checker
+    url: openapi/mcp360-onpage-seo-openapi.json
+  - type: OpenAPI
+    name: URL & Webpage Lookup Service
+    url: openapi/mcp360-url-lookup-openapi.json
+  - type: OpenAPI
+    name: Walmart Product Search Tools
+    url: openapi/mcp360-walmart-search-openapi.json
+  - type: OpenAPI
+    name: Weather Tools
+    url: openapi/mcp360-weather-openapi.json
+  - type: OpenAPI
+    name: Web Scraping Tools
+    url: openapi/mcp360-web-scraping-openapi.json
+  - type: OpenAPI
+    name: WHOIS & Domain Lookup Service
+    url: openapi/mcp360-whois-openapi.json
+  - type: OpenAPI
+    name: Yahoo Search Tools
+    url: openapi/mcp360-yahoo-search-openapi.json
+  - type: OpenAPI
+    name: Yandex Search Tools
+    url: openapi/mcp360-yandex-search-openapi.json
+  - type: OpenAPI
+    name: YouTube Tools
+    url: openapi/mcp360-youtube-openapi.json
+  - type: Overlay
+    name: API Evangelist enhancements — Amazon Product Search Tools
+    url: overlays/mcp360-amazon-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Apple App Store Tools
+    url: overlays/mcp360-apple-appstore-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Baidu Search Tools
+    url: overlays/mcp360-baidu-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Bing Search Tools
+    url: overlays/mcp360-bing-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Cryptocurrency Service
+    url: overlays/mcp360-cryptocurrency-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Currency Converter Service
+    url: overlays/mcp360-currency-converter-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — DNS Lookup Service
+    url: overlays/mcp360-dns-lookup-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — DuckDuckGo Search Tools
+    url: overlays/mcp360-duckduckgo-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — eBay Product Search Tools
+    url: overlays/mcp360-ebay-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Email Verification Tools
+    url: overlays/mcp360-email-verification-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Flights Tools
+    url: overlays/mcp360-google-flights-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Forums Tools
+    url: overlays/mcp360-google-forums-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Hotels Tools
+    url: overlays/mcp360-google-hotels-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Images Tools
+    url: overlays/mcp360-google-images-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Jobs Tools
+    url: overlays/mcp360-google-jobs-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Maps Tools
+    url: overlays/mcp360-google-maps-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google News Tools
+    url: overlays/mcp360-google-news-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Play Store Tools
+    url: overlays/mcp360-google-play-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Rank Tracking Tools
+    url: overlays/mcp360-google-rank-tracking-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Scholar Tools
+    url: overlays/mcp360-google-scholar-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Search Tools
+    url: overlays/mcp360-google-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Shopping Tools
+    url: overlays/mcp360-google-shopping-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Google Trends Tools
+    url: overlays/mcp360-google-trends-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Imginny - AI Image Generation
+    url: overlays/mcp360-imginny-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — IP Information Tools
+    url: overlays/mcp360-ip-info-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Keyword Research Tools
+    url: overlays/mcp360-keyword-research-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — LLM Prompt Tracker
+    url: overlays/mcp360-llm-prompt-tracker-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — MCP360 - Universal MCP Gateway
+    url: overlays/mcp360-mcp360-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Naver Search Tools
+    url: overlays/mcp360-naver-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — OnPage SEO Checker
+    url: overlays/mcp360-onpage-seo-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — URL & Webpage Lookup Service
+    url: overlays/mcp360-url-lookup-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Walmart Product Search Tools
+    url: overlays/mcp360-walmart-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Weather Tools
+    url: overlays/mcp360-weather-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Web Scraping Tools
+    url: overlays/mcp360-web-scraping-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — WHOIS & Domain Lookup Service
+    url: overlays/mcp360-whois-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Yahoo Search Tools
+    url: overlays/mcp360-yahoo-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Yandex Search Tools
+    url: overlays/mcp360-yandex-search-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — YouTube Tools
+    url: overlays/mcp360-youtube-overlay.yaml
 maintainers:
-  - FN: Delta4 Infotech Pvt. Ltd.
-    url: https://mcp360.ai
+- FN: Delta4 Infotech Pvt. Ltd.
+  url: https://mcp360.ai
+  email: support@mcp360.ai
+common:
+- type: DeveloperPortal
+  url: https://dashboard.mcp360.ai
+- type: Documentation
+  url: https://mcp360.ai/docs
+- type: GettingStarted
+  url: https://mcp360.ai/docs
+- type: HelpCenter
+  url: https://help.mcp360.ai
+- type: Support
+  url: https://mcp360.ai/contact
+- type: Blog
+  url: https://mcp360.ai/blog
+- type: GitHubOrganization
+  url: https://github.com/mcp360
+- type: Pricing
+  url: https://mcp360.ai/pricing
+- type: SignUp
+  url: https://dashboard.mcp360.ai/signup
+- type: Login
+  url: https://dashboard.mcp360.ai/login
+- type: TermsOfService
+  url: https://mcp360.ai/terms
+- type: PrivacyPolicy
+  url: https://mcp360.ai/privacy
+- type: RefundPolicy
+  url: https://mcp360.ai/refund-policy
+- type: Console
+  name: MCP Inspector — debug and test MCP servers
+  url: https://mcp360.ai/tools/mcp-inspector
+- type: Authentication
+  url: authentication/mcp360-authentication.yml
+- type: OAuthScopes
+  url: scopes/mcp360-scopes.yml
+- type: WellKnown
+  url: well-known/mcp360-well-known.yml
+- type: Conventions
+  url: conventions/mcp360-conventions.yml
+- type: ErrorCatalog
+  url: errors/mcp360-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/mcp360-lifecycle.yml
+- type: Conformance
+  url: conformance/mcp360-conformance.yml
+- type: DataModel
+  url: data-model/mcp360-data-model.yml
+- type: Packages
+  url: packages/mcp360-packages.yml
+- type: SDKs
+  name: First-party npm packages (unified gateway, n8n node)
+  url: packages/mcp360-packages.yml
+- type: Plans
+  url: plans/mcp360-plans.yml
+- type: DomainSecurity
+  url: security/mcp360-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/mcp360-vulnerability-disclosure.yml
+- type: Security
+  name: Security policy (scoped to mTarsier)
+  url: https://github.com/mcp360/mTarsier/blob/HEAD/SECURITY.md
+- type: AgenticAccess
+  url: agentic-access/mcp360-agentic-access.yml
+- type: AgentSkill
+  name: MCP360 agent skills
+  url: skills/_index.yml
+- type: AgentSkill
+  name: Discover and execute any gateway tool
+  url: skills/mcp360-discover-and-execute-a-tool.md
+- type: AgentSkill
+  name: Run a web search across engines
+  url: skills/mcp360-run-a-web-search.md
+- type: AgentSkill
+  name: Profile a domain end to end
+  url: skills/mcp360-profile-a-domain.md
+- type: AgentSkill
+  name: Audit a site's SEO position
+  url: skills/mcp360-audit-seo.md
+- type: AgentSkill
+  name: Compare product prices across retailers
+  url: skills/mcp360-compare-retail-prices.md
+- type: AgentSkill
+  name: Scrape and read a web page
+  url: skills/mcp360-scrape-a-page.md
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 85
   at: '2026-07-27T13:03:12.587Z'
+x-enrichment:
+  date: '2026-08-09'
+  status: enriched
+  artifacts_added: 103
+  pass: local-v1
