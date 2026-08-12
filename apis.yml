@@ -36,276 +36,851 @@ tags:
 - geolocation
 - email-verification
 apis:
-- name: MCP360 Gateway
-  description: 'Unified gateway exposing 38 tool services as both hosted remote MCP servers and a REST API. GET
-    /api/v1/{service} returns the service tool registry with full input and output JSON Schemas (no auth required);
-    GET /api/v1/{service}/openapi.json returns a generated OpenAPI 3.0.0 document; POST /api/v1/{service}/{tool}
-    executes a tool. Authentication is X-API-Key or Authorization: Bearer for REST, and OAuth 2.1 or ?token= for
-    the MCP transport.'
+- aid: mcp360:mcp360-amazon-search-api
+  name: MCP360 Amazon Search API
+  description: The amazon-search API from MCP360 — 6 operation(s) for amazon-search.
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - mcp
-  - mcp-gateway
-  - ai-agents
-  - tool-integration
-  - unified-api
-  - search
-  - seo
-  - e-commerce
-  - web-scraping
+  - amazon-search
   properties:
-  - type: MCPServer
-    name: MCP360 Unified Gateway (38 hosted remote MCP servers)
-    url: mcp/mcp360-mcp.yml
+  - type: OpenAPI
+    url: openapi/mcp360-amazon-search-api-openapi.yml
   - type: MCP
     url: https://connect.mcp360.ai/v1/mcp360/mcp
   - type: ToolCrosswalk
-    name: MCP tool to REST operation crosswalk
     url: mcp/mcp360-tool-crosswalk.yml
   - type: JSONSchema
-    name: Tool input + output schemas (106 tools)
     url: json-schema/mcp360-tool-schemas.json
   - type: LLMSTxt
     url: https://mcp360.ai/llms.txt
   - type: LLMsTxt
-    name: Harvested llms.txt
     url: llms/mcp360-llms.txt
   - type: Documentation
     url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-apple-appstore-api
+  name: MCP360 Apple Appstore API
+  description: The apple-appstore API from MCP360 — 4 operation(s) for apple-appstore.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - apple-appstore
+  properties:
   - type: OpenAPI
-    name: Amazon Product Search Tools
-    url: openapi/mcp360-amazon-search-openapi.json
+    url: openapi/mcp360-apple-appstore-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-baidu-search-api
+  name: MCP360 Baidu Search API
+  description: The baidu-search API from MCP360 — 3 operation(s) for baidu-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - baidu-search
+  properties:
   - type: OpenAPI
-    name: Apple App Store Tools
-    url: openapi/mcp360-apple-appstore-openapi.json
+    url: openapi/mcp360-baidu-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-bing-search-api
+  name: MCP360 Bing Search API
+  description: The bing-search API from MCP360 — 4 operation(s) for bing-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - bing-search
+  properties:
   - type: OpenAPI
-    name: Baidu Search Tools
-    url: openapi/mcp360-baidu-search-openapi.json
+    url: openapi/mcp360-bing-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-cryptocurrency-api
+  name: MCP360 Cryptocurrency API
+  description: The cryptocurrency API from MCP360 — 2 operation(s) for cryptocurrency.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - cryptocurrency
+  properties:
   - type: OpenAPI
-    name: Bing Search Tools
-    url: openapi/mcp360-bing-search-openapi.json
+    url: openapi/mcp360-cryptocurrency-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-currency-converter-api
+  name: MCP360 Currency Converter API
+  description: The currency-converter API from MCP360 — 1 operation(s) for currency-converter.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - currency-converter
+  properties:
   - type: OpenAPI
-    name: Cryptocurrency Service
-    url: openapi/mcp360-cryptocurrency-openapi.json
+    url: openapi/mcp360-currency-converter-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-dns-lookup-api
+  name: MCP360 Dns Lookup API
+  description: The dns-lookup API from MCP360 — 2 operation(s) for dns-lookup.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - dns-lookup
+  properties:
   - type: OpenAPI
-    name: Currency Converter Service
-    url: openapi/mcp360-currency-converter-openapi.json
+    url: openapi/mcp360-dns-lookup-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-duckduckgo-search-api
+  name: MCP360 Duckduckgo Search API
+  description: The duckduckgo-search API from MCP360 — 1 operation(s) for duckduckgo-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - duckduckgo-search
+  properties:
   - type: OpenAPI
-    name: DNS Lookup Service
-    url: openapi/mcp360-dns-lookup-openapi.json
+    url: openapi/mcp360-duckduckgo-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-ebay-search-api
+  name: MCP360 Ebay Search API
+  description: The ebay-search API from MCP360 — 3 operation(s) for ebay-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - ebay-search
+  properties:
   - type: OpenAPI
-    name: DuckDuckGo Search Tools
-    url: openapi/mcp360-duckduckgo-search-openapi.json
+    url: openapi/mcp360-ebay-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-email-verification-api
+  name: MCP360 Email Verification API
+  description: The email-verification API from MCP360 — 2 operation(s) for email-verification.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - email-verification
+  properties:
   - type: OpenAPI
-    name: eBay Product Search Tools
-    url: openapi/mcp360-ebay-search-openapi.json
+    url: openapi/mcp360-email-verification-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-flights-api
+  name: MCP360 Google Flights API
+  description: The google-flights API from MCP360 — 3 operation(s) for google-flights.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-flights
+  properties:
   - type: OpenAPI
-    name: Email Verification Tools
-    url: openapi/mcp360-email-verification-openapi.json
+    url: openapi/mcp360-google-flights-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-forums-api
+  name: MCP360 Google Forums API
+  description: The google-forums API from MCP360 — 1 operation(s) for google-forums.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-forums
+  properties:
   - type: OpenAPI
-    name: Google Flights Tools
-    url: openapi/mcp360-google-flights-openapi.json
+    url: openapi/mcp360-google-forums-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-hotels-api
+  name: MCP360 Google Hotels API
+  description: The google-hotels API from MCP360 — 1 operation(s) for google-hotels.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-hotels
+  properties:
   - type: OpenAPI
-    name: Google Forums Tools
-    url: openapi/mcp360-google-forums-openapi.json
+    url: openapi/mcp360-google-hotels-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-images-api
+  name: MCP360 Google Images API
+  description: The google-images API from MCP360 — 1 operation(s) for google-images.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-images
+  properties:
   - type: OpenAPI
-    name: Google Hotels Tools
-    url: openapi/mcp360-google-hotels-openapi.json
+    url: openapi/mcp360-google-images-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-jobs-api
+  name: MCP360 Google Jobs API
+  description: The google-jobs API from MCP360 — 1 operation(s) for google-jobs.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-jobs
+  properties:
   - type: OpenAPI
-    name: Google Images Tools
-    url: openapi/mcp360-google-images-openapi.json
+    url: openapi/mcp360-google-jobs-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-maps-api
+  name: MCP360 Google Maps API
+  description: The google-maps API from MCP360 — 4 operation(s) for google-maps.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-maps
+  properties:
   - type: OpenAPI
-    name: Google Jobs Tools
-    url: openapi/mcp360-google-jobs-openapi.json
+    url: openapi/mcp360-google-maps-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-news-api
+  name: MCP360 Google News API
+  description: The google-news API from MCP360 — 2 operation(s) for google-news.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-news
+  properties:
   - type: OpenAPI
-    name: Google Maps Tools
-    url: openapi/mcp360-google-maps-openapi.json
+    url: openapi/mcp360-google-news-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-play-api
+  name: MCP360 Google Play API
+  description: The google-play API from MCP360 — 2 operation(s) for google-play.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-play
+  properties:
   - type: OpenAPI
-    name: Google News Tools
-    url: openapi/mcp360-google-news-openapi.json
+    url: openapi/mcp360-google-play-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-rank-tracking-api
+  name: MCP360 Google Rank Tracking API
+  description: The google-rank-tracking API from MCP360 — 3 operation(s) for google-rank-tracking.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-rank-tracking
+  properties:
   - type: OpenAPI
-    name: Google Play Store Tools
-    url: openapi/mcp360-google-play-openapi.json
+    url: openapi/mcp360-google-rank-tracking-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-scholar-api
+  name: MCP360 Google Scholar API
+  description: The google-scholar API from MCP360 — 4 operation(s) for google-scholar.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-scholar
+  properties:
   - type: OpenAPI
-    name: Google Rank Tracking Tools
-    url: openapi/mcp360-google-rank-tracking-openapi.json
+    url: openapi/mcp360-google-scholar-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-search-api
+  name: MCP360 Google Search API
+  description: The google-search API from MCP360 — 4 operation(s) for google-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-search
+  properties:
   - type: OpenAPI
-    name: Google Scholar Tools
-    url: openapi/mcp360-google-scholar-openapi.json
+    url: openapi/mcp360-google-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-shopping-api
+  name: MCP360 Google Shopping API
+  description: The google-shopping API from MCP360 — 4 operation(s) for google-shopping.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-shopping
+  properties:
   - type: OpenAPI
-    name: Google Search Tools
-    url: openapi/mcp360-google-search-openapi.json
+    url: openapi/mcp360-google-shopping-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-google-trends-api
+  name: MCP360 Google Trends API
+  description: The google-trends API from MCP360 — 3 operation(s) for google-trends.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - google-trends
+  properties:
   - type: OpenAPI
-    name: Google Shopping Tools
-    url: openapi/mcp360-google-shopping-openapi.json
+    url: openapi/mcp360-google-trends-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-imginny-api
+  name: MCP360 Imginny API
+  description: The imginny API from MCP360 — 4 operation(s) for imginny.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - imginny
+  properties:
   - type: OpenAPI
-    name: Google Trends Tools
-    url: openapi/mcp360-google-trends-openapi.json
+    url: openapi/mcp360-imginny-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-ip-info-api
+  name: MCP360 Ip Info API
+  description: The ip-info API from MCP360 — 2 operation(s) for ip-info.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - ip-info
+  properties:
   - type: OpenAPI
-    name: Imginny - AI Image Generation
-    url: openapi/mcp360-imginny-openapi.json
+    url: openapi/mcp360-ip-info-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-keyword-research-api
+  name: MCP360 Keyword Research API
+  description: The keyword-research API from MCP360 — 3 operation(s) for keyword-research.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - keyword-research
+  properties:
   - type: OpenAPI
-    name: IP Information Tools
-    url: openapi/mcp360-ip-info-openapi.json
+    url: openapi/mcp360-keyword-research-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-llm-prompt-tracker-api
+  name: MCP360 Llm Prompt Tracker API
+  description: The llm-prompt-tracker API from MCP360 — 2 operation(s) for llm-prompt-tracker.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - llm-prompt-tracker
+  properties:
   - type: OpenAPI
-    name: Keyword Research Tools
-    url: openapi/mcp360-keyword-research-openapi.json
+    url: openapi/mcp360-llm-prompt-tracker-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-mcp360-api
+  name: MCP360 Mcp360 API
+  description: The mcp360 API from MCP360 — 2 operation(s) for mcp360.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - mcp360
+  properties:
   - type: OpenAPI
-    name: LLM Prompt Tracker
-    url: openapi/mcp360-llm-prompt-tracker-openapi.json
+    url: openapi/mcp360-mcp360-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-naver-search-api
+  name: MCP360 Naver Search API
+  description: The naver-search API from MCP360 — 3 operation(s) for naver-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - naver-search
+  properties:
   - type: OpenAPI
-    name: MCP360 - Universal MCP Gateway
-    url: openapi/mcp360-mcp360-openapi.json
+    url: openapi/mcp360-naver-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-onpage-seo-api
+  name: MCP360 Onpage Seo API
+  description: The onpage-seo API from MCP360 — 2 operation(s) for onpage-seo.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - onpage-seo
+  properties:
   - type: OpenAPI
-    name: Naver Search Tools
-    url: openapi/mcp360-naver-search-openapi.json
+    url: openapi/mcp360-onpage-seo-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-url-lookup-api
+  name: MCP360 URL Lookup API
+  description: The url-lookup API from MCP360 — 2 operation(s) for url-lookup.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - url-lookup
+  properties:
   - type: OpenAPI
-    name: OnPage SEO Checker
-    url: openapi/mcp360-onpage-seo-openapi.json
+    url: openapi/mcp360-url-lookup-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-walmart-search-api
+  name: MCP360 Walmart Search API
+  description: The walmart-search API from MCP360 — 2 operation(s) for walmart-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - walmart-search
+  properties:
   - type: OpenAPI
-    name: URL & Webpage Lookup Service
-    url: openapi/mcp360-url-lookup-openapi.json
+    url: openapi/mcp360-walmart-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-weather-api
+  name: MCP360 Weather API
+  description: The weather API from MCP360 — 3 operation(s) for weather.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - weather
+  properties:
   - type: OpenAPI
-    name: Walmart Product Search Tools
-    url: openapi/mcp360-walmart-search-openapi.json
+    url: openapi/mcp360-weather-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-web-scraping-api
+  name: MCP360 Web Scraping API
+  description: The web-scraping API from MCP360 — 1 operation(s) for web-scraping.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - web-scraping
+  properties:
   - type: OpenAPI
-    name: Weather Tools
-    url: openapi/mcp360-weather-openapi.json
+    url: openapi/mcp360-web-scraping-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-whois-api
+  name: MCP360 Whois API
+  description: The whois API from MCP360 — 3 operation(s) for whois.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - whois
+  properties:
   - type: OpenAPI
-    name: Web Scraping Tools
-    url: openapi/mcp360-web-scraping-openapi.json
+    url: openapi/mcp360-whois-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-yahoo-search-api
+  name: MCP360 Yahoo Search API
+  description: The yahoo-search API from MCP360 — 3 operation(s) for yahoo-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - yahoo-search
+  properties:
   - type: OpenAPI
-    name: WHOIS & Domain Lookup Service
-    url: openapi/mcp360-whois-openapi.json
+    url: openapi/mcp360-yahoo-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-yandex-search-api
+  name: MCP360 Yandex Search API
+  description: The yandex-search API from MCP360 — 3 operation(s) for yandex-search.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - yandex-search
+  properties:
   - type: OpenAPI
-    name: Yahoo Search Tools
-    url: openapi/mcp360-yahoo-search-openapi.json
+    url: openapi/mcp360-yandex-search-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
+- aid: mcp360:mcp360-youtube-api
+  name: MCP360 Youtube API
+  description: The youtube API from MCP360 — 10 operation(s) for youtube.
+  humanURL: https://mcp360.ai/docs
+  baseURL: https://connect.mcp360.ai/api/v1
+  tags:
+  - youtube
+  properties:
   - type: OpenAPI
-    name: Yandex Search Tools
-    url: openapi/mcp360-yandex-search-openapi.json
-  - type: OpenAPI
-    name: YouTube Tools
-    url: openapi/mcp360-youtube-openapi.json
-  - type: Overlay
-    name: API Evangelist enhancements — Amazon Product Search Tools
-    url: overlays/mcp360-amazon-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Apple App Store Tools
-    url: overlays/mcp360-apple-appstore-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Baidu Search Tools
-    url: overlays/mcp360-baidu-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Bing Search Tools
-    url: overlays/mcp360-bing-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Cryptocurrency Service
-    url: overlays/mcp360-cryptocurrency-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Currency Converter Service
-    url: overlays/mcp360-currency-converter-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — DNS Lookup Service
-    url: overlays/mcp360-dns-lookup-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — DuckDuckGo Search Tools
-    url: overlays/mcp360-duckduckgo-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — eBay Product Search Tools
-    url: overlays/mcp360-ebay-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Email Verification Tools
-    url: overlays/mcp360-email-verification-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Flights Tools
-    url: overlays/mcp360-google-flights-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Forums Tools
-    url: overlays/mcp360-google-forums-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Hotels Tools
-    url: overlays/mcp360-google-hotels-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Images Tools
-    url: overlays/mcp360-google-images-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Jobs Tools
-    url: overlays/mcp360-google-jobs-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Maps Tools
-    url: overlays/mcp360-google-maps-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google News Tools
-    url: overlays/mcp360-google-news-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Play Store Tools
-    url: overlays/mcp360-google-play-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Rank Tracking Tools
-    url: overlays/mcp360-google-rank-tracking-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Scholar Tools
-    url: overlays/mcp360-google-scholar-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Search Tools
-    url: overlays/mcp360-google-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Shopping Tools
-    url: overlays/mcp360-google-shopping-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Google Trends Tools
-    url: overlays/mcp360-google-trends-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Imginny - AI Image Generation
-    url: overlays/mcp360-imginny-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — IP Information Tools
-    url: overlays/mcp360-ip-info-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Keyword Research Tools
-    url: overlays/mcp360-keyword-research-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — LLM Prompt Tracker
-    url: overlays/mcp360-llm-prompt-tracker-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — MCP360 - Universal MCP Gateway
-    url: overlays/mcp360-mcp360-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Naver Search Tools
-    url: overlays/mcp360-naver-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — OnPage SEO Checker
-    url: overlays/mcp360-onpage-seo-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — URL & Webpage Lookup Service
-    url: overlays/mcp360-url-lookup-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Walmart Product Search Tools
-    url: overlays/mcp360-walmart-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Weather Tools
-    url: overlays/mcp360-weather-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Web Scraping Tools
-    url: overlays/mcp360-web-scraping-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — WHOIS & Domain Lookup Service
-    url: overlays/mcp360-whois-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Yahoo Search Tools
-    url: overlays/mcp360-yahoo-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Yandex Search Tools
-    url: overlays/mcp360-yandex-search-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — YouTube Tools
-    url: overlays/mcp360-youtube-overlay.yaml
+    url: openapi/mcp360-youtube-api-openapi.yml
+  - type: MCP
+    url: https://connect.mcp360.ai/v1/mcp360/mcp
+  - type: ToolCrosswalk
+    url: mcp/mcp360-tool-crosswalk.yml
+  - type: JSONSchema
+    url: json-schema/mcp360-tool-schemas.json
+  - type: LLMSTxt
+    url: https://mcp360.ai/llms.txt
+  - type: LLMsTxt
+    url: llms/mcp360-llms.txt
+  - type: Documentation
+    url: https://mcp360.ai/docs
 maintainers:
 - FN: Delta4 Infotech Pvt. Ltd.
   url: https://mcp360.ai
   email: support@mcp360.ai
 common:
+- type: MCPServer
+  url: mcp/mcp360-mcp.yml
+- type: Overlay
+  url: overlays/mcp360-amazon-search-overlay.yaml
 - type: DeveloperPortal
   url: https://dashboard.mcp360.ai
 - type: Documentation
