@@ -10,7 +10,7 @@ description: 'MCP360 is a hosted unified Model Context Protocol gateway operated
   research, on-page audit, rank tracking), and infrastructure lookups (WHOIS, DNS, IP, URL, email verification,
   web scraping). Auth is an API key via X-API-Key or bearer token, with OAuth 2.1 (authorization code, PKCE S256,
   dynamic client registration) for the MCP surface. Billing is monthly credits.'
-url: https://mcp360.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/mcp360/refs/heads/main/apis.yml
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
 modified: '2026-08-14'
