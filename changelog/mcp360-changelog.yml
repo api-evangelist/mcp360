@@ -1,0 +1,86 @@
+generated: '2026-08-14'
+method: probed
+source: https://mcp360.ai/changelog, https://mcp360.ai/sitemap.xml, https://api.github.com/orgs/mcp360/repos,
+  https://api.github.com/repos/mcp360/mTarsier/releases
+api_changelog:
+  published: false
+  entry_count: 0
+  url: null
+  note: MCP360 publishes no changelog, release notes or version history for the hosted gateway — neither
+    for the REST API at connect.mcp360.ai/api/v1 nor for the MCP surface. /changelog 404s, the sitemap
+    lists eleven pages and none is a changelog, and every one of the 38 generated OpenAPI documents carries
+    a static info.version of 1.0.0 that has not moved. An agent has no way to learn that a tool's schema
+    changed.
+versioning_signal:
+  scheme: uri-path
+  current: v1
+  spec_version: 1.0.0
+  moved: false
+  note: See lifecycle/mcp360-lifecycle.yml. v1 is observable in the path only; there is no dated version
+    history behind it.
+adjacent_release_streams:
+  note: 'IMPORTANT — the entries below are release history for mTarsier, a SEPARATE first-party open-source
+    desktop product (an MCP/skill manager), not for the MCP360 gateway API. They are recorded because they
+    are the only dated first-party release stream that exists, and because their cadence is a useful
+    liveness signal. They are NOT an API changelog and no type: ChangeLog pointer is wired in apis.yml
+    on their account — doing so would credit MCP360 with an API changelog it does not publish.'
+  streams:
+  - product: mTarsier
+    kind: desktop application + tsr CLI
+    repository: https://github.com/mcp360/mTarsier
+    releases_url: https://github.com/mcp360/mTarsier/releases
+    entry_count: 5
+    entries:
+    - version: v1.2.0
+      date: '2026-04-20'
+      prerelease: false
+    - version: v1.1.0
+      date: '2026-04-06'
+      prerelease: false
+    - version: v1.0.1
+      date: '2026-03-19'
+      prerelease: false
+    - version: v1.0.1-beta
+      date: '2026-03-17'
+      prerelease: true
+    - version: v1.0.0
+      date: '2026-03-16'
+      prerelease: false
+      title: v1.0.0 — Initial Release
+    note: No CHANGELOG.md in the repository; the releases carry tags and dates only.
+  - product: unified-gateway-mcp
+    kind: stdio MCP launcher for the gateway
+    repository: https://github.com/mcp360/unified-gateway-mcp
+    entry_count: 0
+    note: Zero GitHub releases and no CHANGELOG.md. The npm package @mcp360ai/unified-gateway has stood
+      at 1.0.2 since 2025-11-26 — the closest thing to a dated change signal for anything that touches
+      the gateway, and it is nine months stale.
+probes:
+- url: https://mcp360.ai/changelog
+  status: 404
+  fetched: '2026-08-14'
+- url: https://mcp360.ai/sitemap.xml
+  status: 200
+  fetched: '2026-08-14'
+  result: 11 URLs, no changelog / releases / whats-new page
+- url: https://api.github.com/repos/mcp360/mTarsier/releases
+  status: 200
+  fetched: '2026-08-14'
+  result: 5 releases
+- url: https://api.github.com/repos/mcp360/unified-gateway-mcp/releases
+  status: 200
+  fetched: '2026-08-14'
+  result: 0 releases
+- url: https://raw.githubusercontent.com/mcp360/unified-gateway-mcp/HEAD/CHANGELOG.md
+  status: 404
+  fetched: '2026-08-14'
+- url: https://raw.githubusercontent.com/mcp360/mTarsier/HEAD/CHANGELOG.md
+  status: 404
+  fetched: '2026-08-14'
+pointer_note: No type ChangeLog pointer is wired in apis.yml. This artifact records a measured ABSENCE
+  for the API; the only dated releases belong to a different product. Same discipline as the RateLimits
+  and WellKnown probes in this repo — a file documenting an absence must not be scored as a presence.
+gaps:
+- No API changelog, release notes or "what's new" of any kind for the gateway.
+- info.version is frozen at 1.0.0 across all 38 generated OpenAPI documents, so spec drift is invisible.
+- The gateway's own launcher repository publishes no releases and no CHANGELOG.

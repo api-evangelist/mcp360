@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Google Jobs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "google-jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/google-jobs/search_jobs",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Job search query - can include title, company, 'remote', 'part-time', etc."
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Location (e.g., 'San Francisco, CA', 'New York, NY')"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk', 'ca')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es', 'fr')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_jobs"
+        },
+        {
+          "info": {
+            "name": "Execute search_jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-jobs/search_jobs",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_jobs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

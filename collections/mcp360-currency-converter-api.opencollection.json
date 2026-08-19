@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Service REST Currency Converter API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "currency-converter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute convert_currency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/currency-converter/convert_currency",
+            "params": [
+              {
+                "name": "have",
+                "value": "",
+                "type": "query",
+                "description": "3-character currency code you have (e.g., USD, EUR, GBP)"
+              },
+              {
+                "name": "want",
+                "value": "",
+                "type": "query",
+                "description": "3-character currency code you want (e.g., USD, EUR, GBP)"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount to convert"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute convert_currency"
+        },
+        {
+          "info": {
+            "name": "Execute convert_currency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/currency-converter/convert_currency",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute convert_currency"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

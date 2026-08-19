@@ -1,0 +1,559 @@
+openapi: 3.2.0
+info:
+  title: Apple App Store Tools REST Apple Appstore API
+  version: 1.0.0
+  description: Apple App Store search, product details, reviews, and top charts for iOS apps
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: apple-appstore
+paths:
+  /api/v1/apple-appstore/search_apps:
+    post:
+      summary: Execute search_apps
+      operationId: apple-appstore_search_apps
+      tags:
+      - apple-appstore
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apple-appstore_search_apps_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/apple-appstore/get_product_details:
+    post:
+      summary: Execute get_product_details
+      operationId: apple-appstore_get_product_details
+      tags:
+      - apple-appstore
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apple-appstore_get_product_details_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute get_product_details
+      operationId: apple-appstore_get_product_details_get
+      tags:
+      - apple-appstore
+      parameters:
+      - name: product_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: App product ID from App Store
+      - name: country
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Two-letter country code (default: ''us'')'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/apple-appstore/get_reviews:
+    post:
+      summary: Execute get_reviews
+      operationId: apple-appstore_get_reviews
+      tags:
+      - apple-appstore
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apple-appstore_get_reviews_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/apple-appstore/get_top_charts:
+    post:
+      summary: Execute get_top_charts
+      operationId: apple-appstore_get_top_charts
+      tags:
+      - apple-appstore
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apple-appstore_get_top_charts_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute get_top_charts
+      operationId: apple-appstore_get_top_charts_get
+      tags:
+      - apple-appstore
+      parameters:
+      - name: chart
+        in: query
+        schema:
+          type: string
+        description: Chart type
+      - name: category
+        in: query
+        schema:
+          type: string
+        description: 'App category (default: ''all'')'
+      - name: store_device
+        in: query
+        schema:
+          type: string
+        description: Device type
+      - name: country
+        in: query
+        schema:
+          type: string
+        description: 'Two-letter country code (default: ''us'')'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    apple-appstore_get_reviews_input:
+      type: object
+      properties:
+        product_id:
+          type: string
+          minLength: 1
+          maxLength: 20
+          pattern: ^\d+$
+          description: App product ID
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
+        page:
+          type: integer
+          minimum: 1
+          maximum: 10
+          description: Page number (max 10)
+        sort_by:
+          type: string
+          enum:
+          - most_recent
+          - most_helpful
+          description: Sort order for reviews
+      required:
+      - product_id
+      additionalProperties: false
+    apple-appstore_get_product_details_input:
+      type: object
+      properties:
+        product_id:
+          type: string
+          minLength: 1
+          maxLength: 20
+          pattern: ^\d+$
+          description: App product ID from App Store
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
+      required:
+      - product_id
+      additionalProperties: false
+    apple-appstore_get_top_charts_input:
+      type: object
+      properties:
+        chart:
+          type: string
+          enum:
+          - top_free
+          - top_paid
+          description: Chart type
+        category:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: 'App category (default: ''all'')'
+        store_device:
+          type: string
+          enum:
+          - iphone
+          - ipad
+          description: Device type
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
+      additionalProperties: false
+    apple-appstore_search_apps_input:
+      type: object
+      properties:
+        term:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: App search query
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Two-letter country code (e.g., 'us', 'uk', 'jp')
+        lang:
+          type: string
+          pattern: ^[a-z]{2}-[a-z]{2}$
+          description: Language code (e.g., 'en-us', 'ja-jp')
+        device:
+          type: string
+          enum:
+          - mobile
+          - desktop
+          - tablet
+          description: Device platform filter
+        num:
+          type: integer
+          minimum: 1
+          maximum: 200
+          description: Results per page (max 200)
+        page:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: Page number
+      required:
+      - term
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

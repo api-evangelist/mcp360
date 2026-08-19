@@ -1,0 +1,797 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Youtube API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "youtube",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_videos",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query for videos"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code for localized results (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "sp",
+                "value": "",
+                "type": "query",
+                "description": "Special filters parameter for advanced filtering"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_videos"
+        },
+        {
+          "info": {
+            "name": "Execute search_videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_videos",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_videos"
+        },
+        {
+          "info": {
+            "name": "Execute search_channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_channels",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query for channels"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code for localized results (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "sp",
+                "value": "",
+                "type": "query",
+                "description": "Special filters parameter for advanced filtering"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_channels"
+        },
+        {
+          "info": {
+            "name": "Execute search_channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_channels",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_channels"
+        },
+        {
+          "info": {
+            "name": "Execute search_shorts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_shorts",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query for YouTube Shorts"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code for localized results (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "sp",
+                "value": "",
+                "type": "query",
+                "description": "Special filters parameter for advanced filtering"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_shorts"
+        },
+        {
+          "info": {
+            "name": "Execute search_shorts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/search_shorts",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_shorts"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_details",
+            "params": [
+              {
+                "name": "video_id",
+                "value": "",
+                "type": "query",
+                "description": "YouTube video ID"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_video_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_video_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_transcripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_transcripts",
+            "params": [
+              {
+                "name": "video_id",
+                "value": "",
+                "type": "query",
+                "description": "YouTube video ID"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language code for transcript (e.g., 'en', 'es')"
+              },
+              {
+                "name": "transcript_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of transcript: 'auto' for auto-generated, 'manual' for manually uploaded"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_video_transcripts"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_transcripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_transcripts",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_video_transcripts"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_comments",
+            "params": [
+              {
+                "name": "video_id",
+                "value": "",
+                "type": "query",
+                "description": "YouTube video ID"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "next_page_token",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_video_comments"
+        },
+        {
+          "info": {
+            "name": "Execute get_video_comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_video_comments",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_video_comments"
+        },
+        {
+          "info": {
+            "name": "Execute get_channel_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_channel_details",
+            "params": [
+              {
+                "name": "channel_id",
+                "value": "",
+                "type": "query",
+                "description": "YouTube channel ID or @handle"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_channel_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_channel_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_channel_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_channel_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_channel_videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_channel_videos",
+            "params": [
+              {
+                "name": "channel_id",
+                "value": "",
+                "type": "query",
+                "description": "YouTube channel ID or @handle"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "next_page_token",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination/filtering (e.g., 'Popular', 'Oldest')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_channel_videos"
+        },
+        {
+          "info": {
+            "name": "Execute get_channel_videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/get_channel_videos",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_channel_videos"
+        },
+        {
+          "info": {
+            "name": "Execute find_video_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/find_video_position",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Search keyword or phrase to check your video's ranking for (e.g., 'how to bake cookies', 'react tutorial')"
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Your YouTube video URL (e.g., 'https://youtube.com/watch?v=VIDEO_ID' or just 'VIDEO_ID')"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code for localized results (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute find_video_position"
+        },
+        {
+          "info": {
+            "name": "Execute find_video_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/find_video_position",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute find_video_position"
+        },
+        {
+          "info": {
+            "name": "Execute bulk_find_video_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/youtube/bulk_find_video_position",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute bulk_find_video_position"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

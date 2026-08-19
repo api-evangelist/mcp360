@@ -1,0 +1,1064 @@
+{
+  "item": [
+    {
+      "id": "d8278d1f-906e-4ed0-940e-a9309694afaf",
+      "name": "currency-converter",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77f087ab-589f-4e81-ab4b-4b80911173e4",
+          "name": "Execute convert_currency",
+          "request": {
+            "name": "Execute convert_currency",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "currency-converter",
+                "convert_currency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "validateOutput",
+                  "value": "<boolean>",
+                  "description": "Validate output against schema"
+                },
+                {
+                  "disabled": false,
+                  "key": "strictValidation",
+                  "value": "<boolean>",
+                  "description": "Fail on validation errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMetadata",
+                  "value": "<boolean>",
+                  "description": "Include execution metadata"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ed382d4-1d66-4ea2-98d1-4f597c40e06a",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {},\n  \"metadata\": {\n    \"service\": \"string\",\n    \"tool\": \"string\",\n    \"executionTime\": \"string\",\n    \"creditsUsed\": 3573.829939228742,\n    \"timestamp\": \"2016-01-10T11:56:00.482Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "975ec55e-faab-494c-b3b2-676240c9f33c",
+              "name": "Bad request or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff56e6d3-4feb-4209-b685-02eaf13e6ee0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0ee3606-f000-42d7-8dfb-5974a88fe4b1",
+              "name": "Forbidden (premium access required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3597c093-56c1-4aca-877b-3531db097e5e",
+              "name": "Service or tool not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0c98cda-c7ae-45d1-ba33-e8b2036c317b",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47767524-d998-4360-b682-1847ded45342",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"have\": \"<string>\",\n  \"want\": \"<string>\",\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c058761e-74c6-4160-9062-c84153f90eaa",
+          "name": "Execute convert_currency",
+          "request": {
+            "name": "Execute convert_currency",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "currency-converter",
+                "convert_currency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "have",
+                  "value": "<string>",
+                  "description": "(Required) 3-character currency code you have (e.g., USD, EUR, GBP)"
+                },
+                {
+                  "disabled": false,
+                  "key": "want",
+                  "value": "<string>",
+                  "description": "(Required) 3-character currency code you want (e.g., USD, EUR, GBP)"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<number>",
+                  "description": "(Required) Amount to convert"
+                },
+                {
+                  "disabled": false,
+                  "key": "validateOutput",
+                  "value": "<boolean>",
+                  "description": "Validate output against schema"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMetadata",
+                  "value": "<boolean>",
+                  "description": "Include execution metadata"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e8753ea-92ad-44d7-a257-cfda11d29920",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {},\n  \"metadata\": {\n    \"service\": \"string\",\n    \"tool\": \"string\",\n    \"executionTime\": \"string\",\n    \"creditsUsed\": 3573.829939228742,\n    \"timestamp\": \"2016-01-10T11:56:00.482Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae50badb-4d2b-48ce-8e07-34121bb2c4b7",
+              "name": "Bad request or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b6d1e41-a475-425d-89ed-9c63f2fca445",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efbc0c4d-4b64-4890-9a7c-29b648644114",
+              "name": "Forbidden (premium access required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0839bd0e-8ba2-48b2-9c43-fb7e5e085bd3",
+              "name": "Service or tool not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d3f52aa-a925-404b-bb40-c4189abb2c57",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9b9b1f5-b5fb-4a39-8be4-edbf7f1c9ca7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "currency-converter",
+                    "convert_currency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "have",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "want",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.mcp360.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eb27d765-80a0-4d15-afb7-6b2306e1b925",
+    "name": "Service REST Currency Converter API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time currency conversion with latest exchange rates",
+      "type": "text/plain"
+    }
+  }
+}

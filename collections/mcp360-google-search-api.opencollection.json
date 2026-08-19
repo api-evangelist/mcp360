@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Google Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "google-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_web",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/search_web",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_web"
+        },
+        {
+          "info": {
+            "name": "Execute get_autocomplete",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/get_autocomplete",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Partial search query for autocomplete"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "query",
+                "description": "Client type (chrome, safari, firefox, edge, opera)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_autocomplete"
+        },
+        {
+          "info": {
+            "name": "Execute get_autocomplete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/get_autocomplete",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_autocomplete"
+        },
+        {
+          "info": {
+            "name": "Execute get_related_searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/get_related_searches",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query to find related searches"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk')"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_related_searches"
+        },
+        {
+          "info": {
+            "name": "Execute get_related_searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/get_related_searches",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_related_searches"
+        },
+        {
+          "info": {
+            "name": "Execute search_advanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-search/search_advanced",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_advanced"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

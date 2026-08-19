@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Walmart Product Search Tools REST Walmart Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "walmart-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/walmart-search/search_products",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_products"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/walmart-search/get_product_details",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "query",
+                "description": "Walmart product ID"
+              },
+              {
+                "name": "store_id",
+                "value": "",
+                "type": "query",
+                "description": "Specific Walmart store ID (default: 3081)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_product_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/walmart-search/get_product_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_product_details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

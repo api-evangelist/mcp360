@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REST Llm Prompt Tracker API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "llm-prompt-tracker",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute track_prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/llm-prompt-tracker/track_prompt",
+            "params": [
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "The search query or prompt to track for visibility and ranking"
+              },
+              {
+                "name": "platform",
+                "value": "",
+                "type": "query",
+                "description": "The specific AI platform to analyze (e.g., 'claude' for Claude AI)"
+              },
+              {
+                "name": "targetUrl",
+                "value": "",
+                "type": "query",
+                "description": "Optional: Your website URL to check if it appears in the AI's response and at what position"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute track_prompt"
+        },
+        {
+          "info": {
+            "name": "Execute track_prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/llm-prompt-tracker/track_prompt",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute track_prompt"
+        },
+        {
+          "info": {
+            "name": "Execute compare_prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/llm-prompt-tracker/compare_prompt",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute compare_prompt"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

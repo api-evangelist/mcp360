@@ -1,0 +1,378 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Image Generation REST Imginny API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "imginny",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute generate_image_fast",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_fast",
+            "params": [
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "Text description of the image you want to generate"
+              },
+              {
+                "name": "aspectRatio",
+                "value": "",
+                "type": "query",
+                "description": "Image aspect ratio (default: 1:1)"
+              },
+              {
+                "name": "numberOfImages",
+                "value": "",
+                "type": "query",
+                "description": "Number of images to generate (1-4, default: 1)"
+              },
+              {
+                "name": "negativePrompt",
+                "value": "",
+                "type": "query",
+                "description": "Things to avoid in the generated image (optional)"
+              },
+              {
+                "name": "personGeneration",
+                "value": "",
+                "type": "query",
+                "description": "Control person generation in images (default: allow_adult)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute generate_image_fast"
+        },
+        {
+          "info": {
+            "name": "Execute generate_image_fast",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_fast",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute generate_image_fast"
+        },
+        {
+          "info": {
+            "name": "Execute generate_image_standard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_standard",
+            "params": [
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "Text description of the image you want to generate"
+              },
+              {
+                "name": "aspectRatio",
+                "value": "",
+                "type": "query",
+                "description": "Image aspect ratio (default: 1:1)"
+              },
+              {
+                "name": "imageSize",
+                "value": "",
+                "type": "query",
+                "description": "Image resolution (1K or 2K, default: 1K)"
+              },
+              {
+                "name": "numberOfImages",
+                "value": "",
+                "type": "query",
+                "description": "Number of images to generate (1-4, default: 1)"
+              },
+              {
+                "name": "negativePrompt",
+                "value": "",
+                "type": "query",
+                "description": "Things to avoid in the generated image (optional)"
+              },
+              {
+                "name": "personGeneration",
+                "value": "",
+                "type": "query",
+                "description": "Control person generation in images (default: allow_adult)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute generate_image_standard"
+        },
+        {
+          "info": {
+            "name": "Execute generate_image_standard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_standard",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute generate_image_standard"
+        },
+        {
+          "info": {
+            "name": "Execute generate_image_ultra",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_ultra",
+            "params": [
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "Text description of the image you want to generate"
+              },
+              {
+                "name": "aspectRatio",
+                "value": "",
+                "type": "query",
+                "description": "Image aspect ratio (default: 1:1)"
+              },
+              {
+                "name": "imageSize",
+                "value": "",
+                "type": "query",
+                "description": "Image resolution (1K or 2K, default: 2K)"
+              },
+              {
+                "name": "numberOfImages",
+                "value": "",
+                "type": "query",
+                "description": "Number of images to generate (1-4, default: 1)"
+              },
+              {
+                "name": "negativePrompt",
+                "value": "",
+                "type": "query",
+                "description": "Things to avoid in the generated image (optional)"
+              },
+              {
+                "name": "personGeneration",
+                "value": "",
+                "type": "query",
+                "description": "Control person generation in images (default: allow_adult)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute generate_image_ultra"
+        },
+        {
+          "info": {
+            "name": "Execute generate_image_ultra",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/generate_image_ultra",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute generate_image_ultra"
+        },
+        {
+          "info": {
+            "name": "Execute upscale_image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/upscale_image",
+            "params": [
+              {
+                "name": "imageUrl",
+                "value": "",
+                "type": "query",
+                "description": "URL of the image to upscale (must be publicly accessible)"
+              },
+              {
+                "name": "upscaleFactor",
+                "value": "",
+                "type": "query",
+                "description": "Upscaling factor (x2 or x4, default: x2)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute upscale_image"
+        },
+        {
+          "info": {
+            "name": "Execute upscale_image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/imginny/upscale_image",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute upscale_image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

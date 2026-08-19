@@ -1,0 +1,1065 @@
+{
+  "item": [
+    {
+      "id": "578ed47c-3197-48bc-9249-3d3be1146ef2",
+      "name": "google-news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3ac1b98-a45e-4623-9290-190ddfe9643c",
+          "name": "Execute search_news",
+          "request": {
+            "name": "Execute search_news",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "google-news",
+                "search_news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "validateOutput",
+                  "value": "<boolean>",
+                  "description": "Validate output against schema"
+                },
+                {
+                  "disabled": false,
+                  "key": "strictValidation",
+                  "value": "<boolean>",
+                  "description": "Fail on validation errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMetadata",
+                  "value": "<boolean>",
+                  "description": "Include execution metadata"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed97dac0-4752-47a9-92aa-1c4fdc0ada70",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {},\n  \"metadata\": {\n    \"service\": \"string\",\n    \"tool\": \"string\",\n    \"executionTime\": \"string\",\n    \"creditsUsed\": 9910.49791543912,\n    \"timestamp\": \"1991-07-05T07:32:22.224Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a73c30e7-a601-4383-8cc7-05d71619c704",
+              "name": "Bad request or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "798b0d93-a1ab-4f9d-a982-16a0f86b8553",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fd70710-49d2-4fa6-8aa5-c60b04f53332",
+              "name": "Forbidden (premium access required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11f86065-2fbb-4414-bf6d-708fb65069eb",
+              "name": "Service or tool not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74982ff6-9f1d-4544-a63f-d4d6d9c616b2",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed998b84-023d-4a4b-bc7f-290bec476ddb",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"device\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"lr\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"time_period_min\": \"<string>\",\n  \"time_period_max\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f2dffa9-6d4e-487f-9a62-438bccd4aa3a",
+          "name": "Execute search_news_light",
+          "request": {
+            "name": "Execute search_news_light",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "google-news",
+                "search_news_light"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "validateOutput",
+                  "value": "<boolean>",
+                  "description": "Validate output against schema"
+                },
+                {
+                  "disabled": false,
+                  "key": "strictValidation",
+                  "value": "<boolean>",
+                  "description": "Fail on validation errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMetadata",
+                  "value": "<boolean>",
+                  "description": "Include execution metadata"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a64a314-68ad-4d33-8aa9-1eb53ef07ae0",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {},\n  \"metadata\": {\n    \"service\": \"string\",\n    \"tool\": \"string\",\n    \"executionTime\": \"string\",\n    \"creditsUsed\": 9910.49791543912,\n    \"timestamp\": \"1991-07-05T07:32:22.224Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "745165cf-165c-4a59-b128-8e7e8b5f7215",
+              "name": "Bad request or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8b76b2d-a389-4443-9dfb-74e71a341e70",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ca418f9-b7a5-4566-a248-c53f1ffa679c",
+              "name": "Forbidden (premium access required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e518e9df-6a65-437d-8c99-a68eda744e6f",
+              "name": "Service or tool not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60729daf-b9aa-4634-b2f5-cc081c0a4353",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82940dbc-1eb9-443e-8798-5d4318da704e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-news",
+                    "search_news_light"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"location\": \"<string>\",\n  \"uule\": \"<string>\",\n  \"google_domain\": \"<string>\",\n  \"gl\": \"<string>\",\n  \"hl\": \"<string>\",\n  \"time_period\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"nfpr\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"safe\": \"<string>\",\n  \"num\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.mcp360.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bb9e4fd1-6172-412f-b74f-43e1df2b43a8",
+    "name": "Tools REST Google News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google News search with full and light API support",
+      "type": "text/plain"
+    }
+  }
+}

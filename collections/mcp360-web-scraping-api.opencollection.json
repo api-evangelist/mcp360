@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Web Scraping API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "web-scraping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute scrape_page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/web-scraping/scrape_page",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "URL to scrape"
+              },
+              {
+                "name": "render_js",
+                "value": "",
+                "type": "query",
+                "description": "Render JavaScript content (default: false)"
+              },
+              {
+                "name": "return_page_markdown",
+                "value": "",
+                "type": "query",
+                "description": "Return content as markdown (default: true)"
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Country code for geo-located requests (default: 'us')"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute scrape_page"
+        },
+        {
+          "info": {
+            "name": "Execute scrape_page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/web-scraping/scrape_page",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute scrape_page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

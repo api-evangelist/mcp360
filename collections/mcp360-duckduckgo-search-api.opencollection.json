@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Duckduckgo Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "duckduckgo-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_web",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/duckduckgo-search/search_web",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Country/language locale (e.g., 'us-en', 'uk-en', 'de-de')"
+              },
+              {
+                "name": "safe",
+                "value": "",
+                "type": "query",
+                "description": "Safe search filter level"
+              },
+              {
+                "name": "time_period",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by time period"
+              },
+              {
+                "name": "next_page_token",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_web"
+        },
+        {
+          "info": {
+            "name": "Execute search_web",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/duckduckgo-search/search_web",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_web"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

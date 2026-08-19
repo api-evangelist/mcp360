@@ -1,0 +1,553 @@
+{
+  "item": [
+    {
+      "id": "c7a145d6-0a2e-482e-9c59-05cc051fccd1",
+      "name": "google-hotels",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59d1881c-d640-42c0-a12c-3e5704b7b060",
+          "name": "Execute search_hotels",
+          "request": {
+            "name": "Execute search_hotels",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "google-hotels",
+                "search_hotels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "validateOutput",
+                  "value": "<boolean>",
+                  "description": "Validate output against schema"
+                },
+                {
+                  "disabled": false,
+                  "key": "strictValidation",
+                  "value": "<boolean>",
+                  "description": "Fail on validation errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMetadata",
+                  "value": "<boolean>",
+                  "description": "Include execution metadata"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3ffa7a9-0393-4f73-aab5-bccebbd209d3",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {},\n  \"metadata\": {\n    \"service\": \"string\",\n    \"tool\": \"string\",\n    \"executionTime\": \"string\",\n    \"creditsUsed\": 5896.283387440432,\n    \"timestamp\": \"1966-09-05T10:52:07.067Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06a06dfb-08cd-4105-b1e4-b69714911eaa",
+              "name": "Bad request or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "885117f7-6aef-487f-a557-81bd8e636c76",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b12295f-b25c-452f-ae28-084a4439c26e",
+              "name": "Forbidden (premium access required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0fd4b1e-e8cf-4ecc-a6e5-f44831e48a66",
+              "name": "Service or tool not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a35e7015-a778-4f3c-8780-95dfa189da86",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b89d718-fe2a-41c4-9d35-23e8ab0c95c3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "google-hotels",
+                    "search_hotels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "validateOutput",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "strictValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMetadata",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"check_in_date\": \"<string>\",\n  \"check_out_date\": \"<string>\",\n  \"adults\": 2,\n  \"children_ages\": \"<string>\",\n  \"currency\": \"USD\",\n  \"price_min\": \"<integer>\",\n  \"price_max\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"sort_by\": \"<string>\",\n  \"rating\": \"<string>\",\n  \"amenities\": \"<string>\",\n  \"free_cancellation\": \"<boolean>\",\n  \"special_offers\": \"<boolean>\",\n  \"hotel_class\": \"<integer>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<integer>\",\n  \"country\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.mcp360.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1e8f0f49-f89b-442b-aeb0-7566f010b9cc",
+    "name": "Tools REST Google Hotels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google Hotels search with filters for price, rating, amenities, and availability",
+      "type": "text/plain"
+    }
+  }
+}

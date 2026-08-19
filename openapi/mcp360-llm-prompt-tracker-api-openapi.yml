@@ -1,0 +1,301 @@
+openapi: 3.2.0
+info:
+  title: REST Llm Prompt Tracker API
+  version: 1.0.0
+  description: Track and compare prompt visibility and rankings across AI platforms (ChatGPT, Claude, Perplexity, Grok, Gemini)
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: llm-prompt-tracker
+paths:
+  /api/v1/llm-prompt-tracker/track_prompt:
+    post:
+      summary: Execute track_prompt
+      operationId: llm-prompt-tracker_track_prompt
+      tags:
+      - llm-prompt-tracker
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/llm-prompt-tracker_track_prompt_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute track_prompt
+      operationId: llm-prompt-tracker_track_prompt_get
+      tags:
+      - llm-prompt-tracker
+      parameters:
+      - name: prompt
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The search query or prompt to track for visibility and ranking
+      - name: platform
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The specific AI platform to analyze (e.g., 'claude' for Claude AI)
+      - name: targetUrl
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Optional: Your website URL to check if it appears in the AI''s response and at what position'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/llm-prompt-tracker/compare_prompt:
+    post:
+      summary: Execute compare_prompt
+      operationId: llm-prompt-tracker_compare_prompt
+      tags:
+      - llm-prompt-tracker
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/llm-prompt-tracker_compare_prompt_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    llm-prompt-tracker_compare_prompt_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: 'The search query to analyze across multiple AI platforms simultaneously. Example: "best practices for API development"'
+        targetUrl:
+          type: string
+          format: uri
+          maxLength: 2000
+          description: 'Optional: Your website URL to track its visibility and ranking across all selected platforms. Example: "https://example.com/api-guide"'
+        platforms:
+          anyOf:
+          - type: array
+            items:
+              type: string
+              enum:
+              - perplexity
+              - chatgpt
+              - claude
+              - grok
+              - gemini
+            minItems: 1
+            maxItems: 5
+          - type: string
+          default:
+          - perplexity
+          - chatgpt
+          - claude
+          - grok
+          - gemini
+          description: 'AI platforms to compare. Executes in parallel for speed. Formats: ["claude","chatgpt"] or "claude,chatgpt". Default: all 5 platforms. Available: perplexity, chatgpt, claude, grok, gemini'
+      required:
+      - prompt
+      additionalProperties: false
+    llm-prompt-tracker_track_prompt_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: The search query or prompt to track for visibility and ranking
+        platform:
+          type: string
+          enum:
+          - perplexity
+          - chatgpt
+          - claude
+          - grok
+          - gemini
+          description: The specific AI platform to analyze (e.g., 'claude' for Claude AI)
+        targetUrl:
+          type: string
+          format: uri
+          maxLength: 2000
+          description: 'Optional: Your website URL to check if it appears in the AI''s response and at what position'
+      required:
+      - prompt
+      - platform
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

@@ -1,0 +1,398 @@
+openapi: 3.2.0
+info:
+  title: Domain Lookup Service REST Whois API
+  version: 1.0.0
+  description: Domain registration, WHOIS information, and domain availability checking
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: whois
+paths:
+  /api/v1/whois/lookup_domain:
+    post:
+      summary: Execute lookup_domain
+      operationId: whois_lookup_domain
+      tags:
+      - whois
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/whois_lookup_domain_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute lookup_domain
+      operationId: whois_lookup_domain_get
+      tags:
+      - whois
+      parameters:
+      - name: domain
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Domain name to lookup (e.g., example.com)
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/whois/check_availability:
+    post:
+      summary: Execute check_availability
+      operationId: whois_check_availability
+      tags:
+      - whois
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/whois_check_availability_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute check_availability
+      operationId: whois_check_availability_get
+      tags:
+      - whois
+      parameters:
+      - name: domain
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Domain name to check availability (e.g., example.com)
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/whois/bulk_check_availability:
+    post:
+      summary: Execute bulk_check_availability
+      operationId: whois_bulk_check_availability
+      tags:
+      - whois
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/whois_bulk_check_availability_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    whois_check_availability_input:
+      type: object
+      properties:
+        domain:
+          type: string
+          minLength: 3
+          maxLength: 253
+          pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          description: Domain name to check availability (e.g., example.com)
+      required:
+      - domain
+      additionalProperties: false
+    whois_lookup_domain_input:
+      type: object
+      properties:
+        domain:
+          type: string
+          minLength: 3
+          maxLength: 253
+          pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          description: Domain name to lookup (e.g., example.com)
+      required:
+      - domain
+      additionalProperties: false
+    whois_bulk_check_availability_input:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+            minLength: 3
+            maxLength: 253
+            pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          minItems: 1
+          maxItems: 20
+          description: Array of domain names to check (max 20 domains, e.g., ['example.com', 'test.org'])
+      required:
+      - domains
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

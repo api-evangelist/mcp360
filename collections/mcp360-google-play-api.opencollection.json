@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Store Tools REST Google Play API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "google-play",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/google-play/search_store",
+            "params": [
+              {
+                "name": "store",
+                "value": "",
+                "type": "query",
+                "description": "Play Store type to search"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Category filter"
+              },
+              {
+                "name": "chart",
+                "value": "",
+                "type": "query",
+                "description": "Top charts (e.g., 'topselling_free', 'topgrossing', 'movers_shakers')"
+              },
+              {
+                "name": "gl",
+                "value": "",
+                "type": "query",
+                "description": "Country code (e.g., 'us', 'uk', 'jp')"
+              },
+              {
+                "name": "hl",
+                "value": "",
+                "type": "query",
+                "description": "Language code (e.g., 'en', 'es', 'ja')"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Filter by price: '1' for free, '2' for paid"
+              },
+              {
+                "name": "next_page_token",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_store"
+        },
+        {
+          "info": {
+            "name": "Execute search_store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-play/search_store",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_store"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/google-play/get_product_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_product_details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

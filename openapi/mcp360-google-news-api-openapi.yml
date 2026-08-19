@@ -1,0 +1,331 @@
+openapi: 3.2.0
+info:
+  title: Tools REST Google News API
+  version: 1.0.0
+  description: Google News search with full and light API support
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: google-news
+paths:
+  /api/v1/google-news/search_news:
+    post:
+      summary: Execute search_news
+      operationId: google-news_search_news
+      tags:
+      - google-news
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google-news_search_news_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/google-news/search_news_light:
+    post:
+      summary: Execute search_news_light
+      operationId: google-news_search_news_light
+      tags:
+      - google-news
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google-news_search_news_light_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    google-news_search_news_input:
+      type: object
+      properties:
+        q:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Search query (supports operators like site:, inurl:)
+        device:
+          type: string
+          enum:
+          - desktop
+          - mobile
+          - tablet
+          description: 'Device type (default: desktop)'
+        location:
+          type: string
+          maxLength: 100
+          description: Canonical location for search
+        uule:
+          type: string
+          description: Google-encoded location (cannot use with location)
+        google_domain:
+          type: string
+          maxLength: 50
+          description: 'Google domain (default: google.com)'
+        gl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Country code (default: us)'
+        hl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Interface language (default: en)'
+        lr:
+          type: string
+          description: Language restriction
+        time_period:
+          type: string
+          enum:
+          - last_hour
+          - last_day
+          - last_week
+          - last_month
+          - last_year
+          description: Filter by time period
+        time_period_min:
+          type: string
+          pattern: ^\d{2}\/\d{2}\/\d{4}$
+          description: Start date (MM/DD/YYYY)
+        time_period_max:
+          type: string
+          pattern: ^\d{2}\/\d{2}\/\d{4}$
+          description: End date (MM/DD/YYYY)
+        sort_by:
+          type: string
+          enum:
+          - most_recent
+          description: Sort by 'most_recent'. Omit for default relevance sorting.
+        nfpr:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Control auto-corrected results (0: include, 1: exclude)'
+        filter:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Duplicate content filter (0: disabled, 1: enabled)'
+        safe:
+          type: string
+          enum:
+          - 'off'
+          - active
+          description: SafeSearch setting
+        num:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: Results per page
+        page:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: 'Page number (default: 1)'
+      additionalProperties: false
+    google-news_search_news_light_input:
+      type: object
+      properties:
+        q:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Search query (supports operators like site:, inurl:)
+        location:
+          type: string
+          maxLength: 100
+          description: Canonical location for search
+        uule:
+          type: string
+          description: Google-encoded location (cannot use with location)
+        google_domain:
+          type: string
+          maxLength: 50
+          description: 'Google domain (default: google.com)'
+        gl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Country code (default: us)'
+        hl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Interface language (default: en)'
+        time_period:
+          type: string
+          enum:
+          - last_hour
+          - last_day
+          - last_week
+          - last_month
+          - last_year
+          description: Filter by time period
+        sort_by:
+          type: string
+          enum:
+          - most_recent
+          description: Sort by 'most_recent'. Omit for default relevance sorting.
+        nfpr:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Control auto-corrected results (0: include, 1: exclude)'
+        filter:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Duplicate content filter (0: disabled, 1: enabled)'
+        safe:
+          type: string
+          enum:
+          - 'off'
+          - active
+          description: SafeSearch setting
+        num:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: Results per page
+        page:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: 'Page number (default: 1)'
+      required:
+      - q
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

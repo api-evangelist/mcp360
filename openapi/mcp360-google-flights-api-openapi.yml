@@ -1,0 +1,485 @@
+openapi: 3.2.0
+info:
+  title: Tools REST Google Flights API
+  version: 1.0.0
+  description: Google Flights search with detailed flight info, price calendars, and airport lookup
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: google-flights
+paths:
+  /api/v1/google-flights/search_flights:
+    post:
+      summary: Execute search_flights
+      operationId: google-flights_search_flights
+      tags:
+      - google-flights
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google-flights_search_flights_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/google-flights/search_flight_calendar:
+    post:
+      summary: Execute search_flight_calendar
+      operationId: google-flights_search_flight_calendar
+      tags:
+      - google-flights
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google-flights_search_flight_calendar_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/google-flights/search_airport:
+    post:
+      summary: Execute search_airport
+      operationId: google-flights_search_airport
+      tags:
+      - google-flights
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google-flights_search_airport_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute search_airport
+      operationId: google-flights_search_airport_get
+      tags:
+      - google-flights
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Airport or city name to search (e.g., 'New York', 'Paris', 'JFK')
+      - name: search_type
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Type of search (departure or arrival)
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    google-flights_search_airport_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9\s\-,.'()]+$
+          description: Airport or city name to search (e.g., 'New York', 'Paris', 'JFK')
+        search_type:
+          type: string
+          enum:
+          - departure
+          - arrival
+          default: departure
+          description: Type of search (departure or arrival)
+      required:
+      - query
+      additionalProperties: false
+    google-flights_search_flight_calendar_input:
+      type: object
+      properties:
+        departure_id:
+          type: string
+          minLength: 3
+          maxLength: 4
+          pattern: ^[A-Z]{3,4}$
+          description: Departure airport code
+        arrival_id:
+          type: string
+          minLength: 3
+          maxLength: 4
+          pattern: ^[A-Z]{3,4}$
+          description: Arrival airport code
+        outbound_date_start:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Earliest departure date (YYYY-MM-DD) — required
+        outbound_date_end:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Latest departure date (YYYY-MM-DD)
+        return_date_start:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Earliest return date (YYYY-MM-DD)
+        return_date_end:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Latest return date (YYYY-MM-DD)
+        flight_type:
+          type: string
+          enum:
+          - round_trip
+          - one_way
+          default: round_trip
+        travel_class:
+          type: string
+          enum:
+          - economy
+          - premium_economy
+          - business
+          - first
+        stops:
+          type: string
+          enum:
+          - any
+          - nonstop
+          - one_stop_or_fewer
+          - two_stops_or_fewer
+        adults:
+          type: integer
+          minimum: 1
+          maximum: 9
+          default: 1
+        max_price:
+          type: number
+          exclusiveMinimum: 0
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          pattern: ^[A-Z]{3}$
+          default: USD
+      required:
+      - departure_id
+      - arrival_id
+      - outbound_date_start
+      additionalProperties: false
+    google-flights_search_flights_input:
+      type: object
+      properties:
+        departure_id:
+          type: string
+          minLength: 3
+          maxLength: 4
+          pattern: ^[A-Z]{3,4}$
+          description: Departure airport code (e.g., 'JFK', 'LAX', 'NYC')
+        arrival_id:
+          type: string
+          minLength: 3
+          maxLength: 4
+          pattern: ^[A-Z]{3,4}$
+          description: Arrival airport code (e.g., 'LHR', 'CDG', 'LON')
+        outbound_date:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Departure date (YYYY-MM-DD)
+        return_date:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          description: Return date for round trip (YYYY-MM-DD)
+        flight_type:
+          type: string
+          enum:
+          - round_trip
+          - one_way
+          default: round_trip
+        travel_class:
+          type: string
+          enum:
+          - economy
+          - premium_economy
+          - business
+          - first
+          description: Travel class
+        stops:
+          type: string
+          enum:
+          - any
+          - nonstop
+          - one_stop_or_fewer
+          - two_stops_or_fewer
+          description: Number of stops preference
+        adults:
+          type: integer
+          minimum: 1
+          maximum: 9
+          default: 1
+        children:
+          type: integer
+          minimum: 0
+          maximum: 8
+        infants_in_seat:
+          type: integer
+          minimum: 0
+          maximum: 8
+        infants_on_lap:
+          type: integer
+          minimum: 0
+          maximum: 8
+        max_price:
+          type: number
+          exclusiveMinimum: 0
+          description: Maximum price filter
+        sort_by:
+          type: string
+          enum:
+          - best
+          - price
+          - duration
+          - departure_time
+          description: Sort results by
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          pattern: ^[A-Z]{3}$
+          default: USD
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          pattern: ^[a-z]{2}(-[a-z]{2})?$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - departure_id
+      - arrival_id
+      - outbound_date
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

@@ -302,3 +302,35 @@ servers:
 coverage:
   servers: 38
   tools: 106
+deployment:
+  mode: both
+  endpoint: https://connect.mcp360.ai/v1/mcp360/mcp
+  endpoint_pattern: https://connect.mcp360.ai/v1/{service}/mcp
+  install: npx -y @mcp360/universal-gateway
+  install_correction: 'The provider README publishes `npx -y @mcp360/universal-gateway`, but that package
+    returns 404 on the npm registry. The package that actually exists is @mcp360ai/unified-gateway (bin:
+    mcp360-gateway), so the working command is `npx -y @mcp360ai/unified-gateway`. Recorded verbatim plus
+    the correction rather than silently rewriting the provider''s documented command.'
+  package: https://www.npmjs.com/package/@mcp360ai/unified-gateway
+  auth: oauth
+  auth_detail: OAuth 2.1 bearer is the advertised default (the stdio launcher falls back to a browser OAuth
+    flow when MCP360_API_KEY is unset); an API key via ?token= or X-API-Key is also accepted.
+  verified: probed
+  checked: '2026-08-14'
+  probe:
+  - request: POST https://connect.mcp360.ai/v1/mcp360/mcp (jsonrpc tools/list, no credentials)
+    http_status: 401
+    www_authenticate: Bearer resource_metadata="https://connect.mcp360.ai/.well-known/oauth-protected-resource"
+    result: live, auth-gated — an RFC 9728 challenge is a reachable MCP server, not a dead host
+  - request: POST https://connect.mcp360.ai/v1/weather/mcp (jsonrpc tools/list, no credentials)
+    http_status: 401
+    result: live, auth-gated — the per-service pattern resolves for a real service slug
+  - request: 'POST https://connect.mcp360.ai/v1/{service}/mcp (the literal template string)'
+    http_status: 404
+    result: 404 — this is what a probe hits when {service} is not substituted
+  correction_note: 'A 2026-08-12 catalog MCP census recorded mode: none / probe: dead for this provider.
+    That probe was run against the templated literal https://connect.mcp360.ai/v1/{service}/mcp, which
+    404s because {service} was never substituted. Re-probed 2026-08-14 with a real service slug: the gateway
+    answers 401 with an RFC 9728 WWW-Authenticate challenge on both the mcp360 meta endpoint and a per-service
+    endpoint. The server is live. Corrected to mode: both — MCP360 ships a hosted remote endpoint AND a
+    local stdio npm package, which are two different products and both are real.'

@@ -1,0 +1,467 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Product Search Tools REST Amazon Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "amazon-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/search_products",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Product search query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Amazon marketplace: 'us', 'uk', 'de', 'fr', 'jp', 'ca', 'in', etc."
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price filter"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price filter"
+              },
+              {
+                "name": "prime_only",
+                "value": "",
+                "type": "query",
+                "description": "Show only Prime-eligible products"
+              },
+              {
+                "name": "min_rating",
+                "value": "",
+                "type": "query",
+                "description": "Minimum customer rating (1-5)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_products"
+        },
+        {
+          "info": {
+            "name": "Execute search_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/search_products",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_products"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/get_product_details",
+            "params": [
+              {
+                "name": "asin",
+                "value": "",
+                "type": "query",
+                "description": "Amazon ASIN (product identifier)"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Amazon marketplace: 'us', 'uk', 'de', 'fr', 'jp', 'ca', 'in'"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_product_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/get_product_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_product_details"
+        },
+        {
+          "info": {
+            "name": "Execute filter_by_category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/filter_by_category",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Category (e.g., 'Electronics', 'Books', 'Clothing')"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Amazon marketplace: 'us', 'uk', 'de', 'fr', 'jp', 'ca', 'in'"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort by: 'featured', 'price_low_to_high', 'price_high_to_low', 'average_review', 'newest_arrivals', 'bestsellers'"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute filter_by_category"
+        },
+        {
+          "info": {
+            "name": "Execute filter_by_category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/filter_by_category",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute filter_by_category"
+        },
+        {
+          "info": {
+            "name": "Execute search_prime_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/search_prime_products",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Product search query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Amazon marketplace: 'us', 'uk', 'de', 'fr', 'jp', 'ca', 'in'"
+              },
+              {
+                "name": "min_rating",
+                "value": "",
+                "type": "query",
+                "description": "Minimum customer rating (1-5)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_prime_products"
+        },
+        {
+          "info": {
+            "name": "Execute search_prime_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/search_prime_products",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_prime_products"
+        },
+        {
+          "info": {
+            "name": "Execute find_product_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/find_product_position",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Search keyword or phrase to check your product's ranking for (e.g., 'wireless headphones', 'running shoes')"
+              },
+              {
+                "name": "product_url",
+                "value": "",
+                "type": "query",
+                "description": "Your Amazon product URL (e.g., 'https://amazon.com/dp/B08XYZ' or just ASIN like 'B08XYZ')"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Amazon marketplace: 'us', 'uk', 'de', 'fr', 'jp', 'ca', 'in'"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute find_product_position"
+        },
+        {
+          "info": {
+            "name": "Execute find_product_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/find_product_position",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute find_product_position"
+        },
+        {
+          "info": {
+            "name": "Execute bulk_find_product_position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/amazon-search/bulk_find_product_position",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute bulk_find_product_position"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

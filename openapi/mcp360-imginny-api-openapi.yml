@@ -1,0 +1,788 @@
+openapi: 3.2.0
+info:
+  title: AI Image Generation REST Imginny API
+  version: 1.0.0
+  description: AI-powered image generation and editing using Google Imagen. Create stunning images from text descriptions, upscale existing images, and more.
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: imginny
+paths:
+  /api/v1/imginny/generate_image_fast:
+    post:
+      summary: Execute generate_image_fast
+      operationId: imginny_generate_image_fast
+      tags:
+      - imginny
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/imginny_generate_image_fast_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute generate_image_fast
+      operationId: imginny_generate_image_fast_get
+      tags:
+      - imginny
+      parameters:
+      - name: prompt
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Text description of the image you want to generate
+      - name: aspectRatio
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Image aspect ratio (default: 1:1)'
+      - name: numberOfImages
+        in: query
+        required: false
+        schema:
+          type: number
+        description: 'Number of images to generate (1-4, default: 1)'
+      - name: negativePrompt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Things to avoid in the generated image (optional)
+      - name: personGeneration
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Control person generation in images (default: allow_adult)'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/imginny/generate_image_standard:
+    post:
+      summary: Execute generate_image_standard
+      operationId: imginny_generate_image_standard
+      tags:
+      - imginny
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/imginny_generate_image_standard_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute generate_image_standard
+      operationId: imginny_generate_image_standard_get
+      tags:
+      - imginny
+      parameters:
+      - name: prompt
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Text description of the image you want to generate
+      - name: aspectRatio
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Image aspect ratio (default: 1:1)'
+      - name: imageSize
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Image resolution (1K or 2K, default: 1K)'
+      - name: numberOfImages
+        in: query
+        required: false
+        schema:
+          type: number
+        description: 'Number of images to generate (1-4, default: 1)'
+      - name: negativePrompt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Things to avoid in the generated image (optional)
+      - name: personGeneration
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Control person generation in images (default: allow_adult)'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/imginny/generate_image_ultra:
+    post:
+      summary: Execute generate_image_ultra
+      operationId: imginny_generate_image_ultra
+      tags:
+      - imginny
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/imginny_generate_image_ultra_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute generate_image_ultra
+      operationId: imginny_generate_image_ultra_get
+      tags:
+      - imginny
+      parameters:
+      - name: prompt
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Text description of the image you want to generate
+      - name: aspectRatio
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Image aspect ratio (default: 1:1)'
+      - name: imageSize
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Image resolution (1K or 2K, default: 2K)'
+      - name: numberOfImages
+        in: query
+        required: false
+        schema:
+          type: number
+        description: 'Number of images to generate (1-4, default: 1)'
+      - name: negativePrompt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Things to avoid in the generated image (optional)
+      - name: personGeneration
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Control person generation in images (default: allow_adult)'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/imginny/upscale_image:
+    post:
+      summary: Execute upscale_image
+      operationId: imginny_upscale_image
+      tags:
+      - imginny
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/imginny_upscale_image_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute upscale_image
+      operationId: imginny_upscale_image_get
+      tags:
+      - imginny
+      parameters:
+      - name: imageUrl
+        in: query
+        required: true
+        schema:
+          type: string
+        description: URL of the image to upscale (must be publicly accessible)
+      - name: upscaleFactor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Upscaling factor (x2 or x4, default: x2)'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    imginny_generate_image_fast_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Text description of the image you want to generate
+        aspectRatio:
+          type: string
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          default: '1:1'
+          description: 'Image aspect ratio (default: 1:1)'
+        numberOfImages:
+          type: number
+          minimum: 1
+          maximum: 4
+          default: 1
+          description: 'Number of images to generate (1-4, default: 1)'
+        negativePrompt:
+          type: string
+          description: Things to avoid in the generated image (optional)
+        personGeneration:
+          type: string
+          enum:
+          - dont_allow
+          - allow_adult
+          - allow_all
+          default: allow_adult
+          description: 'Control person generation in images (default: allow_adult)'
+      required:
+      - prompt
+      additionalProperties: false
+    imginny_generate_image_standard_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Text description of the image you want to generate
+        aspectRatio:
+          type: string
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          default: '1:1'
+          description: 'Image aspect ratio (default: 1:1)'
+        imageSize:
+          type: string
+          enum:
+          - 1K
+          - 2K
+          default: 1K
+          description: 'Image resolution (1K or 2K, default: 1K)'
+        numberOfImages:
+          type: number
+          minimum: 1
+          maximum: 4
+          default: 1
+          description: 'Number of images to generate (1-4, default: 1)'
+        negativePrompt:
+          type: string
+          description: Things to avoid in the generated image (optional)
+        personGeneration:
+          type: string
+          enum:
+          - dont_allow
+          - allow_adult
+          - allow_all
+          default: allow_adult
+          description: 'Control person generation in images (default: allow_adult)'
+      required:
+      - prompt
+      additionalProperties: false
+    imginny_generate_image_ultra_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Text description of the image you want to generate
+        aspectRatio:
+          type: string
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          default: '1:1'
+          description: 'Image aspect ratio (default: 1:1)'
+        imageSize:
+          type: string
+          enum:
+          - 1K
+          - 2K
+          default: 2K
+          description: 'Image resolution (1K or 2K, default: 2K)'
+        numberOfImages:
+          type: number
+          minimum: 1
+          maximum: 4
+          default: 1
+          description: 'Number of images to generate (1-4, default: 1)'
+        negativePrompt:
+          type: string
+          description: Things to avoid in the generated image (optional)
+        personGeneration:
+          type: string
+          enum:
+          - dont_allow
+          - allow_adult
+          - allow_all
+          default: allow_adult
+          description: 'Control person generation in images (default: allow_adult)'
+      required:
+      - prompt
+      additionalProperties: false
+    imginny_upscale_image_input:
+      type: object
+      properties:
+        imageUrl:
+          type: string
+          format: uri
+          description: URL of the image to upscale (must be publicly accessible)
+        upscaleFactor:
+          type: string
+          enum:
+          - x2
+          - x4
+          default: x2
+          description: 'Upscaling factor (x2 or x4, default: x2)'
+      required:
+      - imageUrl
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

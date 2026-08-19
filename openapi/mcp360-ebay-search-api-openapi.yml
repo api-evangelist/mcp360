@@ -1,0 +1,574 @@
+openapi: 3.2.0
+info:
+  title: eBay Product Search Tools REST Ebay Search API
+  version: 1.0.0
+  description: eBay product search, auctions, marketplace data, and detailed product information
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: ebay-search
+paths:
+  /api/v1/ebay-search/search_products:
+    post:
+      summary: Execute search_products
+      operationId: ebay-search_search_products
+      tags:
+      - ebay-search
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebay-search_search_products_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute search_products
+      operationId: ebay-search_search_products_get
+      tags:
+      - ebay-search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Product search query
+      - name: site
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+      - name: condition
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Item condition: ''new'', ''new_opened'', ''like_new'', ''pre_owned_excellent'', ''pre_owned_fair'', ''certified_refurbished'', ''seller_refurbished'', ''for_parts_or_not_working'''
+      - name: min_price
+        in: query
+        required: false
+        schema:
+          type: number
+        description: Minimum price filter
+      - name: max_price
+        in: query
+        required: false
+        schema:
+          type: number
+        description: Maximum price filter
+      - name: buy_it_now_only
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Show only Buy It Now items
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/ebay-search/search_auctions:
+    post:
+      summary: Execute search_auctions
+      operationId: ebay-search_search_auctions
+      tags:
+      - ebay-search
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebay-search_search_auctions_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute search_auctions
+      operationId: ebay-search_search_auctions_get
+      tags:
+      - ebay-search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Auction search query
+      - name: site
+        in: query
+        required: false
+        schema:
+          type: string
+        description: eBay site
+      - name: ending_soon
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Show auctions ending soon
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+  /api/v1/ebay-search/get_product_details:
+    post:
+      summary: Execute get_product_details
+      operationId: ebay-search_get_product_details
+      tags:
+      - ebay-search
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ebay-search_get_product_details_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute get_product_details
+      operationId: ebay-search_get_product_details_get
+      tags:
+      - ebay-search
+      parameters:
+      - name: item_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: eBay item ID or product ID
+      - name: site
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+      - name: country
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Two-letter ISO country code (e.g., 'US', 'GB', 'DE')
+      - name: delivery_country
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Delivery country code for shipping calculation
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    ebay-search_search_auctions_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Auction search query
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: eBay site
+        ending_soon:
+          type: boolean
+          default: false
+          description: Show auctions ending soon
+      required:
+      - query
+      additionalProperties: false
+    ebay-search_get_product_details_input:
+      type: object
+      properties:
+        item_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: eBay item ID or product ID
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: Two-letter ISO country code (e.g., 'US', 'GB', 'DE')
+        delivery_country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: Delivery country code for shipping calculation
+      required:
+      - item_id
+      additionalProperties: false
+    ebay-search_search_products_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Product search query
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+        condition:
+          type: string
+          enum:
+          - new
+          - new_opened
+          - like_new
+          - pre_owned_excellent
+          - pre_owned_fair
+          - certified_refurbished
+          - seller_refurbished
+          - for_parts_or_not_working
+          description: 'Item condition: ''new'', ''new_opened'', ''like_new'', ''pre_owned_excellent'', ''pre_owned_fair'', ''certified_refurbished'', ''seller_refurbished'', ''for_parts_or_not_working'''
+        min_price:
+          type: number
+          minimum: 0
+          maximum: 1000000
+          description: Minimum price filter
+        max_price:
+          type: number
+          exclusiveMinimum: 0
+          maximum: 1000000
+          description: Maximum price filter
+        buy_it_now_only:
+          type: boolean
+          default: false
+          description: Show only Buy It Now items
+      required:
+      - query
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

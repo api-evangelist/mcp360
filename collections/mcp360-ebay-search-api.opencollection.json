@@ -1,0 +1,282 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "eBay Product Search Tools REST Ebay Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ebay-search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute search_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/search_products",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Product search query"
+              },
+              {
+                "name": "site",
+                "value": "",
+                "type": "query",
+                "description": "eBay site: 'ebay.com', 'ebay.co.uk', 'ebay.de', etc."
+              },
+              {
+                "name": "condition",
+                "value": "",
+                "type": "query",
+                "description": "Item condition: 'new', 'new_opened', 'like_new', 'pre_owned_excellent', 'pre_owned_fair', 'certified_refurbished', 'seller_refurbished', 'for_parts_or_not_working'"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price filter"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price filter"
+              },
+              {
+                "name": "buy_it_now_only",
+                "value": "",
+                "type": "query",
+                "description": "Show only Buy It Now items"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_products"
+        },
+        {
+          "info": {
+            "name": "Execute search_products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/search_products",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_products"
+        },
+        {
+          "info": {
+            "name": "Execute search_auctions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/search_auctions",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Auction search query"
+              },
+              {
+                "name": "site",
+                "value": "",
+                "type": "query",
+                "description": "eBay site"
+              },
+              {
+                "name": "ending_soon",
+                "value": "",
+                "type": "query",
+                "description": "Show auctions ending soon"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute search_auctions"
+        },
+        {
+          "info": {
+            "name": "Execute search_auctions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/search_auctions",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute search_auctions"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/get_product_details",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "eBay item ID or product ID"
+              },
+              {
+                "name": "site",
+                "value": "",
+                "type": "query",
+                "description": "eBay site: 'ebay.com', 'ebay.co.uk', 'ebay.de', etc."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter ISO country code (e.g., 'US', 'GB', 'DE')"
+              },
+              {
+                "name": "delivery_country",
+                "value": "",
+                "type": "query",
+                "description": "Delivery country code for shipping calculation"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_product_details"
+        },
+        {
+          "info": {
+            "name": "Execute get_product_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/ebay-search/get_product_details",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_product_details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

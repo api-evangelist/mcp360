@@ -1,0 +1,103 @@
+generated: '2026-08-14'
+method: searched
+source: https://github.com/mcp360/mTarsier (README), https://github.com/mcp360/unified-gateway-mcp (README),
+  https://mcp360.ai/mtarsier
+scope_note: MCP360 ships two first-party terminal binaries, and NEITHER is a conventional client for the
+  hosted gateway REST API at connect.mcp360.ai. `tsr` is a general MCP server and Agent Skill manager;
+  `mcp360-gateway` is the stdio MCP launcher that fronts the gateway for a local MCP client. There is no
+  `mcp360` CLI that calls /api/v1/{service}/{tool} directly — REST consumers still hand-roll HTTP. Recorded
+  with the scope stated rather than presented as an API CLI it is not.
+clis:
+- name: tsr
+  product: mTarsier
+  official: true
+  license: MIT
+  repository: https://github.com/mcp360/mTarsier
+  product_url: https://mcp360.ai/mtarsier
+  latest_release: v1.2.0
+  latest_release_date: '2026-04-20'
+  purpose: Terminal management of MCP servers and Agent Skills across every installed AI client (Claude
+    Desktop, Claude Code, Cursor, Windsurf, VS Code, GitHub Copilot CLI, Gemini CLI, Codex CLI, Open Code).
+  install:
+  - method: bundled
+    command: Settings -> CLI Tool -> Install tsr CLI (from the mTarsier desktop app)
+    note: The CLI is installed by the desktop application; there is no standalone package.
+  - method: homebrew
+    command: brew install mcp360/tap/tsr
+    status: announced as "coming soon" in the README — tap not verified as published
+  - method: desktop-download
+    command: Download the installer from https://github.com/mcp360/mTarsier/releases/latest
+    artifacts:
+    - mTarsier_*_aarch64.dmg (macOS Apple Silicon)
+    - mTarsier_*_x64.dmg (macOS Intel)
+    - mTarsier_*_x64-setup.exe (Windows)
+    - mTarsier_*_amd64.AppImage (Linux)
+    - mTarsier_*_amd64.deb (Linux)
+  command_groups:
+  - group: mcp-servers
+    commands:
+    - command: tsr list
+      description: List every MCP server and which clients it is installed into.
+    - command: tsr clients
+      description: List detected AI clients and the config file path for each.
+    - command: tsr install <server>
+      description: Install an MCP server from the marketplace into a client.
+    - command: tsr config <client> --edit
+      description: Open a client's MCP config in $EDITOR.
+    - command: tsr ping <name>
+      description: Ping a configured MCP server to check it responds.
+  - group: skills
+    commands:
+    - command: tsr skills list --client <client>
+      description: List Agent Skills installed for a client.
+    - command: tsr skills search "<query>"
+      description: Search available Agent Skills.
+    - command: tsr skills install <owner>/<repo>/<skill> --client <client>
+      description: Install an Agent Skill into a client.
+    - command: tsr skills remove <skill> --client <client>
+      description: Remove an Agent Skill from a client.
+- name: mcp360-gateway
+  product: MCP360 Unified Gateway (stdio)
+  official: true
+  license: MIT
+  registry: npm
+  package: '@mcp360ai/unified-gateway'
+  package_url: https://www.npmjs.com/package/@mcp360ai/unified-gateway
+  repository: https://github.com/mcp360/unified-gateway-mcp
+  version: 1.0.2
+  published: '2025-11-26'
+  purpose: Stdio MCP server binary that fronts the hosted gateway for a local MCP client. It is a server
+    launcher invoked by a client config, not an interactive command surface.
+  install:
+  - method: npx
+    command: npx -y @mcp360ai/unified-gateway
+  - method: npm-global
+    command: npm install -g @mcp360ai/unified-gateway
+    documented_as: npm install -g @mcp360/universal-gateway
+    note: The README documents the @mcp360/universal-gateway name, which 404s on npm. See
+      packages/mcp360-packages.yml.
+  configuration:
+    env:
+    - name: MCP360_API_KEY
+      description: Gateway API key. If unset, the launcher falls back to a browser OAuth 2.0 flow.
+    - name: MCP360_UNIVERSAL_GATEWAY
+      description: Override the gateway URL (default https://connect.mcp360.ai/v1/mcp360/mcp).
+    - name: MCP360_TOOL_URL
+      description: Point the launcher at a single per-service endpoint instead of the meta gateway.
+evidence:
+- url: https://raw.githubusercontent.com/mcp360/mTarsier/HEAD/README.md
+  status: 200
+  fetched: '2026-08-14'
+- url: https://raw.githubusercontent.com/mcp360/unified-gateway-mcp/HEAD/README.md
+  status: 200
+  fetched: '2026-08-14'
+- url: https://api.github.com/repos/mcp360/mTarsier/releases
+  status: 200
+  fetched: '2026-08-14'
+  result: 5 releases, latest v1.2.0 on 2026-04-20
+gaps:
+- No CLI for the gateway REST API itself — nothing wraps /api/v1/{service}/{tool}.
+- No published manual, --help reference or man page for tsr beyond the README examples.
+- The Homebrew tap is advertised as "coming soon" and was not verified as published.
+- mTarsier's last release is 2026-04-20; the stdio gateway package has not been republished since
+  2025-11-26.

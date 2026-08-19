@@ -1,0 +1,294 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tools REST Weather API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "weather",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute get_current_weather",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_current_weather",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude coordinate"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude coordinate"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "City name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "US state (for US cities)"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country name"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_current_weather"
+        },
+        {
+          "info": {
+            "name": "Execute get_current_weather",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_current_weather",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_current_weather"
+        },
+        {
+          "info": {
+            "name": "Execute get_weather_forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_weather_forecast",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude coordinate"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude coordinate"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "City name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "US state (for US cities)"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country name"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_weather_forecast"
+        },
+        {
+          "info": {
+            "name": "Execute get_weather_forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_weather_forecast",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_weather_forecast"
+        },
+        {
+          "info": {
+            "name": "Execute get_historical_weather",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_historical_weather",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude coordinate"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude coordinate"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date (YYYY-MM-DD)"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date (YYYY-MM-DD)"
+              },
+              {
+                "name": "include_hourly",
+                "value": "",
+                "type": "query",
+                "description": "Include hourly data (true/false)"
+              },
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ]
+          },
+          "docs": "Execute get_historical_weather"
+        },
+        {
+          "info": {
+            "name": "Execute get_historical_weather",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.mcp360.ai/api/v1/weather/get_historical_weather",
+            "params": [
+              {
+                "name": "validateOutput",
+                "value": "",
+                "type": "query",
+                "description": "Validate output against schema"
+              },
+              {
+                "name": "strictValidation",
+                "value": "",
+                "type": "query",
+                "description": "Fail on validation errors"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query",
+                "description": "Include execution metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute get_historical_weather"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

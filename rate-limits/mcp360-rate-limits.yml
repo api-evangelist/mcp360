@@ -1,0 +1,78 @@
+generated: '2026-08-13'
+method: probed
+source: https://mcp360.ai/docs, https://mcp360.ai/pricing, openapi/*.yml, live responses from https://connect.mcp360.ai
+limit_count: 0
+note: MCP360 publishes no request-rate limits anywhere. The docs page states only that the platform "handles
+  authentication, rate limiting, error handling, and monitoring" as marketing prose — no number, no window,
+  no scope. Quota is enforced as monthly credits per plan (see plans/mcp360-plans.yml), which is a spend
+  ceiling, not a rate limit. Recorded as an honest zero, not as an absent check.
+limits: []
+exhaustion:
+  status_code: 429
+  declared_in_spec: true
+  operations_declaring_429: 178
+  operations_total: 178
+  spec_description: Rate limit exceeded
+  evidence: All 38 generated OpenAPI documents declare a '429' response on every one of their 178 operations,
+    so a rate limit is enforced server-side even though its value is unpublished.
+  body_shape: unknown — a 429 was not induced; the documented error envelope is {error,message,hint}
+    (see errors/mcp360-problem-types.yml).
+headers:
+  ratelimit_draft: false
+  x_ratelimit: false
+  retry_after: false
+  evidence: No RateLimit-*, X-RateLimit-* or Retry-After header appears on any observed response.
+  observed:
+  - request: 'POST https://connect.mcp360.ai/api/v1/mcp360/search (no credentials)'
+    http_status: 401
+    probed: '2026-08-13'
+    rate_limit_headers: none
+    headers_seen:
+    - date
+    - content-type
+    - content-length
+    - access-control-allow-origin
+    - access-control-allow-headers
+    - access-control-allow-methods
+    - server (cloudflare)
+    - cf-ray
+  - request: 'GET https://connect.mcp360.ai/api/v1/weather'
+    http_status: 200
+    probed: '2026-08-13'
+    rate_limit_headers: none
+  - request: 'GET https://connect.mcp360.ai/'
+    http_status: 200
+    probed: '2026-08-13'
+    rate_limit_headers: none
+quota:
+  model: monthly credits
+  unit: 1 credit per tool call on every service captured
+  failed_calls_charged: false
+  source: https://mcp360.ai/pricing
+  tiers:
+  - plan: Free
+    credits_per_month: 100
+  - plan: Starter
+    credits_per_month: 2000
+  - plan: Professional
+    credits_per_month: 10000
+  - plan: Advanced
+    credits_per_month: 100000
+  overage: not published
+  runtime_signal: metadata.creditsUsed on every successful response body (see conventions/mcp360-conventions.yml)
+probes:
+- url: https://mcp360.ai/docs
+  status: 200
+  result: no rate-limit numbers, headers, or retry guidance; one marketing mention of "rate limiting"
+- url: https://mcp360.ai/pricing
+  status: 200
+  result: credits per plan only; no requests-per-window, no overage, no concurrency limit
+pointer_note: 'No `type: RateLimits` pointer is wired in apis.yml. The artifact records a measured ABSENCE
+  — MCP360 publishes no limits and returns no rate-limit headers — and a pointer would assert the provider
+  publishes a rate-limit surface it does not. Same discipline as the well-known probe.'
+gaps:
+- A 429 is enforced and declared on all 178 operations, but its threshold and window are unpublished.
+- No Retry-After on exhaustion, so an agent has no backoff signal and must guess.
+- No RateLimit-* headers, so remaining budget is invisible at request time; only creditsUsed is returned
+  after the fact.
+- No overage or credit top-up pricing.

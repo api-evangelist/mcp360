@@ -1,0 +1,202 @@
+openapi: 3.2.0
+info:
+  title: Tools REST Web Scraping API
+  version: 1.0.0
+  description: Web scraping and content extraction tools
+servers:
+- url: https://connect.mcp360.ai
+  description: MCP360 API Server
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: web-scraping
+paths:
+  /api/v1/web-scraping/scrape_page:
+    post:
+      summary: Execute scrape_page
+      operationId: web-scraping_scrape_page
+      tags:
+      - web-scraping
+      parameters:
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: strictValidation
+        in: query
+        schema:
+          type: boolean
+        description: Fail on validation errors
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/web-scraping_scrape_page_input'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+    get:
+      summary: Execute scrape_page
+      operationId: web-scraping_scrape_page_get
+      tags:
+      - web-scraping
+      parameters:
+      - name: url
+        in: query
+        required: true
+        schema:
+          type: string
+        description: URL to scrape
+      - name: render_js
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: 'Render JavaScript content (default: false)'
+      - name: return_page_markdown
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: 'Return content as markdown (default: true)'
+      - name: country_code
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Country code for geo-located requests (default: ''us'')'
+      - name: validateOutput
+        in: query
+        schema:
+          type: boolean
+        description: Validate output against schema
+      - name: includeMetadata
+        in: query
+        schema:
+          type: boolean
+        description: Include execution metadata
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                  metadata:
+                    type: object
+                    properties:
+                      service:
+                        type: string
+                      tool:
+                        type: string
+                      executionTime:
+                        type: string
+                      creditsUsed:
+                        type: number
+                      timestamp:
+                        type: string
+                        format: date-time
+                required:
+                - success
+                - data
+        '400':
+          description: Bad request or validation error
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (premium access required)
+        '404':
+          description: Service or tool not found
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    web-scraping_scrape_page_input:
+      type: object
+      properties:
+        url:
+          type: string
+          minLength: 10
+          maxLength: 2048
+          format: uri
+          description: URL to scrape
+        render_js:
+          type: boolean
+          default: false
+          description: 'Render JavaScript content (default: false)'
+        return_page_markdown:
+          type: boolean
+          default: true
+          description: 'Return content as markdown (default: true)'
+        country_code:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          default: us
+          description: 'Country code for geo-located requests (default: ''us'')'
+      required:
+      - url
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
