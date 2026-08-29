@@ -11,6 +11,18 @@ description: 'MCP360 is a hosted unified Model Context Protocol gateway operated
   web scraping). Auth is an API key via X-API-Key or bearer token, with OAuth 2.1 (authorization code, PKCE S256,
   dynamic client registration) for the MCP surface. Billing is monthly credits.'
 url: https://raw.githubusercontent.com/api-evangelist/mcp360/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
 modified: '2026-08-14'
@@ -925,6 +937,9 @@ maintainers:
   url: https://mcp360.ai
   email: support@mcp360.ai
 common:
+- type: CapabilityMap
+  url: capabilities/mcp360-capability-edges.yml
+  name: MCP360 Business Capability Map
 - type: MCPServer
   url: mcp/mcp360-mcp.yml
 - type: Overlay
