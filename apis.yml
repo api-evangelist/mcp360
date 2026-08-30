@@ -29,24 +29,24 @@ modified: '2026-08-14'
 specificationVersion: '0.23'
 tags:
 - MCP
-- MCP Server
-- MCP Gateway
+- mcp-server
+- mcp-gateway
 - AI Agents
-- Agent Tools
-- Tool Integration
-- Unified-API
-- API Gateway
-- No-Code
-- llms-txt
+- agent-tools
+- tool-integration
+- unified-api
+- api-gateway
+- no-code
+- llmstxt
 - SEO
 - Search
-- SERP
+- serp
 - Web Scraping
-- E-Commerce
-- WHOIS
-- DNS
-- Geolocation
-- Email Verification
+- e-commerce
+- whois
+- dns
+- geolocation
+- email-verification
 tags_raw:
 - mcp
 - mcp-server
@@ -96,6 +96,8 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
+  - apple-app-store
+  tags_raw:
   - apple-appstore
   properties:
   - type: OpenAPI
@@ -162,7 +164,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Cryptocurrency
+  - cryptocurrency
   tags_raw:
   - cryptocurrency
   properties:
@@ -274,7 +276,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Email Verification
+  - email-verification
   tags_raw:
   - email-verification
   properties:
@@ -408,7 +410,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Google Maps
+  - google-maps
   tags_raw:
   - google-maps
   properties:
@@ -432,7 +434,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Google News
+  - google-news
   tags_raw:
   - google-news
   properties:
@@ -524,7 +526,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Google Search
+  - google-search
   tags_raw:
   - google-search
   properties:
@@ -548,7 +550,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Google Shopping
+  - google-shopping
   tags_raw:
   - google-shopping
   properties:
@@ -572,7 +574,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Google Trends
+  - google-trends
   tags_raw:
   - google-trends
   properties:
@@ -640,7 +642,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Keyword Research
+  - keyword-research
   tags_raw:
   - keyword-research
   properties:
@@ -730,7 +732,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - On-Page SEO
+  - onpage-seo
   tags_raw:
   - onpage-seo
   properties:
@@ -798,7 +800,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - Weather
+  - weather
   tags_raw:
   - weather
   properties:
@@ -846,7 +848,7 @@ apis:
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
   tags:
-  - WHOIS
+  - whois
   tags_raw:
   - whois
   properties:
