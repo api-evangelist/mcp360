@@ -955,6 +955,8 @@ maintainers:
   url: https://mcp360.ai
   email: support@mcp360.ai
 common:
+- type: Website
+  url: https://www.mcp360.ai/
 - type: CapabilityMap
   url: capabilities/mcp360-capability-edges.yml
   name: MCP360 Business Capability Map
