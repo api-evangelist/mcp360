@@ -1,15 +1,16 @@
 name: MCP360
-description: 'MCP360 is a hosted unified Model Context Protocol gateway operated by Delta4 Infotech Pvt. Ltd. that
-  gives AI agents access to 38 tool services — 106 individual tools — through a single credentialed endpoint, plus
-  a no-code Custom MCP Builder that wraps any REST API as an MCP server. Every service is exposed twice: as a hosted
-  remote MCP server at connect.mcp360.ai/v1/{service}/mcp and as a conventional REST API at connect.mcp360.ai/api/v1/{service}/{tool},
-  both generated from one tool registry. The gateway serves a machine-generated OpenAPI 3.0.0 document per service
-  at /api/v1/{service}/openapi.json and publishes every tool input and output JSON Schema anonymously at /api/v1/{service}.
-  Coverage spans search engines (Google, Bing, DuckDuckGo, Baidu, Yandex, Yahoo, Naver), Google verticals (Maps,
-  News, Trends, Scholar, Flights, Hotels, Jobs, Shopping, Images, Play), retail (Amazon, Walmart, eBay), SEO (keyword
+description: 'MCP360 is a hosted unified Model Context Protocol gateway operated by Delta4 Infotech Pvt.
+  Ltd. that gives AI agents access to 38 tool services — 106 individual tools — through a single credentialed
+  endpoint, plus a no-code Custom MCP Builder that wraps any REST API as an MCP server. Every service
+  is exposed twice: as a hosted remote MCP server at connect.mcp360.ai/v1/{service}/mcp and as a conventional
+  REST API at connect.mcp360.ai/api/v1/{service}/{tool}, both generated from one tool registry. The gateway
+  serves a machine-generated OpenAPI 3.0.0 document per service at /api/v1/{service}/openapi.json and
+  publishes every tool input and output JSON Schema anonymously at /api/v1/{service}. Coverage spans search
+  engines (Google, Bing, DuckDuckGo, Baidu, Yandex, Yahoo, Naver), Google verticals (Maps, News, Trends,
+  Scholar, Flights, Hotels, Jobs, Shopping, Images, Play), retail (Amazon, Walmart, eBay), SEO (keyword
   research, on-page audit, rank tracking), and infrastructure lookups (WHOIS, DNS, IP, URL, email verification,
-  web scraping). Auth is an API key via X-API-Key or bearer token, with OAuth 2.1 (authorization code, PKCE S256,
-  dynamic client registration) for the MCP surface. Billing is monthly credits.'
+  web scraping). Auth is an API key via X-API-Key or bearer token, with OAuth 2.1 (authorization code,
+  PKCE S256, dynamic client registration) for the MCP surface. Billing is monthly credits.'
 url: https://raw.githubusercontent.com/api-evangelist/mcp360/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -41,7 +42,7 @@ accessModel:
   method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
-modified: '2026-08-14'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
 - MCP
@@ -699,7 +700,7 @@ apis:
   - type: Documentation
     url: https://mcp360.ai/docs
 - aid: mcp360:mcp360-mcp360-api
-  name: MCP360 Mcp360 API
+  name: MCP360 API
   description: The mcp360 API from MCP360 — 2 operation(s) for mcp360.
   humanURL: https://mcp360.ai/docs
   baseURL: https://connect.mcp360.ai/api/v1
