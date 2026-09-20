@@ -11,8 +11,30 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 4
 edges:
+- tag: onpage-seo
+  spec_file: mcp360-onpage-seo-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: '"Comprehensive on-page SEO analysis tool. Check title tags, meta descriptions, headings,
+    images, links, mobile optimization..."'
+  reason: On-page SEO auditing of web pages is directly the web/SEO component of Digital Marketing Management;
+    no other reading of these operations fits.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: keyword-research
+  spec_file: mcp360-keyword-research-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"Keyword research tools for SEO and content planning. Get search volumes and related keyword
+    suggestions."'
+  reason: Explicitly SEO keyword research and search-volume analysis, which is the SEO element of Digital
+    Marketing Management.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: google-rank-tracking
   spec_file: mcp360-google-rank-tracking-api-openapi.yml
   capability_id: BC-400.60
@@ -23,3 +45,14 @@ edges:
     find_domain_position, bulk_find_domain_position'
   reason: Search-engine rank tracking for a domain is an SEO measurement activity, which sits under Digital
     Marketing Management; confidence tempered because it is a thin utility wrapper.
+- tag: google-trends
+  spec_file: mcp360-google-trends-api-openapi.yml
+  capability_id: BC-400.30
+  capability_id_l1: BC-400
+  capability_name: Market Intelligence Management
+  confidence: 0.7
+  evidence: '"Google Trends analysis, search interest data, and trending topics"; get_interest_over_time,
+    get_interest_by_region'
+  reason: Search-interest and trending-topic data by region and time is classic market research / customer-insight
+    intelligence used in marketing analysis.
+  recovered_from: sweep-20260829T005356Z-edges.json
