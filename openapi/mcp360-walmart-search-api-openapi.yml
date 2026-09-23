@@ -221,21 +221,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    walmart-search_get_product_details_input:
-      type: object
-      properties:
-        product_id:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: Walmart product ID
-        store_id:
-          type: string
-          pattern: ^\d+$
-          description: 'Specific Walmart store ID (default: 3081)'
-      required:
-      - product_id
-      additionalProperties: false
     walmart-search_search_products_input:
       type: object
       properties:
@@ -273,6 +258,21 @@ components:
           description: Page number for pagination
       required:
       - query
+      additionalProperties: false
+    walmart-search_get_product_details_input:
+      type: object
+      properties:
+        product_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Walmart product ID
+        store_id:
+          type: string
+          pattern: ^\d+$
+          description: 'Specific Walmart store ID (default: 3081)'
+      required:
+      - product_id
       additionalProperties: false
   securitySchemes:
     bearerAuth:

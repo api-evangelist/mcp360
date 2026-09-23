@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: whois
+- name: WHOIS
 paths:
   /api/v1/whois/lookup_domain:
     post:
       summary: Execute lookup_domain
       operationId: whois_lookup_domain
       tags:
-      - whois
+      - WHOIS
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute lookup_domain
       operationId: whois_lookup_domain_get
       tags:
-      - whois
+      - WHOIS
       parameters:
       - name: domain
         in: query
@@ -149,7 +149,7 @@ paths:
       summary: Execute check_availability
       operationId: whois_check_availability
       tags:
-      - whois
+      - WHOIS
       parameters:
       - name: validateOutput
         in: query
@@ -217,7 +217,7 @@ paths:
       summary: Execute check_availability
       operationId: whois_check_availability_get
       tags:
-      - whois
+      - WHOIS
       parameters:
       - name: domain
         in: query
@@ -281,7 +281,7 @@ paths:
       summary: Execute bulk_check_availability
       operationId: whois_bulk_check_availability
       tags:
-      - whois
+      - WHOIS
       parameters:
       - name: validateOutput
         in: query
@@ -347,6 +347,22 @@ paths:
           description: Internal server error
 components:
   schemas:
+    whois_bulk_check_availability_input:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+            minLength: 3
+            maxLength: 253
+            pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          minItems: 1
+          maxItems: 20
+          description: Array of domain names to check (max 20 domains, e.g., ['example.com', 'test.org'])
+      required:
+      - domains
+      additionalProperties: false
     whois_check_availability_input:
       type: object
       properties:
@@ -370,22 +386,6 @@ components:
           description: Domain name to lookup (e.g., example.com)
       required:
       - domain
-      additionalProperties: false
-    whois_bulk_check_availability_input:
-      type: object
-      properties:
-        domains:
-          type: array
-          items:
-            type: string
-            minLength: 3
-            maxLength: 253
-            pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
-          minItems: 1
-          maxItems: 20
-          description: Array of domain names to check (max 20 domains, e.g., ['example.com', 'test.org'])
-      required:
-      - domains
       additionalProperties: false
   securitySchemes:
     bearerAuth:

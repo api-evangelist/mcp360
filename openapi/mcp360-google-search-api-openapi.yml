@@ -446,6 +446,54 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-search_get_related_searches_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Search query to find related searches
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          pattern: ^[a-z]{2}(-[a-z]{2})?$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - query
+      additionalProperties: false
+    google-search_search_advanced_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 2048
+          description: Search query with advanced operators (site:, inurl:, intitle:, filetype:, etc.)
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          pattern: ^[a-z]{2}(-[a-z]{2})?$
+          description: Language code (e.g., 'en', 'es')
+        num_results:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+          description: Number of results (1-100)
+      required:
+      - query
+      additionalProperties: false
     google-search_get_autocomplete_input:
       type: object
       properties:
@@ -474,27 +522,6 @@ components:
           - opera
           default: chrome
           description: Client type (chrome, safari, firefox, edge, opera)
-      required:
-      - query
-      additionalProperties: false
-    google-search_get_related_searches_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Search query to find related searches
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          pattern: ^[a-z]{2}(-[a-z]{2})?$
-          description: Language code (e.g., 'en', 'es')
       required:
       - query
       additionalProperties: false
@@ -535,33 +562,6 @@ components:
           type: string
           pattern: ^[hdwmy]$
           description: Time period filter (e.g., 'd' for day, 'w' for week, 'm' for month, 'y' for year)
-      required:
-      - query
-      additionalProperties: false
-    google-search_search_advanced_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 2048
-          description: Search query with advanced operators (site:, inurl:, intitle:, filetype:, etc.)
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          pattern: ^[a-z]{2}(-[a-z]{2})?$
-          description: Language code (e.g., 'en', 'es')
-        num_results:
-          type: integer
-          minimum: 1
-          maximum: 100
-          default: 10
-          description: Number of results (1-100)
       required:
       - query
       additionalProperties: false

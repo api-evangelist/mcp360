@@ -215,17 +215,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    onpage-seo_single_onpage_checker_input:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          maxLength: 2000
-          description: URL of the webpage to analyze (e.g., 'https://example.com')
-      required:
-      - url
-      additionalProperties: false
     onpage-seo_bulk_onpage_checker_input:
       type: object
       properties:
@@ -240,6 +229,17 @@ components:
           description: Array of URLs to analyze (1-10 URLs, e.g., ['https://example.com', 'https://example.com/about'])
       required:
       - urls
+      additionalProperties: false
+    onpage-seo_single_onpage_checker_input:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          maxLength: 2000
+          description: URL of the webpage to analyze (e.g., 'https://example.com')
+      required:
+      - url
       additionalProperties: false
   securitySchemes:
     bearerAuth:

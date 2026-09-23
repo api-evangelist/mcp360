@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: google-trends
+- name: google trends
 paths:
   /api/v1/google-trends/get_interest_over_time:
     post:
       summary: Execute get_interest_over_time
       operationId: google-trends_get_interest_over_time
       tags:
-      - google-trends
+      - google trends
       parameters:
       - name: validateOutput
         in: query
@@ -86,7 +86,7 @@ paths:
       summary: Execute get_interest_by_region
       operationId: google-trends_get_interest_by_region
       tags:
-      - google-trends
+      - google trends
       parameters:
       - name: validateOutput
         in: query
@@ -154,7 +154,7 @@ paths:
       summary: Execute get_interest_by_region
       operationId: google-trends_get_interest_by_region_get
       tags:
-      - google-trends
+      - google trends
       parameters:
       - name: query
         in: query
@@ -236,7 +236,7 @@ paths:
       summary: Execute get_related_topics
       operationId: google-trends_get_related_topics
       tags:
-      - google-trends
+      - google trends
       parameters:
       - name: validateOutput
         in: query
@@ -304,7 +304,7 @@ paths:
       summary: Execute get_related_topics
       operationId: google-trends_get_related_topics_get
       tags:
-      - google-trends
+      - google trends
       parameters:
       - name: query
         in: query
@@ -377,33 +377,25 @@ paths:
           description: Internal server error
 components:
   schemas:
-    google-trends_get_interest_by_region_input:
+    google-trends_get_related_topics_input:
       type: object
       properties:
         query:
           type: string
           minLength: 1
           maxLength: 200
-          description: Search term or topic to analyze
+          description: Search term to find related topics
         timeframe:
           type: string
           pattern: ^(now \d+-[hdm]|today \d+-m|today \d+-m|all|\d{4}-\d{2}-\d{2} \d{4}-\d{2}-\d{2})$
           default: today 12-m
-          description: Time range (e.g., 'today 12-m', 'today 3-m')
+          description: Time range (e.g., 'today 12-m')
         country:
           type: string
           minLength: 2
           maxLength: 2
           pattern: ^[A-Z]{2}$
           description: Country code (e.g., 'US', 'GB')
-        resolution:
-          type: string
-          enum:
-          - COUNTRY
-          - REGION
-          - CITY
-          - DMA
-          description: 'Geographic resolution: ''COUNTRY'', ''REGION'', ''CITY'', ''DMA'''
       required:
       - query
       additionalProperties: false
@@ -434,25 +426,33 @@ components:
       required:
       - query
       additionalProperties: false
-    google-trends_get_related_topics_input:
+    google-trends_get_interest_by_region_input:
       type: object
       properties:
         query:
           type: string
           minLength: 1
           maxLength: 200
-          description: Search term to find related topics
+          description: Search term or topic to analyze
         timeframe:
           type: string
           pattern: ^(now \d+-[hdm]|today \d+-m|today \d+-m|all|\d{4}-\d{2}-\d{2} \d{4}-\d{2}-\d{2})$
           default: today 12-m
-          description: Time range (e.g., 'today 12-m')
+          description: Time range (e.g., 'today 12-m', 'today 3-m')
         country:
           type: string
           minLength: 2
           maxLength: 2
           pattern: ^[A-Z]{2}$
           description: Country code (e.g., 'US', 'GB')
+        resolution:
+          type: string
+          enum:
+          - COUNTRY
+          - REGION
+          - CITY
+          - DMA
+          description: 'Geographic resolution: ''COUNTRY'', ''REGION'', ''CITY'', ''DMA'''
       required:
       - query
       additionalProperties: false

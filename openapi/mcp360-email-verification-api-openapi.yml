@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: email-verification
+- name: Email Verification
 paths:
   /api/v1/email-verification/verify_email:
     post:
       summary: Execute verify_email
       operationId: email-verification_verify_email
       tags:
-      - email-verification
+      - Email Verification
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute verify_email
       operationId: email-verification_verify_email_get
       tags:
-      - email-verification
+      - Email Verification
       parameters:
       - name: email
         in: query
@@ -149,7 +149,7 @@ paths:
       summary: Execute bulk_verify_emails
       operationId: email-verification_bulk_verify_emails
       tags:
-      - email-verification
+      - Email Verification
       parameters:
       - name: validateOutput
         in: query
@@ -215,18 +215,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    email-verification_verify_email_input:
-      type: object
-      properties:
-        email:
-          type: string
-          minLength: 3
-          maxLength: 254
-          format: email
-          description: Email address to verify
-      required:
-      - email
-      additionalProperties: false
     email-verification_bulk_verify_emails_input:
       type: object
       properties:
@@ -248,6 +236,18 @@ components:
           description: 'Timeout in seconds for each verification (default: 10)'
       required:
       - emails
+      additionalProperties: false
+    email-verification_verify_email_input:
+      type: object
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+          format: email
+          description: Email address to verify
+      required:
+      - email
       additionalProperties: false
   securitySchemes:
     bearerAuth:

@@ -152,20 +152,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    mcp360_search_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: The query to search the tools by name or keywords
-        limit:
-          type: integer
-          minimum: 1
-          maximum: 100
-          description: The limit of results to return
-      additionalProperties: false
     mcp360_execute_input:
       type: object
       properties:
@@ -186,6 +172,20 @@ components:
       - service
       - tool
       - parameters
+      additionalProperties: false
+    mcp360_search_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: The query to search the tools by name or keywords
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: The limit of results to return
       additionalProperties: false
   securitySchemes:
     bearerAuth:

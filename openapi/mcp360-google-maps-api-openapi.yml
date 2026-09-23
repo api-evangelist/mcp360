@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: google-maps
+- name: Google Maps
 paths:
   /api/v1/google-maps/search_places:
     post:
       summary: Execute search_places
       operationId: google-maps_search_places
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute search_places
       operationId: google-maps_search_places_get
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: query
         in: query
@@ -173,7 +173,7 @@ paths:
       summary: Execute get_place_details
       operationId: google-maps_get_place_details
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: validateOutput
         in: query
@@ -241,7 +241,7 @@ paths:
       summary: Execute get_place_details
       operationId: google-maps_get_place_details_get
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: place_id
         in: query
@@ -311,7 +311,7 @@ paths:
       summary: Execute search_nearby
       operationId: google-maps_search_nearby
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: validateOutput
         in: query
@@ -380,7 +380,7 @@ paths:
       summary: Execute get_reviews
       operationId: google-maps_get_reviews
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: validateOutput
         in: query
@@ -448,7 +448,7 @@ paths:
       summary: Execute get_reviews
       operationId: google-maps_get_reviews_get
       tags:
-      - google-maps
+      - Google Maps
       parameters:
       - name: place_name
         in: query
@@ -556,23 +556,6 @@ components:
       - longitude
       - type
       additionalProperties: false
-    google-maps_get_place_details_input:
-      type: object
-      properties:
-        place_id:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Google Maps place ID
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - place_id
-      additionalProperties: false
     google-maps_get_reviews_input:
       type: object
       properties:
@@ -620,6 +603,23 @@ components:
           description: Language code (e.g., 'en', 'es')
       required:
       - query
+      additionalProperties: false
+    google-maps_get_place_details_input:
+      type: object
+      properties:
+        place_id:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Google Maps place ID
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - place_id
       additionalProperties: false
   securitySchemes:
     bearerAuth:

@@ -632,44 +632,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    imginny_generate_image_fast_input:
-      type: object
-      properties:
-        prompt:
-          type: string
-          minLength: 1
-          maxLength: 1000
-          description: Text description of the image you want to generate
-        aspectRatio:
-          type: string
-          enum:
-          - '1:1'
-          - '3:4'
-          - '4:3'
-          - '9:16'
-          - '16:9'
-          default: '1:1'
-          description: 'Image aspect ratio (default: 1:1)'
-        numberOfImages:
-          type: number
-          minimum: 1
-          maximum: 4
-          default: 1
-          description: 'Number of images to generate (1-4, default: 1)'
-        negativePrompt:
-          type: string
-          description: Things to avoid in the generated image (optional)
-        personGeneration:
-          type: string
-          enum:
-          - dont_allow
-          - allow_adult
-          - allow_all
-          default: allow_adult
-          description: 'Control person generation in images (default: allow_adult)'
-      required:
-      - prompt
-      additionalProperties: false
     imginny_generate_image_standard_input:
       type: object
       properties:
@@ -695,6 +657,61 @@ components:
           - 2K
           default: 1K
           description: 'Image resolution (1K or 2K, default: 1K)'
+        numberOfImages:
+          type: number
+          minimum: 1
+          maximum: 4
+          default: 1
+          description: 'Number of images to generate (1-4, default: 1)'
+        negativePrompt:
+          type: string
+          description: Things to avoid in the generated image (optional)
+        personGeneration:
+          type: string
+          enum:
+          - dont_allow
+          - allow_adult
+          - allow_all
+          default: allow_adult
+          description: 'Control person generation in images (default: allow_adult)'
+      required:
+      - prompt
+      additionalProperties: false
+    imginny_upscale_image_input:
+      type: object
+      properties:
+        imageUrl:
+          type: string
+          format: uri
+          description: URL of the image to upscale (must be publicly accessible)
+        upscaleFactor:
+          type: string
+          enum:
+          - x2
+          - x4
+          default: x2
+          description: 'Upscaling factor (x2 or x4, default: x2)'
+      required:
+      - imageUrl
+      additionalProperties: false
+    imginny_generate_image_fast_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Text description of the image you want to generate
+        aspectRatio:
+          type: string
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          default: '1:1'
+          description: 'Image aspect ratio (default: 1:1)'
         numberOfImages:
           type: number
           minimum: 1
@@ -759,23 +776,6 @@ components:
           description: 'Control person generation in images (default: allow_adult)'
       required:
       - prompt
-      additionalProperties: false
-    imginny_upscale_image_input:
-      type: object
-      properties:
-        imageUrl:
-          type: string
-          format: uri
-          description: URL of the image to upscale (must be publicly accessible)
-        upscaleFactor:
-          type: string
-          enum:
-          - x2
-          - x4
-          default: x2
-          description: 'Upscaling factor (x2 or x4, default: x2)'
-      required:
-      - imageUrl
       additionalProperties: false
   securitySchemes:
     bearerAuth:

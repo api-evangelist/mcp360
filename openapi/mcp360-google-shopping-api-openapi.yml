@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: google-shopping
+- name: google shopping
 paths:
   /api/v1/google-shopping/search_products:
     post:
       summary: Execute search_products
       operationId: google-shopping_search_products
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute search_products
       operationId: google-shopping_search_products_get
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: query
         in: query
@@ -185,7 +185,7 @@ paths:
       summary: Execute compare_prices
       operationId: google-shopping_compare_prices
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: validateOutput
         in: query
@@ -253,7 +253,7 @@ paths:
       summary: Execute compare_prices
       operationId: google-shopping_compare_prices_get
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: product_token
         in: query
@@ -329,7 +329,7 @@ paths:
       summary: Execute filter_by_price_range
       operationId: google-shopping_filter_by_price_range
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: validateOutput
         in: query
@@ -397,7 +397,7 @@ paths:
       summary: Execute filter_by_price_range
       operationId: google-shopping_filter_by_price_range_get
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: query
         in: query
@@ -485,7 +485,7 @@ paths:
       summary: Execute get_product_details
       operationId: google-shopping_get_product_details
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: validateOutput
         in: query
@@ -553,7 +553,7 @@ paths:
       summary: Execute get_product_details
       operationId: google-shopping_get_product_details_get
       tags:
-      - google-shopping
+      - google shopping
       parameters:
       - name: product_token
         in: query
@@ -626,6 +626,21 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-shopping_get_product_details_input:
+      type: object
+      properties:
+        product_token:
+          type: string
+          description: Product token from search_products results
+        country:
+          type: string
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - product_token
+      additionalProperties: false
     google-shopping_compare_prices_input:
       type: object
       properties:
@@ -644,44 +659,6 @@ components:
           minLength: 2
           maxLength: 2
           pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - product_token
-      additionalProperties: false
-    google-shopping_filter_by_price_range_input:
-      type: object
-      properties:
-        query:
-          type: string
-          description: Product search query
-        min_price:
-          type: number
-          description: Minimum price
-        max_price:
-          type: number
-          description: Maximum price
-        country:
-          type: string
-          description: Country code (e.g., 'us', 'uk')
-        sort_by:
-          type: string
-          description: 'Sort by: ''price_low_to_high'', ''price_high_to_low'', ''review_score'''
-      required:
-      - query
-      - min_price
-      - max_price
-      additionalProperties: false
-    google-shopping_get_product_details_input:
-      type: object
-      properties:
-        product_token:
-          type: string
-          description: Product token from search_products results
-        country:
-          type: string
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
           description: Language code (e.g., 'en', 'es')
       required:
       - product_token
@@ -730,6 +707,29 @@ components:
           description: 'Product condition: ''new'', ''used'', ''refurbished'''
       required:
       - query
+      additionalProperties: false
+    google-shopping_filter_by_price_range_input:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Product search query
+        min_price:
+          type: number
+          description: Minimum price
+        max_price:
+          type: number
+          description: Maximum price
+        country:
+          type: string
+          description: Country code (e.g., 'us', 'uk')
+        sort_by:
+          type: string
+          description: 'Sort by: ''price_low_to_high'', ''price_high_to_low'', ''review_score'''
+      required:
+      - query
+      - min_price
+      - max_price
       additionalProperties: false
   securitySchemes:
     bearerAuth:

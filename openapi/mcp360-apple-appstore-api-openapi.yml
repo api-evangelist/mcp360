@@ -436,53 +436,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    apple-appstore_get_reviews_input:
-      type: object
-      properties:
-        product_id:
-          type: string
-          minLength: 1
-          maxLength: 20
-          pattern: ^\d+$
-          description: App product ID
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: 'Two-letter country code (default: ''us'')'
-        page:
-          type: integer
-          minimum: 1
-          maximum: 10
-          description: Page number (max 10)
-        sort_by:
-          type: string
-          enum:
-          - most_recent
-          - most_helpful
-          description: Sort order for reviews
-      required:
-      - product_id
-      additionalProperties: false
-    apple-appstore_get_product_details_input:
-      type: object
-      properties:
-        product_id:
-          type: string
-          minLength: 1
-          maxLength: 20
-          pattern: ^\d+$
-          description: App product ID from App Store
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: 'Two-letter country code (default: ''us'')'
-      required:
-      - product_id
-      additionalProperties: false
     apple-appstore_get_top_charts_input:
       type: object
       properties:
@@ -547,6 +500,53 @@ components:
           description: Page number
       required:
       - term
+      additionalProperties: false
+    apple-appstore_get_product_details_input:
+      type: object
+      properties:
+        product_id:
+          type: string
+          minLength: 1
+          maxLength: 20
+          pattern: ^\d+$
+          description: App product ID from App Store
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
+      required:
+      - product_id
+      additionalProperties: false
+    apple-appstore_get_reviews_input:
+      type: object
+      properties:
+        product_id:
+          type: string
+          minLength: 1
+          maxLength: 20
+          pattern: ^\d+$
+          description: App product ID
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
+        page:
+          type: integer
+          minimum: 1
+          maximum: 10
+          description: Page number (max 10)
+        sort_by:
+          type: string
+          enum:
+          - most_recent
+          - most_helpful
+          description: Sort order for reviews
+      required:
+      - product_id
       additionalProperties: false
   securitySchemes:
     bearerAuth:

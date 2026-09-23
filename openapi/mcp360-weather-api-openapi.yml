@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: weather
+- name: Weather
 paths:
   /api/v1/weather/get_current_weather:
     post:
       summary: Execute get_current_weather
       operationId: weather_get_current_weather
       tags:
-      - weather
+      - Weather
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute get_current_weather
       operationId: weather_get_current_weather_get
       tags:
-      - weather
+      - Weather
       parameters:
       - name: latitude
         in: query
@@ -168,7 +168,7 @@ paths:
       summary: Execute get_weather_forecast
       operationId: weather_get_weather_forecast
       tags:
-      - weather
+      - Weather
       parameters:
       - name: validateOutput
         in: query
@@ -236,7 +236,7 @@ paths:
       summary: Execute get_weather_forecast
       operationId: weather_get_weather_forecast_get
       tags:
-      - weather
+      - Weather
       parameters:
       - name: latitude
         in: query
@@ -319,7 +319,7 @@ paths:
       summary: Execute get_historical_weather
       operationId: weather_get_historical_weather
       tags:
-      - weather
+      - Weather
       parameters:
       - name: validateOutput
         in: query
@@ -387,7 +387,7 @@ paths:
       summary: Execute get_historical_weather
       operationId: weather_get_historical_weather_get
       tags:
-      - weather
+      - Weather
       parameters:
       - name: latitude
         in: query
@@ -472,6 +472,36 @@ paths:
           description: Internal server error
 components:
   schemas:
+    weather_get_weather_forecast_input:
+      type: object
+      properties:
+        latitude:
+          type: number
+          minimum: -90
+          maximum: 90
+          description: Latitude coordinate
+        longitude:
+          type: number
+          minimum: -180
+          maximum: 180
+          description: Longitude coordinate
+        city:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: City name
+        state:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: US state (for US cities)
+        country:
+          type: string
+          minLength: 2
+          maxLength: 100
+          description: Country name
+      additionalProperties: false
     weather_get_historical_weather_input:
       type: object
       properties:
@@ -502,36 +532,6 @@ components:
       - start_date
       - end_date
       - include_hourly
-      additionalProperties: false
-    weather_get_weather_forecast_input:
-      type: object
-      properties:
-        latitude:
-          type: number
-          minimum: -90
-          maximum: 90
-          description: Latitude coordinate
-        longitude:
-          type: number
-          minimum: -180
-          maximum: 180
-          description: Longitude coordinate
-        city:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: City name
-        state:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[A-Z]{2}$
-          description: US state (for US cities)
-        country:
-          type: string
-          minLength: 2
-          maxLength: 100
-          description: Country name
       additionalProperties: false
     weather_get_current_weather_input:
       type: object

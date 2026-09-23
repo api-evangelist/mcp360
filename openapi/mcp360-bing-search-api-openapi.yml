@@ -605,6 +605,28 @@ components:
       required:
       - query
       additionalProperties: false
+    bing-search_search_local_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Local business search query (e.g., 'pizza near me', 'hotels in Seattle')
+        location:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Location (e.g., 'Seattle, WA', 'London')
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+      required:
+      - query
+      additionalProperties: false
     bing-search_search_web_input:
       type: object
       properties:
@@ -647,28 +669,6 @@ components:
           - week
           - month
           description: 'Freshness filter: ''day'', ''week'', ''month'''
-      required:
-      - query
-      additionalProperties: false
-    bing-search_search_local_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Local business search query (e.g., 'pizza near me', 'hotels in Seattle')
-        location:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: Location (e.g., 'Seattle, WA', 'London')
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
       required:
       - query
       additionalProperties: false

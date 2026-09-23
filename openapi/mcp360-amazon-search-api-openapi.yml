@@ -841,30 +841,6 @@ components:
       - keyword
       - product_url
       additionalProperties: false
-    amazon-search_bulk_find_product_position_input:
-      type: object
-      properties:
-        keywords:
-          type: array
-          items:
-            type: string
-            minLength: 1
-            maxLength: 200
-          minItems: 1
-          maxItems: 10
-          description: Array of keywords or phrases to check your product's position for (max 10 keywords, e.g., ['wireless headphones', 'bluetooth headphones'])
-        product_url:
-          type: string
-          description: Your Amazon product URL (e.g., 'https://amazon.com/dp/B08XYZ' or just ASIN like 'B08XYZ')
-        country:
-          type: string
-          pattern: ^(us|uk|de|fr|jp|ca|in|es|it|au|br|mx|nl|ae|sg|se|pl|tr|sa|eg)$
-          default: us
-          description: 'Amazon marketplace: ''us'', ''uk'', ''de'', ''fr'', ''jp'', ''ca'', ''in'''
-      required:
-      - keywords
-      - product_url
-      additionalProperties: false
     amazon-search_get_product_details_input:
       type: object
       properties:
@@ -881,27 +857,6 @@ components:
           description: 'Amazon marketplace: ''us'', ''uk'', ''de'', ''fr'', ''jp'', ''ca'', ''in'''
       required:
       - asin
-      additionalProperties: false
-    amazon-search_search_prime_products_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Product search query
-        country:
-          type: string
-          pattern: ^(us|uk|de|fr|jp|ca|in|es|it|au|br|mx|nl|ae|sg|se|pl|tr|sa|eg)$
-          default: us
-          description: 'Amazon marketplace: ''us'', ''uk'', ''de'', ''fr'', ''jp'', ''ca'', ''in'''
-        min_rating:
-          type: number
-          minimum: 1
-          maximum: 5
-          description: Minimum customer rating (1-5)
-      required:
-      - query
       additionalProperties: false
     amazon-search_search_products_input:
       type: object
@@ -928,6 +883,51 @@ components:
           type: boolean
           default: false
           description: Show only Prime-eligible products
+        min_rating:
+          type: number
+          minimum: 1
+          maximum: 5
+          description: Minimum customer rating (1-5)
+      required:
+      - query
+      additionalProperties: false
+    amazon-search_bulk_find_product_position_input:
+      type: object
+      properties:
+        keywords:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 200
+          minItems: 1
+          maxItems: 10
+          description: Array of keywords or phrases to check your product's position for (max 10 keywords, e.g., ['wireless headphones', 'bluetooth headphones'])
+        product_url:
+          type: string
+          description: Your Amazon product URL (e.g., 'https://amazon.com/dp/B08XYZ' or just ASIN like 'B08XYZ')
+        country:
+          type: string
+          pattern: ^(us|uk|de|fr|jp|ca|in|es|it|au|br|mx|nl|ae|sg|se|pl|tr|sa|eg)$
+          default: us
+          description: 'Amazon marketplace: ''us'', ''uk'', ''de'', ''fr'', ''jp'', ''ca'', ''in'''
+      required:
+      - keywords
+      - product_url
+      additionalProperties: false
+    amazon-search_search_prime_products_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Product search query
+        country:
+          type: string
+          pattern: ^(us|uk|de|fr|jp|ca|in|es|it|au|br|mx|nl|ae|sg|se|pl|tr|sa|eg)$
+          default: us
+          description: 'Amazon marketplace: ''us'', ''uk'', ''de'', ''fr'', ''jp'', ''ca'', ''in'''
         min_rating:
           type: number
           minimum: 1

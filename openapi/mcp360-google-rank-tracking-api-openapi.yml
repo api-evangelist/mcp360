@@ -308,6 +308,57 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-rank-tracking_bulk_find_domain_position_input:
+      type: object
+      properties:
+        keywords:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 500
+          minItems: 1
+          maxItems: 50
+          description: Array of keywords to check your domain's position for (max 50 keywords)
+        domain:
+          type: string
+          minLength: 1
+          maxLength: 253
+          description: Your domain to find position for (e.g., 'example.com')
+        location:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Geographic location (e.g., 'United States', 'New York, NY')
+        device:
+          type: string
+          enum:
+          - desktop
+          - mobile
+          - tablet
+          default: desktop
+          description: Device type
+        gl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        hl:
+          type: string
+          pattern: ^[a-z]{2}(-[a-z]{2})?$
+          default: en
+          description: Interface language
+        num:
+          type: integer
+          minimum: 10
+          maximum: 100
+          default: 100
+          description: Number of results per keyword (10-100)
+      required:
+      - keywords
+      - domain
+      additionalProperties: false
     google-rank-tracking_find_domain_position_input:
       type: object
       properties:
@@ -384,57 +435,6 @@ components:
           description: Number of results to return (10-100)
       required:
       - query
-      additionalProperties: false
-    google-rank-tracking_bulk_find_domain_position_input:
-      type: object
-      properties:
-        keywords:
-          type: array
-          items:
-            type: string
-            minLength: 1
-            maxLength: 500
-          minItems: 1
-          maxItems: 50
-          description: Array of keywords to check your domain's position for (max 50 keywords)
-        domain:
-          type: string
-          minLength: 1
-          maxLength: 253
-          description: Your domain to find position for (e.g., 'example.com')
-        location:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Geographic location (e.g., 'United States', 'New York, NY')
-        device:
-          type: string
-          enum:
-          - desktop
-          - mobile
-          - tablet
-          default: desktop
-          description: Device type
-        gl:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        hl:
-          type: string
-          pattern: ^[a-z]{2}(-[a-z]{2})?$
-          default: en
-          description: Interface language
-        num:
-          type: integer
-          minimum: 10
-          maximum: 100
-          default: 100
-          description: Number of results per keyword (10-100)
-      required:
-      - keywords
-      - domain
       additionalProperties: false
   securitySchemes:
     bearerAuth:

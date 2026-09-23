@@ -227,6 +227,32 @@ paths:
           description: Internal server error
 components:
   schemas:
+    llm-prompt-tracker_track_prompt_input:
+      type: object
+      properties:
+        prompt:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: The search query or prompt to track for visibility and ranking
+        platform:
+          type: string
+          enum:
+          - perplexity
+          - chatgpt
+          - claude
+          - grok
+          - gemini
+          description: The specific AI platform to analyze (e.g., 'claude' for Claude AI)
+        targetUrl:
+          type: string
+          format: uri
+          maxLength: 2000
+          description: 'Optional: Your website URL to check if it appears in the AI''s response and at what position'
+      required:
+      - prompt
+      - platform
+      additionalProperties: false
     llm-prompt-tracker_compare_prompt_input:
       type: object
       properties:
@@ -263,32 +289,6 @@ components:
           description: 'AI platforms to compare. Executes in parallel for speed. Formats: ["claude","chatgpt"] or "claude,chatgpt". Default: all 5 platforms. Available: perplexity, chatgpt, claude, grok, gemini'
       required:
       - prompt
-      additionalProperties: false
-    llm-prompt-tracker_track_prompt_input:
-      type: object
-      properties:
-        prompt:
-          type: string
-          minLength: 1
-          maxLength: 1000
-          description: The search query or prompt to track for visibility and ranking
-        platform:
-          type: string
-          enum:
-          - perplexity
-          - chatgpt
-          - claude
-          - grok
-          - gemini
-          description: The specific AI platform to analyze (e.g., 'claude' for Claude AI)
-        targetUrl:
-          type: string
-          format: uri
-          maxLength: 2000
-          description: 'Optional: Your website URL to check if it appears in the AI''s response and at what position'
-      required:
-      - prompt
-      - platform
       additionalProperties: false
   securitySchemes:
     bearerAuth:

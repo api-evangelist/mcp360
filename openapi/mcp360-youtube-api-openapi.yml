@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: youtube
+- name: Youtube
 paths:
   /api/v1/youtube/search_videos:
     post:
       summary: Execute search_videos
       operationId: youtube_search_videos
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute search_videos
       operationId: youtube_search_videos_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: query
         in: query
@@ -167,7 +167,7 @@ paths:
       summary: Execute search_channels
       operationId: youtube_search_channels
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -235,7 +235,7 @@ paths:
       summary: Execute search_channels
       operationId: youtube_search_channels_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: query
         in: query
@@ -317,7 +317,7 @@ paths:
       summary: Execute search_shorts
       operationId: youtube_search_shorts
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -385,7 +385,7 @@ paths:
       summary: Execute search_shorts
       operationId: youtube_search_shorts_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: query
         in: query
@@ -467,7 +467,7 @@ paths:
       summary: Execute get_video_details
       operationId: youtube_get_video_details
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -535,7 +535,7 @@ paths:
       summary: Execute get_video_details
       operationId: youtube_get_video_details_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: video_id
         in: query
@@ -611,7 +611,7 @@ paths:
       summary: Execute get_video_transcripts
       operationId: youtube_get_video_transcripts
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -679,7 +679,7 @@ paths:
       summary: Execute get_video_transcripts
       operationId: youtube_get_video_transcripts_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: video_id
         in: query
@@ -755,7 +755,7 @@ paths:
       summary: Execute get_video_comments
       operationId: youtube_get_video_comments
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -823,7 +823,7 @@ paths:
       summary: Execute get_video_comments
       operationId: youtube_get_video_comments_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: video_id
         in: query
@@ -905,7 +905,7 @@ paths:
       summary: Execute get_channel_details
       operationId: youtube_get_channel_details
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -973,7 +973,7 @@ paths:
       summary: Execute get_channel_details
       operationId: youtube_get_channel_details_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: channel_id
         in: query
@@ -1049,7 +1049,7 @@ paths:
       summary: Execute get_channel_videos
       operationId: youtube_get_channel_videos
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -1117,7 +1117,7 @@ paths:
       summary: Execute get_channel_videos
       operationId: youtube_get_channel_videos_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: channel_id
         in: query
@@ -1199,7 +1199,7 @@ paths:
       summary: Execute find_video_position
       operationId: youtube_find_video_position
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -1267,7 +1267,7 @@ paths:
       summary: Execute find_video_position
       operationId: youtube_find_video_position_get
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: keyword
         in: query
@@ -1349,7 +1349,7 @@ paths:
       summary: Execute bulk_find_video_position
       operationId: youtube_bulk_find_video_position
       tags:
-      - youtube
+      - Youtube
       parameters:
       - name: validateOutput
         in: query
@@ -1415,60 +1415,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    youtube_get_video_comments_input:
-      type: object
-      properties:
-        video_id:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: YouTube video ID
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        next_page_token:
-          type: string
-          maxLength: 200
-          description: Token for pagination
-      required:
-      - video_id
-      additionalProperties: false
-    youtube_search_channels_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search query for channels
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code for localized results (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        sp:
-          type: string
-          maxLength: 50
-          description: Special filters parameter for advanced filtering
-      required:
-      - query
-      additionalProperties: false
     youtube_find_video_position_input:
       type: object
       properties:
@@ -1497,79 +1443,6 @@ components:
       required:
       - keyword
       - video_url
-      additionalProperties: false
-    youtube_get_video_transcripts_input:
-      type: object
-      properties:
-        video_id:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: YouTube video ID
-        lang:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code for transcript (e.g., 'en', 'es')
-        transcript_type:
-          type: string
-          enum:
-          - auto
-          - manual
-          description: 'Type of transcript: ''auto'' for auto-generated, ''manual'' for manually uploaded'
-      required:
-      - video_id
-      additionalProperties: false
-    youtube_get_channel_details_input:
-      type: object
-      properties:
-        channel_id:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: YouTube channel ID or @handle
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - channel_id
-      additionalProperties: false
-    youtube_get_channel_videos_input:
-      type: object
-      properties:
-        channel_id:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: YouTube channel ID or @handle
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        next_page_token:
-          type: string
-          maxLength: 200
-          description: Token for pagination/filtering (e.g., 'Popular', 'Oldest')
-      required:
-      - channel_id
       additionalProperties: false
     youtube_get_video_details_input:
       type: object
@@ -1621,6 +1494,83 @@ components:
       required:
       - query
       additionalProperties: false
+    youtube_search_videos_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search query for videos
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code for localized results (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        sp:
+          type: string
+          maxLength: 50
+          description: Special filters parameter for advanced filtering
+      required:
+      - query
+      additionalProperties: false
+    youtube_get_video_comments_input:
+      type: object
+      properties:
+        video_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: YouTube video ID
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        next_page_token:
+          type: string
+          maxLength: 200
+          description: Token for pagination
+      required:
+      - video_id
+      additionalProperties: false
+    youtube_get_video_transcripts_input:
+      type: object
+      properties:
+        video_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: YouTube video ID
+        lang:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code for transcript (e.g., 'en', 'es')
+        transcript_type:
+          type: string
+          enum:
+          - auto
+          - manual
+          description: 'Type of transcript: ''auto'' for auto-generated, ''manual'' for manually uploaded'
+      required:
+      - video_id
+      additionalProperties: false
     youtube_bulk_find_video_position_input:
       type: object
       properties:
@@ -1654,14 +1604,64 @@ components:
       - keywords
       - video_url
       additionalProperties: false
-    youtube_search_videos_input:
+    youtube_get_channel_videos_input:
+      type: object
+      properties:
+        channel_id:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: YouTube channel ID or @handle
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        next_page_token:
+          type: string
+          maxLength: 200
+          description: Token for pagination/filtering (e.g., 'Popular', 'Oldest')
+      required:
+      - channel_id
+      additionalProperties: false
+    youtube_get_channel_details_input:
+      type: object
+      properties:
+        channel_id:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: YouTube channel ID or @handle
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - channel_id
+      additionalProperties: false
+    youtube_search_channels_input:
       type: object
       properties:
         query:
           type: string
           minLength: 1
           maxLength: 200
-          description: Search query for videos
+          description: Search query for channels
         country:
           type: string
           minLength: 2

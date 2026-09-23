@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: google-play
+- name: Google Play
 paths:
   /api/v1/google-play/search_store:
     post:
       summary: Execute search_store
       operationId: google-play_search_store
       tags:
-      - google-play
+      - Google Play
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute search_store
       operationId: google-play_search_store_get
       tags:
-      - google-play
+      - Google Play
       parameters:
       - name: store
         in: query
@@ -191,7 +191,7 @@ paths:
       summary: Execute get_product_details
       operationId: google-play_get_product_details
       tags:
-      - google-play
+      - Google Play
       parameters:
       - name: validateOutput
         in: query

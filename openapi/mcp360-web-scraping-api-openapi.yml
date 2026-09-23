@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: web-scraping
+- name: Web Scraping
 paths:
   /api/v1/web-scraping/scrape_page:
     post:
       summary: Execute scrape_page
       operationId: web-scraping_scrape_page
       tags:
-      - web-scraping
+      - Web Scraping
       parameters:
       - name: validateOutput
         in: query
@@ -85,7 +85,7 @@ paths:
       summary: Execute scrape_page
       operationId: web-scraping_scrape_page_get
       tags:
-      - web-scraping
+      - Web Scraping
       parameters:
       - name: url
         in: query

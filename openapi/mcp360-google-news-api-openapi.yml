@@ -10,14 +10,14 @@ security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: google-news
+- name: google news
 paths:
   /api/v1/google-news/search_news:
     post:
       summary: Execute search_news
       operationId: google-news_search_news
       tags:
-      - google-news
+      - google news
       parameters:
       - name: validateOutput
         in: query
@@ -86,7 +86,7 @@ paths:
       summary: Execute search_news_light
       operationId: google-news_search_news_light
       tags:
-      - google-news
+      - google news
       parameters:
       - name: validateOutput
         in: query
@@ -152,6 +152,82 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-news_search_news_light_input:
+      type: object
+      properties:
+        q:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Search query (supports operators like site:, inurl:)
+        location:
+          type: string
+          maxLength: 100
+          description: Canonical location for search
+        uule:
+          type: string
+          description: Google-encoded location (cannot use with location)
+        google_domain:
+          type: string
+          maxLength: 50
+          description: 'Google domain (default: google.com)'
+        gl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Country code (default: us)'
+        hl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Interface language (default: en)'
+        time_period:
+          type: string
+          enum:
+          - last_hour
+          - last_day
+          - last_week
+          - last_month
+          - last_year
+          description: Filter by time period
+        sort_by:
+          type: string
+          enum:
+          - most_recent
+          description: Sort by 'most_recent'. Omit for default relevance sorting.
+        nfpr:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Control auto-corrected results (0: include, 1: exclude)'
+        filter:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          description: 'Duplicate content filter (0: disabled, 1: enabled)'
+        safe:
+          type: string
+          enum:
+          - 'off'
+          - active
+          description: SafeSearch setting
+        num:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: Results per page
+        page:
+          type: integer
+          minimum: 1
+          maximum: 100
+          description: 'Page number (default: 1)'
+      required:
+      - q
+      additionalProperties: false
     google-news_search_news_input:
       type: object
       properties:
@@ -243,82 +319,6 @@ components:
           minimum: 1
           maximum: 100
           description: 'Page number (default: 1)'
-      additionalProperties: false
-    google-news_search_news_light_input:
-      type: object
-      properties:
-        q:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Search query (supports operators like site:, inurl:)
-        location:
-          type: string
-          maxLength: 100
-          description: Canonical location for search
-        uule:
-          type: string
-          description: Google-encoded location (cannot use with location)
-        google_domain:
-          type: string
-          maxLength: 50
-          description: 'Google domain (default: google.com)'
-        gl:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: 'Country code (default: us)'
-        hl:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: 'Interface language (default: en)'
-        time_period:
-          type: string
-          enum:
-          - last_hour
-          - last_day
-          - last_week
-          - last_month
-          - last_year
-          description: Filter by time period
-        sort_by:
-          type: string
-          enum:
-          - most_recent
-          description: Sort by 'most_recent'. Omit for default relevance sorting.
-        nfpr:
-          type: string
-          enum:
-          - '0'
-          - '1'
-          description: 'Control auto-corrected results (0: include, 1: exclude)'
-        filter:
-          type: string
-          enum:
-          - '0'
-          - '1'
-          description: 'Duplicate content filter (0: disabled, 1: enabled)'
-        safe:
-          type: string
-          enum:
-          - 'off'
-          - active
-          description: SafeSearch setting
-        num:
-          type: integer
-          minimum: 1
-          maximum: 100
-          description: Results per page
-        page:
-          type: integer
-          minimum: 1
-          maximum: 100
-          description: 'Page number (default: 1)'
-      required:
-      - q
       additionalProperties: false
   securitySchemes:
     bearerAuth:

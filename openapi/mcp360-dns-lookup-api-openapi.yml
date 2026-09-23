@@ -278,18 +278,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    dns-lookup_lookup_mx_input:
-      type: object
-      properties:
-        domain:
-          type: string
-          minLength: 3
-          maxLength: 253
-          pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
-          description: Domain name to lookup MX records (e.g., example.com)
-      required:
-      - domain
-      additionalProperties: false
     dns-lookup_lookup_dns_input:
       type: object
       properties:
@@ -299,6 +287,18 @@ components:
           maxLength: 253
           pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
           description: Domain name to lookup DNS records (e.g., example.com)
+      required:
+      - domain
+      additionalProperties: false
+    dns-lookup_lookup_mx_input:
+      type: object
+      properties:
+        domain:
+          type: string
+          minLength: 3
+          maxLength: 253
+          pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          description: Domain name to lookup MX records (e.g., example.com)
       required:
       - domain
       additionalProperties: false

@@ -470,56 +470,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    ebay-search_search_auctions_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Auction search query
-        site:
-          type: string
-          minLength: 5
-          maxLength: 20
-          default: ebay.com
-          description: eBay site
-        ending_soon:
-          type: boolean
-          default: false
-          description: Show auctions ending soon
-      required:
-      - query
-      additionalProperties: false
-    ebay-search_get_product_details_input:
-      type: object
-      properties:
-        item_id:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: eBay item ID or product ID
-        site:
-          type: string
-          minLength: 5
-          maxLength: 20
-          default: ebay.com
-          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[A-Z]{2}$
-          description: Two-letter ISO country code (e.g., 'US', 'GB', 'DE')
-        delivery_country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[A-Z]{2}$
-          description: Delivery country code for shipping calculation
-      required:
-      - item_id
-      additionalProperties: false
     ebay-search_search_products_input:
       type: object
       properties:
@@ -560,6 +510,56 @@ components:
           type: boolean
           default: false
           description: Show only Buy It Now items
+      required:
+      - query
+      additionalProperties: false
+    ebay-search_get_product_details_input:
+      type: object
+      properties:
+        item_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: eBay item ID or product ID
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: Two-letter ISO country code (e.g., 'US', 'GB', 'DE')
+        delivery_country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: Delivery country code for shipping calculation
+      required:
+      - item_id
+      additionalProperties: false
+    ebay-search_search_auctions_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Auction search query
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: eBay site
+        ending_soon:
+          type: boolean
+          default: false
+          description: Show auctions ending soon
       required:
       - query
       additionalProperties: false

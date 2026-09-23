@@ -359,6 +359,42 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-scholar_filter_by_year_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Research query
+        year:
+          type: integer
+          minimum: 1900
+          maximum: 2026
+          description: Specific publication year
+        include_patents:
+          type: boolean
+          default: false
+          description: Include patents in results
+      required:
+      - query
+      - year
+      additionalProperties: false
+    google-scholar_get_citations_input:
+      type: object
+      properties:
+        paper_id:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Paper ID or cluster ID from search results
+        sort_by:
+          type: string
+          pattern: ^(relevance|date)$
+          description: 'Sort citations by: ''relevance'' or ''date'''
+      required:
+      - paper_id
+      additionalProperties: false
     google-scholar_search_papers_input:
       type: object
       properties:
@@ -392,27 +428,6 @@ components:
       required:
       - query
       additionalProperties: false
-    google-scholar_filter_by_year_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Research query
-        year:
-          type: integer
-          minimum: 1900
-          maximum: 2026
-          description: Specific publication year
-        include_patents:
-          type: boolean
-          default: false
-          description: Include patents in results
-      required:
-      - query
-      - year
-      additionalProperties: false
     google-scholar_search_by_author_input:
       type: object
       properties:
@@ -433,21 +448,6 @@ components:
           description: End year for publications
       required:
       - author_name
-      additionalProperties: false
-    google-scholar_get_citations_input:
-      type: object
-      properties:
-        paper_id:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: Paper ID or cluster ID from search results
-        sort_by:
-          type: string
-          pattern: ^(relevance|date)$
-          description: 'Sort citations by: ''relevance'' or ''date'''
-      required:
-      - paper_id
       additionalProperties: false
   securitySchemes:
     bearerAuth:
