@@ -436,32 +436,23 @@ paths:
           description: Internal server error
 components:
   schemas:
-    apple-appstore_get_top_charts_input:
+    apple-appstore_get_product_details_input:
       type: object
       properties:
-        chart:
-          type: string
-          enum:
-          - top_free
-          - top_paid
-          description: Chart type
-        category:
+        product_id:
           type: string
           minLength: 1
-          maxLength: 50
-          description: 'App category (default: ''all'')'
-        store_device:
-          type: string
-          enum:
-          - iphone
-          - ipad
-          description: Device type
+          maxLength: 20
+          pattern: ^\d+$
+          description: App product ID from App Store
         country:
           type: string
           minLength: 2
           maxLength: 2
           pattern: ^[a-z]{2}$
           description: 'Two-letter country code (default: ''us'')'
+      required:
+      - product_id
       additionalProperties: false
     apple-appstore_search_apps_input:
       type: object
@@ -501,24 +492,6 @@ components:
       required:
       - term
       additionalProperties: false
-    apple-appstore_get_product_details_input:
-      type: object
-      properties:
-        product_id:
-          type: string
-          minLength: 1
-          maxLength: 20
-          pattern: ^\d+$
-          description: App product ID from App Store
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: 'Two-letter country code (default: ''us'')'
-      required:
-      - product_id
-      additionalProperties: false
     apple-appstore_get_reviews_input:
       type: object
       properties:
@@ -547,6 +520,33 @@ components:
           description: Sort order for reviews
       required:
       - product_id
+      additionalProperties: false
+    apple-appstore_get_top_charts_input:
+      type: object
+      properties:
+        chart:
+          type: string
+          enum:
+          - top_free
+          - top_paid
+          description: Chart type
+        category:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: 'App category (default: ''all'')'
+        store_device:
+          type: string
+          enum:
+          - iphone
+          - ipad
+          description: Device type
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: 'Two-letter country code (default: ''us'')'
       additionalProperties: false
   securitySchemes:
     bearerAuth:

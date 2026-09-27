@@ -470,49 +470,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    ebay-search_search_products_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Product search query
-        site:
-          type: string
-          minLength: 5
-          maxLength: 20
-          default: ebay.com
-          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
-        condition:
-          type: string
-          enum:
-          - new
-          - new_opened
-          - like_new
-          - pre_owned_excellent
-          - pre_owned_fair
-          - certified_refurbished
-          - seller_refurbished
-          - for_parts_or_not_working
-          description: 'Item condition: ''new'', ''new_opened'', ''like_new'', ''pre_owned_excellent'', ''pre_owned_fair'', ''certified_refurbished'', ''seller_refurbished'', ''for_parts_or_not_working'''
-        min_price:
-          type: number
-          minimum: 0
-          maximum: 1000000
-          description: Minimum price filter
-        max_price:
-          type: number
-          exclusiveMinimum: 0
-          maximum: 1000000
-          description: Maximum price filter
-        buy_it_now_only:
-          type: boolean
-          default: false
-          description: Show only Buy It Now items
-      required:
-      - query
-      additionalProperties: false
     ebay-search_get_product_details_input:
       type: object
       properties:
@@ -560,6 +517,49 @@ components:
           type: boolean
           default: false
           description: Show auctions ending soon
+      required:
+      - query
+      additionalProperties: false
+    ebay-search_search_products_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Product search query
+        site:
+          type: string
+          minLength: 5
+          maxLength: 20
+          default: ebay.com
+          description: 'eBay site: ''ebay.com'', ''ebay.co.uk'', ''ebay.de'', etc.'
+        condition:
+          type: string
+          enum:
+          - new
+          - new_opened
+          - like_new
+          - pre_owned_excellent
+          - pre_owned_fair
+          - certified_refurbished
+          - seller_refurbished
+          - for_parts_or_not_working
+          description: 'Item condition: ''new'', ''new_opened'', ''like_new'', ''pre_owned_excellent'', ''pre_owned_fair'', ''certified_refurbished'', ''seller_refurbished'', ''for_parts_or_not_working'''
+        min_price:
+          type: number
+          minimum: 0
+          maximum: 1000000
+          description: Minimum price filter
+        max_price:
+          type: number
+          exclusiveMinimum: 0
+          maximum: 1000000
+          description: Maximum price filter
+        buy_it_now_only:
+          type: boolean
+          default: false
+          description: Show only Buy It Now items
       required:
       - query
       additionalProperties: false

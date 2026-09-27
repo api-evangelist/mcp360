@@ -626,43 +626,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    google-shopping_get_product_details_input:
-      type: object
-      properties:
-        product_token:
-          type: string
-          description: Product token from search_products results
-        country:
-          type: string
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - product_token
-      additionalProperties: false
-    google-shopping_compare_prices_input:
-      type: object
-      properties:
-        product_token:
-          type: string
-          minLength: 1
-          description: Product token from search_products results
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - product_token
-      additionalProperties: false
     google-shopping_search_products_input:
       type: object
       properties:
@@ -730,6 +693,43 @@ components:
       - query
       - min_price
       - max_price
+      additionalProperties: false
+    google-shopping_get_product_details_input:
+      type: object
+      properties:
+        product_token:
+          type: string
+          description: Product token from search_products results
+        country:
+          type: string
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - product_token
+      additionalProperties: false
+    google-shopping_compare_prices_input:
+      type: object
+      properties:
+        product_token:
+          type: string
+          minLength: 1
+          description: Product token from search_products results
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - product_token
       additionalProperties: false
   securitySchemes:
     bearerAuth:

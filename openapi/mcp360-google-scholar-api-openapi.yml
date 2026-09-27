@@ -359,27 +359,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    google-scholar_filter_by_year_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Research query
-        year:
-          type: integer
-          minimum: 1900
-          maximum: 2026
-          description: Specific publication year
-        include_patents:
-          type: boolean
-          default: false
-          description: Include patents in results
-      required:
-      - query
-      - year
-      additionalProperties: false
     google-scholar_get_citations_input:
       type: object
       properties:
@@ -394,6 +373,27 @@ components:
           description: 'Sort citations by: ''relevance'' or ''date'''
       required:
       - paper_id
+      additionalProperties: false
+    google-scholar_search_by_author_input:
+      type: object
+      properties:
+        author_name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Author name (e.g., 'Ilya Sutskever', 'Geoffrey Hinton')
+        year_start:
+          type: integer
+          minimum: 1900
+          maximum: 2026
+          description: Start year for publications
+        year_end:
+          type: integer
+          minimum: 1900
+          maximum: 2026
+          description: End year for publications
+      required:
+      - author_name
       additionalProperties: false
     google-scholar_search_papers_input:
       type: object
@@ -428,26 +428,26 @@ components:
       required:
       - query
       additionalProperties: false
-    google-scholar_search_by_author_input:
+    google-scholar_filter_by_year_input:
       type: object
       properties:
-        author_name:
+        query:
           type: string
           minLength: 1
-          maxLength: 200
-          description: Author name (e.g., 'Ilya Sutskever', 'Geoffrey Hinton')
-        year_start:
+          maxLength: 500
+          description: Research query
+        year:
           type: integer
           minimum: 1900
           maximum: 2026
-          description: Start year for publications
-        year_end:
-          type: integer
-          minimum: 1900
-          maximum: 2026
-          description: End year for publications
+          description: Specific publication year
+        include_patents:
+          type: boolean
+          default: false
+          description: Include patents in results
       required:
-      - author_name
+      - query
+      - year
       additionalProperties: false
   securitySchemes:
     bearerAuth:

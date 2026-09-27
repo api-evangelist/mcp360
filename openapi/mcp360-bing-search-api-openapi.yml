@@ -545,63 +545,39 @@ paths:
           description: Internal server error
 components:
   schemas:
-    bing-search_search_images_input:
+    bing-search_search_news_input:
       type: object
       properties:
         query:
           type: string
           minLength: 1
           maxLength: 500
-          description: Image search query
-        image_type:
-          type: string
-          enum:
-          - photo
-          - clipart
-          - line
-          - animated
-          description: 'Image type: ''photo'', ''clipart'', ''line'', ''animated'''
-        color:
-          type: string
-          enum:
-          - color
-          - monochrome
-          - red
-          - orange
-          - yellow
-          - green
-          - teal
-          - blue
-          - purple
-          - pink
-          - white
-          - gray
-          - black
-          - brown
-          description: 'Color filter: ''color'', ''monochrome'', or specific color'
-        size:
-          type: string
-          enum:
-          - small
-          - medium
-          - large
-          - wallpaper
-          description: 'Image size: ''small'', ''medium'', ''large'', ''wallpaper'''
-        license:
-          type: string
-          enum:
-          - any
-          - public
-          - share
-          - sharecommercially
-          - modify
-          description: 'License type: ''any'', ''public'', ''share'', ''sharecommercially'', ''modify'''
+          description: News search query
         country:
           type: string
           minLength: 2
           maxLength: 2
           pattern: ^[a-z]{2}$
           description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        freshness:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          description: 'News freshness: ''day'', ''week'', ''month'''
+        sort_by:
+          type: string
+          enum:
+          - date
+          - relevance
+          description: 'Sort by: ''date'' or ''relevance'''
       required:
       - query
       additionalProperties: false
@@ -672,39 +648,63 @@ components:
       required:
       - query
       additionalProperties: false
-    bing-search_search_news_input:
+    bing-search_search_images_input:
       type: object
       properties:
         query:
           type: string
           minLength: 1
           maxLength: 500
-          description: News search query
+          description: Image search query
+        image_type:
+          type: string
+          enum:
+          - photo
+          - clipart
+          - line
+          - animated
+          description: 'Image type: ''photo'', ''clipart'', ''line'', ''animated'''
+        color:
+          type: string
+          enum:
+          - color
+          - monochrome
+          - red
+          - orange
+          - yellow
+          - green
+          - teal
+          - blue
+          - purple
+          - pink
+          - white
+          - gray
+          - black
+          - brown
+          description: 'Color filter: ''color'', ''monochrome'', or specific color'
+        size:
+          type: string
+          enum:
+          - small
+          - medium
+          - large
+          - wallpaper
+          description: 'Image size: ''small'', ''medium'', ''large'', ''wallpaper'''
+        license:
+          type: string
+          enum:
+          - any
+          - public
+          - share
+          - sharecommercially
+          - modify
+          description: 'License type: ''any'', ''public'', ''share'', ''sharecommercially'', ''modify'''
         country:
           type: string
           minLength: 2
           maxLength: 2
           pattern: ^[a-z]{2}$
           description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        freshness:
-          type: string
-          enum:
-          - day
-          - week
-          - month
-          description: 'News freshness: ''day'', ''week'', ''month'''
-        sort_by:
-          type: string
-          enum:
-          - date
-          - relevance
-          description: 'Sort by: ''date'' or ''relevance'''
       required:
       - query
       additionalProperties: false

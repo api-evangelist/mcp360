@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Tools REST Youtube API
+  title: Tools REST YouTube API
   version: 1.0.0
   description: YouTube video search, channel discovery, ranking tracking, and trending content
 servers:
@@ -1415,112 +1415,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    youtube_find_video_position_input:
-      type: object
-      properties:
-        keyword:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search keyword or phrase to check your video's ranking for (e.g., 'how to bake cookies', 'react tutorial')
-        video_url:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Your YouTube video URL (e.g., 'https://youtube.com/watch?v=VIDEO_ID' or just 'VIDEO_ID')
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code for localized results (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - keyword
-      - video_url
-      additionalProperties: false
-    youtube_get_video_details_input:
-      type: object
-      properties:
-        video_id:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: YouTube video ID
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - video_id
-      additionalProperties: false
-    youtube_search_shorts_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search query for YouTube Shorts
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code for localized results (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        sp:
-          type: string
-          maxLength: 50
-          description: Special filters parameter for advanced filtering
-      required:
-      - query
-      additionalProperties: false
-    youtube_search_videos_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search query for videos
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code for localized results (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        sp:
-          type: string
-          maxLength: 50
-          description: Special filters parameter for advanced filtering
-      required:
-      - query
-      additionalProperties: false
     youtube_get_video_comments_input:
       type: object
       properties:
@@ -1571,6 +1465,189 @@ components:
       required:
       - video_id
       additionalProperties: false
+    youtube_search_shorts_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search query for YouTube Shorts
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code for localized results (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        sp:
+          type: string
+          maxLength: 50
+          description: Special filters parameter for advanced filtering
+      required:
+      - query
+      additionalProperties: false
+    youtube_find_video_position_input:
+      type: object
+      properties:
+        keyword:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search keyword or phrase to check your video's ranking for (e.g., 'how to bake cookies', 'react tutorial')
+        video_url:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Your YouTube video URL (e.g., 'https://youtube.com/watch?v=VIDEO_ID' or just 'VIDEO_ID')
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code for localized results (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - keyword
+      - video_url
+      additionalProperties: false
+    youtube_search_channels_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search query for channels
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code for localized results (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        sp:
+          type: string
+          maxLength: 50
+          description: Special filters parameter for advanced filtering
+      required:
+      - query
+      additionalProperties: false
+    youtube_get_channel_videos_input:
+      type: object
+      properties:
+        channel_id:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: YouTube channel ID or @handle
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        next_page_token:
+          type: string
+          maxLength: 200
+          description: Token for pagination/filtering (e.g., 'Popular', 'Oldest')
+      required:
+      - channel_id
+      additionalProperties: false
+    youtube_get_video_details_input:
+      type: object
+      properties:
+        video_id:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: YouTube video ID
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - video_id
+      additionalProperties: false
+    youtube_get_channel_details_input:
+      type: object
+      properties:
+        channel_id:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: YouTube channel ID or @handle
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+      required:
+      - channel_id
+      additionalProperties: false
+    youtube_search_videos_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search query for videos
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code for localized results (e.g., 'us', 'uk')
+        language:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Language code (e.g., 'en', 'es')
+        sp:
+          type: string
+          maxLength: 50
+          description: Special filters parameter for advanced filtering
+      required:
+      - query
+      additionalProperties: false
     youtube_bulk_find_video_position_input:
       type: object
       properties:
@@ -1603,83 +1680,6 @@ components:
       required:
       - keywords
       - video_url
-      additionalProperties: false
-    youtube_get_channel_videos_input:
-      type: object
-      properties:
-        channel_id:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: YouTube channel ID or @handle
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        next_page_token:
-          type: string
-          maxLength: 200
-          description: Token for pagination/filtering (e.g., 'Popular', 'Oldest')
-      required:
-      - channel_id
-      additionalProperties: false
-    youtube_get_channel_details_input:
-      type: object
-      properties:
-        channel_id:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: YouTube channel ID or @handle
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-      required:
-      - channel_id
-      additionalProperties: false
-    youtube_search_channels_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search query for channels
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code for localized results (e.g., 'us', 'uk')
-        language:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Language code (e.g., 'en', 'es')
-        sp:
-          type: string
-          maxLength: 50
-          description: Special filters parameter for advanced filtering
-      required:
-      - query
       additionalProperties: false
   securitySchemes:
     bearerAuth:

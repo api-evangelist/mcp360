@@ -51,7 +51,7 @@ tags:
 - AI Agents
 - Agent Tools
 - Tool Integration
-- Unified-API
+- Unified API
 - API Gateway
 - No-Code
 - llms-txt
@@ -84,6 +84,7 @@ tags_raw:
 - dns
 - geolocation
 - email-verification
+- Unified-API
 apis:
 - aid: mcp360:mcp360-amazon-search-api
   name: MCP360 Amazon Search API

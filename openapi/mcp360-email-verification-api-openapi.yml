@@ -215,6 +215,18 @@ paths:
           description: Internal server error
 components:
   schemas:
+    email-verification_verify_email_input:
+      type: object
+      properties:
+        email:
+          type: string
+          minLength: 3
+          maxLength: 254
+          format: email
+          description: Email address to verify
+      required:
+      - email
+      additionalProperties: false
     email-verification_bulk_verify_emails_input:
       type: object
       properties:
@@ -236,18 +248,6 @@ components:
           description: 'Timeout in seconds for each verification (default: 10)'
       required:
       - emails
-      additionalProperties: false
-    email-verification_verify_email_input:
-      type: object
-      properties:
-        email:
-          type: string
-          minLength: 3
-          maxLength: 254
-          format: email
-          description: Email address to verify
-      required:
-      - email
       additionalProperties: false
   securitySchemes:
     bearerAuth:
