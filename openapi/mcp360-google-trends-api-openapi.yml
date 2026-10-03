@@ -377,6 +377,28 @@ paths:
           description: Internal server error
 components:
   schemas:
+    google-trends_get_related_topics_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Search term to find related topics
+        timeframe:
+          type: string
+          pattern: ^(now \d+-[hdm]|today \d+-m|today \d+-m|all|\d{4}-\d{2}-\d{2} \d{4}-\d{2}-\d{2})$
+          default: today 12-m
+          description: Time range (e.g., 'today 12-m')
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[A-Z]{2}$
+          description: Country code (e.g., 'US', 'GB')
+      required:
+      - query
+      additionalProperties: false
     google-trends_get_interest_by_region_input:
       type: object
       properties:
@@ -404,28 +426,6 @@ components:
           - CITY
           - DMA
           description: 'Geographic resolution: ''COUNTRY'', ''REGION'', ''CITY'', ''DMA'''
-      required:
-      - query
-      additionalProperties: false
-    google-trends_get_related_topics_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Search term to find related topics
-        timeframe:
-          type: string
-          pattern: ^(now \d+-[hdm]|today \d+-m|today \d+-m|all|\d{4}-\d{2}-\d{2} \d{4}-\d{2}-\d{2})$
-          default: today 12-m
-          description: Time range (e.g., 'today 12-m')
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[A-Z]{2}$
-          description: Country code (e.g., 'US', 'GB')
       required:
       - query
       additionalProperties: false

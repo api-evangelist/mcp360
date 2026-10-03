@@ -360,6 +360,25 @@ components:
       - arrival_id
       - outbound_date_start
       additionalProperties: false
+    google-flights_search_airport_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-zA-Z0-9\s\-,.'()]+$
+          description: Airport or city name to search (e.g., 'New York', 'Paris', 'JFK')
+        search_type:
+          type: string
+          enum:
+          - departure
+          - arrival
+          default: departure
+          description: Type of search (departure or arrival)
+      required:
+      - query
+      additionalProperties: false
     google-flights_search_flights_input:
       type: object
       properties:
@@ -454,25 +473,6 @@ components:
       - departure_id
       - arrival_id
       - outbound_date
-      additionalProperties: false
-    google-flights_search_airport_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-zA-Z0-9\s\-,.'()]+$
-          description: Airport or city name to search (e.g., 'New York', 'Paris', 'JFK')
-        search_type:
-          type: string
-          enum:
-          - departure
-          - arrival
-          default: departure
-          description: Type of search (departure or arrival)
-      required:
-      - query
       additionalProperties: false
   securitySchemes:
     bearerAuth:

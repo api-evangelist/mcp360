@@ -347,22 +347,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    whois_bulk_check_availability_input:
-      type: object
-      properties:
-        domains:
-          type: array
-          items:
-            type: string
-            minLength: 3
-            maxLength: 253
-            pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
-          minItems: 1
-          maxItems: 20
-          description: Array of domain names to check (max 20 domains, e.g., ['example.com', 'test.org'])
-      required:
-      - domains
-      additionalProperties: false
     whois_check_availability_input:
       type: object
       properties:
@@ -386,6 +370,22 @@ components:
           description: Domain name to lookup (e.g., example.com)
       required:
       - domain
+      additionalProperties: false
+    whois_bulk_check_availability_input:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+            minLength: 3
+            maxLength: 253
+            pattern: ^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$
+          minItems: 1
+          maxItems: 20
+          description: Array of domain names to check (max 20 domains, e.g., ['example.com', 'test.org'])
+      required:
+      - domains
       additionalProperties: false
   securitySchemes:
     bearerAuth:

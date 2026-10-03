@@ -221,21 +221,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    keyword-research_global_keyword_volume_input:
-      type: object
-      properties:
-        keywords:
-          type: array
-          items:
-            type: string
-            minLength: 1
-            maxLength: 200
-          minItems: 1
-          maxItems: 20
-          description: Array of keywords to get global/worldwide search volume for (1-20 keywords, e.g., ['seo tools', 'keyword research'])
-      required:
-      - keywords
-      additionalProperties: false
     keyword-research_related_keyword_suggestions_input:
       type: object
       properties:
@@ -265,6 +250,21 @@ components:
           maximum: 200
           default: 50
           description: 'Maximum number of related keywords to return (default: 50)'
+      required:
+      - keywords
+      additionalProperties: false
+    keyword-research_global_keyword_volume_input:
+      type: object
+      properties:
+        keywords:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 200
+          minItems: 1
+          maxItems: 20
+          description: Array of keywords to get global/worldwide search volume for (1-20 keywords, e.g., ['seo tools', 'keyword research'])
       required:
       - keywords
       additionalProperties: false

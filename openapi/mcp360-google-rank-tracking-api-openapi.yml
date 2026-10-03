@@ -308,47 +308,6 @@ paths:
           description: Internal server error
 components:
   schemas:
-    google-rank-tracking_get_search_results_input:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-          maxLength: 500
-          description: Search query/keyword to get results for
-        location:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Geographic location (e.g., 'United States', 'New York, NY')
-        device:
-          type: string
-          enum:
-          - desktop
-          - mobile
-          - tablet
-          default: desktop
-          description: 'Device type: desktop, mobile, or tablet'
-        gl:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk', 'ca')
-        hl:
-          type: string
-          pattern: ^[a-z]{2}(-[a-z]{2})?$
-          default: en
-          description: Interface language (e.g., 'en', 'es', 'fr')
-        num:
-          type: integer
-          minimum: 10
-          maximum: 100
-          default: 100
-          description: Number of results to return (10-100)
-      required:
-      - query
-      additionalProperties: false
     google-rank-tracking_bulk_find_domain_position_input:
       type: object
       properties:
@@ -399,6 +358,47 @@ components:
       required:
       - keywords
       - domain
+      additionalProperties: false
+    google-rank-tracking_get_search_results_input:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Search query/keyword to get results for
+        location:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Geographic location (e.g., 'United States', 'New York, NY')
+        device:
+          type: string
+          enum:
+          - desktop
+          - mobile
+          - tablet
+          default: desktop
+          description: 'Device type: desktop, mobile, or tablet'
+        gl:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk', 'ca')
+        hl:
+          type: string
+          pattern: ^[a-z]{2}(-[a-z]{2})?$
+          default: en
+          description: Interface language (e.g., 'en', 'es', 'fr')
+        num:
+          type: integer
+          minimum: 10
+          maximum: 100
+          default: 100
+          description: Number of results to return (10-100)
+      required:
+      - query
       additionalProperties: false
     google-rank-tracking_find_domain_position_input:
       type: object

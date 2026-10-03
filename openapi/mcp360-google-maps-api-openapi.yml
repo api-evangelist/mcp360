@@ -521,30 +521,14 @@ paths:
           description: Internal server error
 components:
   schemas:
-    google-maps_search_places_input:
+    google-maps_get_place_details_input:
       type: object
       properties:
-        query:
+        place_id:
           type: string
           minLength: 1
-          maxLength: 200
-          description: Search query (e.g., 'coffee shops', 'italian restaurants')
-        location:
-          type: string
-          minLength: 1
-          maxLength: 200
-          description: Location (e.g., 'New York, NY', 'London')
-        type:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: Place type (e.g., 'restaurant', 'hotel', 'cafe')
-        country:
-          type: string
-          minLength: 2
-          maxLength: 2
-          pattern: ^[a-z]{2}$
-          description: Country code (e.g., 'us', 'uk')
+          maxLength: 500
+          description: Google Maps place ID
         language:
           type: string
           minLength: 2
@@ -552,7 +536,7 @@ components:
           pattern: ^[a-z]{2}$
           description: Language code (e.g., 'en', 'es')
       required:
-      - query
+      - place_id
       additionalProperties: false
     google-maps_search_nearby_input:
       type: object
@@ -604,14 +588,30 @@ components:
       required:
       - place_name
       additionalProperties: false
-    google-maps_get_place_details_input:
+    google-maps_search_places_input:
       type: object
       properties:
-        place_id:
+        query:
           type: string
           minLength: 1
-          maxLength: 500
-          description: Google Maps place ID
+          maxLength: 200
+          description: Search query (e.g., 'coffee shops', 'italian restaurants')
+        location:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Location (e.g., 'New York, NY', 'London')
+        type:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Place type (e.g., 'restaurant', 'hotel', 'cafe')
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+          pattern: ^[a-z]{2}$
+          description: Country code (e.g., 'us', 'uk')
         language:
           type: string
           minLength: 2
@@ -619,7 +619,7 @@ components:
           pattern: ^[a-z]{2}$
           description: Language code (e.g., 'en', 'es')
       required:
-      - place_id
+      - query
       additionalProperties: false
   securitySchemes:
     bearerAuth:
