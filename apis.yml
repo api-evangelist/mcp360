@@ -957,6 +957,8 @@ maintainers:
   url: https://mcp360.ai
   email: support@mcp360.ai
 common:
+- type: RateLimits
+  url: rate-limits/mcp360-rate-limits.yml
 - url: https://blog.mcp360.ai/feed/
   type: BlogRSS
 - type: Website
