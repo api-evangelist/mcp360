@@ -30,6 +30,9 @@ accessModel:
   trial: false
   try_now: true
   public: false
+  gated: none
+  gated_source:
+  - onboarding
   label: Freemium · Self-serve signup
   confidence: high
   source:
@@ -38,7 +41,7 @@ accessModel:
   - scopes
   - rate-limits
   - security
-  generated: '2026-09-03'
+  generated: '2026-11-02'
   method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
