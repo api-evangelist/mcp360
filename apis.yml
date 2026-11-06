@@ -41,7 +41,7 @@ accessModel:
   - scopes
   - rate-limits
   - security
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
@@ -57,7 +57,7 @@ tags:
 - Unified API
 - API Gateway
 - No-Code
-- llms-txt
+- Llms.txt
 - SEO
 - Search
 - SERP

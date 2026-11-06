@@ -53,7 +53,7 @@ plans:
   included_quota: Unlimited Projects, Unlimited Members, 100,000 Credits per month, Premium MCP access,
     Dedicated support, Custom integrations, SLA guarantees; $ 399 / mo monthly
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
