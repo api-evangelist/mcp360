@@ -41,7 +41,7 @@ accessModel:
   - scopes
   - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
@@ -964,6 +964,8 @@ maintainers:
   url: https://mcp360.ai
   email: support@mcp360.ai
 common:
+- type: X-MCPManifest
+  url: mcp/mcp360-hosted-mcp.yml
 - type: RateLimits
   url: rate-limits/mcp360-rate-limits.yml
 - url: https://blog.mcp360.ai/feed/
@@ -1062,6 +1064,16 @@ common:
 - type: AgentSkill
   name: Scrape and read a web page
   url: skills/mcp360-scrape-a-page.md
+- type: UsageTerms
+  url: terms/mcp360-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/mcp360-privacy-policy.yml
+- type: Eligibility
+  url: eligibility/mcp360-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/mcp360-ai-preferences.yml
+- type: DataLicense
+  url: data-license/mcp360-data-license.yml
 generated:
   by: apis.io/add
   model: claude-opus-4-8

@@ -5,10 +5,19 @@ artifacts:
   agentic-access/mcp360-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/mcp360-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   authentication/mcp360-authentication.yml:
     method: derived
     evidence: declared in the artifact
   capabilities/mcp360-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
     method: unknown
     evidence: no authorship recorded
   changelog/mcp360-changelog.yml:
@@ -251,8 +260,14 @@ artifacts:
   conventions/mcp360-conventions.yml:
     method: derived
     evidence: declared in the artifact
+  data-license/mcp360-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/mcp360-data-model.yml:
     method: derived
+    evidence: declared in the artifact
+  eligibility/mcp360-eligibility.yml:
+    method: harvested
     evidence: declared in the artifact
   errors/mcp360-problem-types.yml:
     method: derived
@@ -269,6 +284,9 @@ artifacts:
   heartbeat/2026-11-06.yml:
     method: unknown
     evidence: no authorship recorded
+  heartbeat/2026-11-13.yml:
+    method: unknown
+    evidence: no authorship recorded
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -281,7 +299,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -338,12 +356,18 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/mcp360-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
   llms/mcp360-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
+  mcp/mcp360-hosted-mcp.yml:
+    method: unknown
+    evidence: no authorship recorded
   mcp/mcp360-mcp.yml:
     method: searched
     evidence: declared in the artifact
@@ -742,6 +766,9 @@ artifacts:
   plans/mcp360-price-estimates.yml:
     method: unknown
     evidence: no authorship recorded
+  privacy/mcp360-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/mcp360-rate-limits.yml:
     method: unknown
     evidence: no authorship recorded
@@ -780,6 +807,9 @@ artifacts:
     evidence: no authorship recorded
   sla/mcp360-sla.yml:
     method: generated
+    evidence: declared in the artifact
+  terms/mcp360-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
   well-known/mcp360-oauth-authorization-server.json:
     method: unknown
