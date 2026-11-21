@@ -1,3 +1,4 @@
+aid: mcp360
 name: MCP360
 description: 'MCP360 is a hosted unified Model Context Protocol gateway operated by Delta4 Infotech Pvt.
   Ltd. that gives AI agents access to 38 tool services — 106 individual tools — through a single credentialed
@@ -41,7 +42,7 @@ accessModel:
   - scopes
   - rate-limits
   - security
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-07-27'
